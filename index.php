@@ -10,24 +10,22 @@
 </head>
 
 <body>
+    <br>
     <header>
         <div class="container-fluid">
-            <div class="row">
+            <div class="row ">
                 <div class="col-lg-2 col-md-12 col-sm-12">
                     <img src="Assets/Images/Logo.png" height="100px" width="100px" alt="" />
-
                 </div>
+                <h1 style="font-size :60px">CSCS MADAGASCAR</h1>
             </div>
         </div>
     </header>
     <div class="container">
-        <div class="row text-center">
-            <button type="button" style="height: 50px; width : 400px" class="btn btn-primary btn-lg">Large button</button>
+        <div class="row text-center" style="margin-top : 10%">
+            <button onclick="window.location.href='Pages/Candidates/';" type="button" style="height: 50px; width : 400px" class="btn btn-primary btn-lg">Large button</button>
         </div>
-        <div class="row">
-            <br> <br>
-        </div>
-        <div class="row text-center">
+        <div class="row text-center" style="margin-top : 5%">
             <button type="button" style="height: 50px; width : 400px" class="btn btn-primary btn-lg">Large button</button>
         </div>
     </div>
