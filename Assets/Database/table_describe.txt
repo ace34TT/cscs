@@ -1,0 +1,11 @@
+Users 
+    id
+    firstname
+    lastname
+    gender
+    date_of_birth
+    province 
+    email 
+    phone_number
+
+
