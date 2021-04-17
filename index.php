@@ -23,10 +23,10 @@
     </header>
     <div class="container">
         <div class="row text-center" style="margin-top : 10%">
-            <button onclick="window.location.href='Pages/Candidates/';" type="button" style="height: 50px; width : 400px" class="btn btn-primary btn-lg">Large button</button>
+            <button onclick="window.location.href='Pages/Candidates/';" type="button" style="height: 50px; width : 400px ;font-size : 40 px" class="btn btn-primary btn-lg">Candidats</button>
         </div>
         <div class="row text-center" style="margin-top : 5%">
-            <button type="button" style="height: 50px; width : 400px" class="btn btn-primary btn-lg">Large button</button>
+            <button type="button" style="height: 50px; width : 400px" class="btn btn-primary btn-lg">Administrateur</button>
         </div>
     </div>
     <footer></footer>
