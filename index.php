@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="Assets/Images/favicon.png" rel="icon">
+  <link href="Assets/Images/Logo.png" rel="icon">
   <link href="Assets/Images/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -48,9 +48,16 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#services">Posts</a></li>
+          <li><a class="nav-link scrollto " href="#Apply">Apply</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li>
+            <div class="vl" style="margin-left:25px; ;border-left: 2px solid white;height: 25px;"></div>
+          </li>
+          <li><a class="nav-link " href="#contact">Candidate</a></li>
+          <li><a class="nav-link " href="#contact">Admin</a></li>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -61,7 +68,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container position-relative">
-      <h1>Welcome to cscs Madagascar</h1>
+      <h1>Welcome to CSCS Madagascar</h1>
       <h2>We link you to cruise ship jobs </h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
@@ -71,7 +78,6 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
-
         <div class="row">
           <div class="col-lg-6">
             <img src="Assets/Images/about.jpg" class="img-fluid" alt="">
@@ -135,7 +141,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Services</h2>
+          <h2>Avalable posts</h2>
           <p>The person in charge: "the Managing Director" who is located in Mauritius, is in constant correspondence with the local person in charge in Madagascar, and makes known the personnel needs of the boat: assistant cooks, waiters, waiters helpers, cleaners, Bartender, mechanics, security, etc. The list would be long to list all the available positions. Others are always to be filled according to the needs of the boat. Many young people your age have already taken this destination thanks to the CSCS.</p>
         </div>
 
@@ -176,6 +182,86 @@
       </div>
     </section><!-- End Services Section -->
 
+    <!-- ======= Services Section ======= -->
+    <section id="Apply" class="Apply">
+      <div class="container">
+        <div class="section-title">
+          <h2>Apply</h2>
+          <p>By submiting this form </p>
+        </div>
+
+        <div class="row">
+          <form class="row g-3 needs-validation">
+
+            <!-- Firstname / Lastname -->
+            <div class="col-md-6">
+              <label for="validationCustom01" class="form-label">Firstname</label>
+              <input type="email" class="form-control" required id="validationCustom01">
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom02" class="form-label">Lastname</label>
+              <input type="password" class="form-control" required id="validationCustom02">
+            </div>
+
+            <!-- Gender / Date of birth -->
+            <div class="col-md-4">
+              <label for="validationCustom02" class="form-label">Gender</label>
+              <select class="form-select" aria-label="Default select example" id="validationCustom03">
+                <option selected>Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom04" class="form-label">Date of birth</label>
+              <input type="date" class="form-control" required id="validationCustom04">
+            </div>
+            <div class="col-md-4">
+              <label for="validationCustom05" class="form-label">Procince</label>
+              <select class="form-select" aria-label="Default select example" id="validationCustom05">
+                <option selected>Select your province</option>
+                <option value="Antananarivo">Antananarivo</option>
+                <option value="Antsiranana">Antsiranana</option>
+                <option value="Fianarantsoa">Fianarantsoa</option>
+                <option value="Mahajanga">Mahajanga</option>
+                <option value="Toamasina">Toamasina</option>
+                <option value="Toliara">Toliara</option>
+              </select>
+            </div>
+
+            <div class="col-12">
+              <label for="inputPassword6" class="form-label">Address</label>
+              <input type="text" class="form-control" id="inputPassword6" placeholder="1234 Main St">
+            </div>
+
+            <!-- Contacts -->
+            <div class="col-md-6">
+              <label for="inputPassword7" class="form-label">Phone</label>
+              <input type="input" max="13" min="10" class="form-control" required id="inputPassword7">
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom08" class="form-label">Email</label>
+              <input type="email" class="form-control" required id="validationCustom08">
+            </div>
+
+            <!-- Password -->
+            <div class="col-md-6">
+              <label for="inputPassword9" class="form-label">Password</label>
+              <input type="input" max="13" min="10" class="form-control" required id="inputPassword9">
+            </div>
+            <div class="col-md-6">
+              <label for="validationCustom10" class="form-label">Confirm password</label>
+              <input type="email" class="form-control" required id="validationCustom10">
+            </div>
+
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section><!-- End Services Section -->
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
       <div class="container">
