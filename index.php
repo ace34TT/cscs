@@ -244,16 +244,13 @@
               <input type="email" class="form-control" required id="validationCustom08">
             </div>
 
-            <!-- Password -->
             <div class="col-md-6">
-              <label for="inputPassword9" class="form-label">Password</label>
-              <input type="input" max="13" min="10" class="form-control" required id="inputPassword9">
+              <label for="validationCustom05" class="form-label">Post</label>
+              <select class="form-select" aria-label="Default select example" id="validationCustom05">
+                <option selected>Apply as </option>
+                <option value="Housekeeper">Housekeeper</option>
+              </select>
             </div>
-            <div class="col-md-6">
-              <label for="validationCustom10" class="form-label">Confirm password</label>
-              <input type="email" class="form-control" required id="validationCustom10">
-            </div>
-
 
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Sign in</button>
