@@ -2,6 +2,7 @@
 
 class Connection
 {
+
     public $pdo;
     private $table;
     private $fillable;
