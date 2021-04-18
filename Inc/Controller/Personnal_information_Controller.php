@@ -6,7 +6,7 @@ class Personnal_information_Controller
 {
     private $personnal_information;
 
-    public function store($data)
+    public function store($data, $file)
     {
     }
 
@@ -60,5 +60,10 @@ class Personnal_information_Controller
                 echo "Sorry, there was an error uploading your file.";
             }
         }
+    }
+
+    public function get_model()
+    {
+        return $this->personnal_information;
     }
 }
