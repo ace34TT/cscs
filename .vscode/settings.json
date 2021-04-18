@@ -10,7 +10,7 @@
             "driver": "MariaDB",
             "name": "cscs",
             "username": "root",
-            "database": "cscs",
+            "database": "cscs_v2",
             "connectionTimeout": 60,
             "password": "root"
         }

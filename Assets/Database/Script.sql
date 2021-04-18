@@ -8,6 +8,7 @@ CREATE TABLE personnal_informations (
     addresses VARCHAR(30) NOT NULL,
     phone VARCHAR(30) NOT NULL,
     email VARCHAR(30) NOT NULL,
+    post VARCHAR(30) NOT NULL,
     validation_code VARCHAR (40) NOT NULL,
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
