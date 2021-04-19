@@ -39,10 +39,15 @@ if ($route == $uri) {
         include('Pages/Frontend/index.php');
     }
     if (isset($_GET['admin'])) {
-        if ($_GET['admin'] = 'login') {
-            $admin_controller->login($_POST['email'], $_POST['password']);
+        session_start();
+        if ($_GET['admin'] == 'login') {
+            if ($admin_controller->login($_POST['email'], $_POST['password']) == true) {
+                include('Pages/Backend/Admin/index.php');
+            } else {
+                include('Pages/Backend/Admin/index.php');
+            }
         }
-        include('Pages/Backend/Admin/Login.php');
+        include('Pages/Backend/Admin/index.php');
     }
 } else {
     header('Status: 404 Not Found');

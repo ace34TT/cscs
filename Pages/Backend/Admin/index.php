@@ -10,6 +10,11 @@
 
 <body>
 
+    <form action="index.php?admin=login" method="post">
+        <input type="text" name="email"> <br>
+        <input type="password" name="password"> <br>
+        <input type="submit">
+    </form>
 </body>
 
 </html>

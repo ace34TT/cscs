@@ -13,6 +13,9 @@ class Admin_Controller
 
     public function login($email, $password)
     {
-        $this->admin->login($email, $password);
+        if ($this->admin->login($email, sha1($password)) == true) {
+            return true;
+        }
+        return false;
     }
 }
