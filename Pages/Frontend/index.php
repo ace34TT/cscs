@@ -57,8 +57,8 @@
                     <li>
                         <div class="vl" style="margin-left:25px; ;border-left: 2px solid white;height: 25px;"></div>
                     </li>
-                    <li><a class="nav-link " href="#contact">Candidate</a></li>
-                    <li><a class="nav-link " href="#contact">Admin</a></li>
+                    <li><a class="nav-link " href="index.php?candidate">Candidate</a></li>
+                    <li><a class="nav-link " href="index.php?admin">Admin</a></li>
 
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>

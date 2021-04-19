@@ -2,19 +2,21 @@
 // index.php
 // On charge les modeles et les controleurs
 
+
+// Enable display errors 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Required files 
 require_once(dirname(__FILE__) . '/Inc/Controller/Personnal_information_Controller.php');
-
 $inf_controller = new Personnal_information_Controller;
+
+
 
 // gestion des routes
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
 $route = "/cscs_v2.1/";
-
 
 if ($route == $uri) {
     include('Pages/Frontend/index.php');
@@ -33,6 +35,9 @@ if ($route == $uri) {
         $inf_controller->store($data, $_FILES['resume']);
 
         include('Pages/Frontend/index.php');
+    }
+    if (isset($_GET['admin'])) {
+        include('Pages/Backend/Admin/Login.php');
     }
 } else {
     header('Status: 404 Not Found');
