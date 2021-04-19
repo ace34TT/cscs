@@ -32,7 +32,7 @@ if ($route == $uri) {
 
         $inf_controller->store($data, $_FILES['resume']);
 
-        //include('Pages/Frontend/index.php');
+        include('Pages/Frontend/index.php');
     }
 } else {
     header('Status: 404 Not Found');
