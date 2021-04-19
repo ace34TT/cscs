@@ -10,8 +10,10 @@ error_reporting(E_ALL);
 
 // Required files 
 require_once(dirname(__FILE__) . '/Inc/Controller/Personnal_information_Controller.php');
-$inf_controller = new Personnal_information_Controller;
+require_once(dirname(__FILE__) . '/Inc/Controller/Admin_Controller.php');
 
+$inf_controller = new Personnal_information_Controller;
+$admin_controller = new Admin_Controller;
 
 
 // gestion des routes
@@ -37,6 +39,9 @@ if ($route == $uri) {
         include('Pages/Frontend/index.php');
     }
     if (isset($_GET['admin'])) {
+        if ($_GET['admin'] = 'login') {
+            $admin_controller->login($_POST['email'], $_POST['password']);
+        }
         include('Pages/Backend/Admin/Login.php');
     }
 } else {

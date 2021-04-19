@@ -1,13 +1,18 @@
 <?php
 
-require_once(dirname(__FILE__) . '/../Model/Personnal_information.php');
+require_once(dirname(__FILE__) . '/../Model/Admin.php');
 
-class Personnal_information_Controller
+class Admin_Controller
 {
-    private $personnal_information;
+    private $admin;
 
     public function __construct()
     {
-        $this->personnal_information = new Personnal_information;
+        $this->admin = new Admin;
+    }
+
+    public function login($email, $password)
+    {
+        $this->admin->login($email, $password);
     }
 }
