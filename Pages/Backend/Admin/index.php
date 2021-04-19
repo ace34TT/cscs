@@ -2,30 +2,31 @@
 <html lang="en">
 
 <head>
-    <title>Login V15</title>
+    <title>Admin-Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <link href="Assets/Images/Logo.png" rel="icon">
+    <link href="Assets/Images/apple-touch-icon.png" rel="apple-touch-icon">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Styles/util.css">
+    <link rel="stylesheet" type="text/css" href="Assets/Styles/login.css">
     <!--===============================================================================================-->
 </head>
 
@@ -34,22 +35,22 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+                <div class="login100-form-title" style="background-image: url(Assets/Images/cruises-cruise-ship-holidays-2019-crew-code-1042151.jpg);">
                     <span class="login100-form-title-1">
                         Sign In
                     </span>
                 </div>
 
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" method="post" action="index.php?admin=login">
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                        <span class="label-input100">Username</span>
-                        <input class="input100" type="text" name="username" placeholder="Enter username">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="text" name="email" placeholder="Enter username">
                         <span class="focus-input100"></span>
                     </div>
 
                     <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
                         <span class="label-input100">Password</span>
-                        <input class="input100" type="password" name="pass" placeholder="Enter password">
+                        <input class="input100" type="password" name="password" placeholder="Enter password">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -79,21 +80,21 @@
     </div>
 
     <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="Assets/Vendor/jquery/jquery-3.2.1.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <script src="Assets/Vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Assets/Vendor/bootstrap/js/popper.js"></script>
+    <script src="Assets/Vendor/bootstrap/js/bootstrap.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="Assets/Vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="Assets/Vendor/daterangepicker/moment.min.js"></script>
+    <script src="Assets/Vendor/daterangepicker/daterangepicker.js"></script>
     <!--===============================================================================================-->
-    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <script src="Assets/Vendor/countdowntime/countdowntime.js"></script>
     <!--===============================================================================================-->
-    <script src="js/main.js"></script>
+    <script src="Assets/JavaScripts/login.js"></script>
 
 </body>
 
