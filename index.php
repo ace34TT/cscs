@@ -20,19 +20,19 @@ if ($route == $uri) {
     include('Pages/Frontend/index.php');
 } else if ($route != $uri) {
     if (isset($_GET['apply'])) {
-        $data['firstname'] = $_POST['firstname'];
-        $data['lastname'] = $_POST['lastname'];
-        $data['gender'] = $_POST['gender'];
-        $dsata['date_of_birth'] = $_POST['date_of_birth'];
-        $data['province'] = $_POST['province'];
-        $data['address'] = $_POST['address'];
-        $data['phone'] = $_POST['phone'];
-        $data['email'] = $_POST['email'];
-        $data['post'] = $_POST['post'];
+        $data[0] = $_POST['firstname'];
+        $data[1] = $_POST['lastname'];
+        $data[2] = $_POST['gender'];
+        $data[3] = $_POST['date_of_birth'];
+        $data[4] = $_POST['province'];
+        $data[5] = $_POST['address'];
+        $data[6] = $_POST['phone'];
+        $data[7] = $_POST['email'];
+        $data[8] = $_POST['post'];
 
         $inf_controller->store($data, $_FILES['resume']);
 
-        // include('Pages/Frontend/index.php');
+        //include('Pages/Frontend/index.php');
     }
 } else {
     header('Status: 404 Not Found');

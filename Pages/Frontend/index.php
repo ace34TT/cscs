@@ -193,7 +193,7 @@
                 </div>
 
                 <div class="row">
-                    <form class="row g-3 needs-validation" method="POST" action="index.php?apply">
+                    <form class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="index.php?apply" autocomplete="on">
 
                         <!-- Firstname / Lastname -->
                         <div class="col-md-6">
@@ -273,9 +273,9 @@
                                 </label>
                             </div>
                         </div>
-
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        <br>
+                        <div class="col-12 d-flex flex-column-reverse bd-highlight ">
+                            <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
                         </div>
                     </form>
                 </div>

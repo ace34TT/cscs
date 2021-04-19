@@ -6,13 +6,42 @@ class Personnal_information_Controller
 {
     private $personnal_information;
 
+    public function __construct()
+    {
+        $this->personnal_information = new Personnal_information;
+    }
     public function store($data, $file)
     {
+        $data[9] = $data[7] . 'pdf';
+        $data[10] = $this->generate_validation_code();
+
+        $this->send_mail();
+        //$this->personnal_information->_save($data);
+        //$this->store_file($file, $data[7]);
     }
 
-    private function store_file($file)
+    public function send_mail()
     {
-        $target_dir = "Assets/Curruculum_vitae/";
+        $to_email = 'tafinasoa35@gmail.com';
+        $subject = 'Testing PHP Mail';
+        $message = 'This mail is sent using the PHP mail function';
+        $headers = 'From: noreply @ company . com';
+        try {
+            mail($to_email, $subject, $message, $headers);
+        } catch (Exception $exception) {
+            die('Erreur : ' . $exception->getMessage());
+        }
+    }
+
+    private function generate_validation_code()
+    {
+        $permitted_chars = '0123456789';
+        return substr(str_shuffle($permitted_chars), 0, 6);
+    }
+
+    private function store_file($file, $name)
+    {
+        $target_dir = "Assets/Resumes/";
         $target_file = $target_dir . basename($file["name"]);
         $uploadOk = 1;
         $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -36,7 +65,7 @@ class Personnal_information_Controller
         }
 
         // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
+        if ($file["size"] > 1000000) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
@@ -54,8 +83,8 @@ class Personnal_information_Controller
             echo "Sorry, your file was not uploaded.";
             // if everything is ok, try to upload file
         } else {
+            $target_file = $target_dir . $name . '.pdf';
             if (move_uploaded_file($file["tmp_name"], $target_file)) {
-                echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }

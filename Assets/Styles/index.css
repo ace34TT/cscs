@@ -1670,3 +1670,16 @@ fieldset[disabled] .file-name {
 .file-icon .fa {
     font-size: 14px
 }
+
+#btn-apply {
+    background-color: #fdcb33;
+    border: solid 1px rgb(255, 208, 0);
+    color: #343a40;
+    border-radius: 50px;
+}
+
+#btn-apply:hover {
+    background-color: #ffe341;
+    border: solid 1px rgb(255, 233, 132);
+    border-radius: 50px;
+}

@@ -1,3 +1,1 @@
-ALTER TABLE personnal_informations
-ADD COLUMN post
-AFTER email
+ALTER TABLE posts DROP COLUMN excerpt;
