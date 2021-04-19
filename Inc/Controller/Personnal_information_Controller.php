@@ -22,15 +22,12 @@ class Personnal_information_Controller
 
     public function send_mail()
     {
-        $to_email = 'tafinasoa35@gmail.com';
-        $subject = 'Testing PHP Mail';
-        $message = 'This mail is sent using the PHP mail function';
-        $headers = 'From: noreply @ company . com';
-        try {
-            mail($to_email, $subject, $message, $headers);
-        } catch (Exception $exception) {
-            die('Erreur : ' . $exception->getMessage());
-        }
+        mail(
+            "tafinasoa@gmail.com",
+            "Thank you for registering!",
+            "Hello Homer, thank you for registering!",
+            "From: ian@example.com"
+        );
     }
 
     private function generate_validation_code()
