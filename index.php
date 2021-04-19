@@ -42,7 +42,7 @@ if ($route == $uri) {
         session_start();
         if ($_GET['admin'] == 'login') {
             if ($admin_controller->login($_POST['email'], $_POST['password']) == true) {
-                include('Pages/Backend/Admin/index.php');
+                include('Pages/Backend/Admin/overview.php');
             } else {
                 include('Pages/Backend/Admin/index.php');
             }
