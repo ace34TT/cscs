@@ -46,8 +46,9 @@ if ($route == $uri) {
             } else {
                 include('Pages/Backend/Admin/index.php');
             }
+        } else {
+            include('Pages/Backend/Admin/index.php');
         }
-        include('Pages/Backend/Admin/index.php');
     }
 } else {
     header('Status: 404 Not Found');
