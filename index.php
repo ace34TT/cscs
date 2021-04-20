@@ -2,6 +2,10 @@
 // index.php
 // On charge les modeles et les controleurs
 
+//Avoid document expired
+ini_set('session.cache_limiter', 'public');
+session_cache_limiter(false);
+
 
 // Enable display errors 
 ini_set('display_errors', 1);
@@ -41,8 +45,12 @@ if ($route == $uri) {
     if (isset($_GET['admin'])) {
         session_start();
         if ($_GET['admin'] == 'access') {
-            if ($admin_controller->login($_POST['email'], $_POST['password']) == true) {
-                include('Pages/Backend/Admin/overview.php');
+            if (isset($_POST['email']) && isset($_POST['password'])) {
+                if ($admin_controller->login($_POST['email'], $_POST['password']) == true) {
+                    include('Pages/Backend/Admin/overview.php');
+                } else {
+                    include('Pages/Backend/Admin/index.php');
+                }
             } else {
                 include('Pages/Backend/Admin/index.php');
             }

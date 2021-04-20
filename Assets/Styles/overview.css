@@ -1,5 +1,11 @@
 #pending {
     color: white;
-    background: rgb(153, 149, 224);
-    background: linear-gradient(85deg, rgba(153, 149, 224, 1) 0%, rgba(78, 134, 166, 1) 100%);
+    background: rgb(254, 241, 77);
+    background: linear-gradient(137deg, rgba(254, 241, 77, 1) 0%, rgba(251, 175, 63, 1) 100%);
+}
+
+#total {
+    color: white;
+    background: rgb(254, 77, 77);
+    background: linear-gradient(137deg, rgba(254, 77, 77, 1) 0%, rgba(251, 108, 63, 1) 100%);
 }
