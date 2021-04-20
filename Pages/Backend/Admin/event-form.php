@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 
 <!-- Events -->
-<div class="row mt-2">
+<div class="row mt-2 mb-3">
     <h1 class="col-md-4 offset-4 mt-4"> Event form</h1>
     <!-- ======= Services Section ======= -->
     <section id="Apply" class="Apply">
@@ -16,8 +16,8 @@
                         <input type="text" name="author" readonly class="form-control" value="  <?= $_SESSION['admin'][0]['names'] ?>" id="author">
                     </div>
                     <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Respensable</label>
-                        <input type="text" name="responsable" class="form-control" value="  <?= $_SESSION['admin'][0]['names'] ?>" id="validationCustom01">
+                        <label for="validationCustom01" class="form-label">Respensible</label>
+                        <input type="text" name="responsible" class="form-control" value="  <?= $_SESSION['admin'][0]['names'] ?>" id="validationCustom01">
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Contact</label>
@@ -72,7 +72,7 @@
 
                     <br>
                     <div class="col-12 d-flex flex-column-reverse bd-highlight ">
-                        <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
+                        <button type="button" class="btn btn-outline-warning">Warning</button>
                     </div>
                 </form>
             </div>
