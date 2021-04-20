@@ -54,7 +54,7 @@ if ($route == $uri) {
             } else {
                 include('Pages/Backend/Admin/index.php');
             }
-        } else if (isset($_SESSION['user'])) {
+        } else if (isset($_SESSION['admin'])) {
             if ($_GET['admin'] == 'login') {
                 include('Pages/Backend/Admin/index.php');
             } else if ($_GET['admin'] == 'overview') {

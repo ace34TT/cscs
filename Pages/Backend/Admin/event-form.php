@@ -10,6 +10,10 @@
         <div class="container">
             <div class="row">
                 <form class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="index.php?apply" autocomplete="on">
+                    <div class="col-md-6">
+                        <label for="author" class="form-label">Author</label>
+                        <input type="text" name="author" readonly class="form-control" value="  <?= $_SESSION['admin'][0]['names'] ?>" id="author">
+                    </div>
                     <!-- Firstname / Lastname -->
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Firstname</label>
