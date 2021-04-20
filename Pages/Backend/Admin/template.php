@@ -72,6 +72,17 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#event-collapse" aria-expanded="true">
+                                Event
+                            </button>
+                            <div class="collapse show" id="event-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="index.php?admin=create_event" class="link-dark rounded">Create</a></li>
+                                    <li><a href="index.php?admin=overview" class="link-dark rounded">Manage</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="border-top my-3"></li>
                         <li class="mb-1">
                             <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">

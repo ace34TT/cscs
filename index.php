@@ -59,6 +59,8 @@ if ($route == $uri) {
                 include('Pages/Backend/Admin/index.php');
             } else if ($_GET['admin'] == 'overview') {
                 include('Pages/Backend/Admin/overview.php');
+            } else if ($_GET['admin'] == 'create_event') {
+                include('Pages/Backend/Admin/event-form.php');
             }
         } else if ($_GET['admin'] == 'login') {
             include('Pages/Backend/Admin/index.php');

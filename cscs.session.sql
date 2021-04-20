@@ -1,5 +1,6 @@
-CREATE TABLE admins (
+CREATE TABLE events (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(30) NOT NULL,
-    passwords VARCHAR(40) NOT NULL
+    author VARCHAR(40) NOT NULL,
+    names VARCHAR(30) NOT NULL,
+    descriptions VARCHAR(40) NOT NULL,
 )

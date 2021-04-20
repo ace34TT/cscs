@@ -1,6 +1,8 @@
 <?php $title = "Overview"; ?>
 
 <?php ob_start(); ?>
+
+<!-- Events -->
 <div class="row mt-2">
     <h1 class="col-md-12 mt-4">Events</h1>
     <div class="container-fluid">
@@ -17,11 +19,8 @@
             </div>
         </div>
     </div>
-
-
 </div>
-
-
+<!-- Transactions -->
 <div class="row mt-3">
     <h1 class="col-md-12 mt-4">Transactions</h1>
     <div class="container-fluid">
