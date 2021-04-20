@@ -7,12 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.82.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
 
+    <link href="Assets/Images/Logo.png" rel="icon">
+    <link href="Assets/Images/apple-touch-icon.png" rel="apple-touch-icon">
+    <title> <?= $title ?> </title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-
-
     <!-- Bootstrap core CSS -->
     <link href="Assets/Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -52,8 +51,7 @@
 
         <div class="input-group">
             <input type="text" class="form-control search" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button type="button" class="">Search</button>
-            <!-- <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button> -->
+            <button type="button" class="btn btn-dark">Search</button>
         </div>
     </header>
 
@@ -64,38 +62,8 @@
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">
-                                <span data-feather="home"></span>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="shopping-cart"></span>
-                                Products
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="users"></span>
-                                Customers
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
                                 <span data-feather="bar-chart-2"></span>
-                                Reports
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers"></span>
-                                Integrations
+                                Dashboard
                             </a>
                         </li>
                     </ul>
@@ -136,7 +104,7 @@
             </nav>
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
+                <?= $content ?>
             </main>
         </div>
     </div>
