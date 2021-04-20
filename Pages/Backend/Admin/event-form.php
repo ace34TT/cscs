@@ -1,4 +1,4 @@
-<?php $title = "Overview"; ?>
+<?php $title = "Event form"; ?>
 
 <?php ob_start(); ?>
 
@@ -10,36 +10,38 @@
         <div class="container">
             <div class="row">
                 <form class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="index.php?apply" autocomplete="on">
-                    <div class="col-md-6">
+                    <!-- Author/Responsable -->
+                    <div class="col-md-4">
                         <label for="author" class="form-label">Author</label>
                         <input type="text" name="author" readonly class="form-control" value="  <?= $_SESSION['admin'][0]['names'] ?>" id="author">
                     </div>
-                    <!-- Firstname / Lastname -->
-                    <div class="col-md-6">
-                        <label for="validationCustom01" class="form-label">Firstname</label>
-                        <input type="text" name="firstname" class="form-control" required id="validationCustom01">
+                    <div class="col-md-4">
+                        <label for="validationCustom01" class="form-label">Respensable</label>
+                        <input type="text" name="responsable" class="form-control" value="  <?= $_SESSION['admin'][0]['names'] ?>" id="validationCustom01">
                     </div>
-                    <div class="col-md-6">
-                        <label for="validationCustom02" class="form-label">Lastname</label>
-                        <input type="text" name="lastname" class="form-control" required id="validationCustom02">
+                    <div class="col-md-4">
+                        <label for="validationCustom01" class="form-label">Contact</label>
+                        <input type="text" name="contact" class="form-control" id="validationCustom01">
                     </div>
 
-                    <!-- Gender / Date of birth -->
-                    <div class="col-md-4">
-                        <label for="validationCustom02" class="form-label">Gender</label>
-                        <select class="form-select" name="gender" aria-label="Default select example" id="validationCustom03">
-                            <option selected>Select your gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                    <!-- Event Inf -->
+                    <div class="col-md-6">
+                        <label for="validationCustom02" class="form-label">Name</label>
+                        <input type="text" name="name" class="form-control" required id="validationCustom02">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="validationCustom03" class="form-label">Event</label>
+                        <select class="form-select" name="event" aria-label="Default select example" id="validationCustom03">
+                            <option selected>Select</option>
+                            <option value="Meeting">Meeting</option>
+                            <option value="pretest">Pretest</option>
+                            <option value="final_test">Final test</option>
                         </select>
                     </div>
+
                     <div class="col-md-4">
-                        <label for="validationCustom04" class="form-label">Date of birth</label>
-                        <input type="date" name="date_of_birth" class="form-control" required id="validationCustom04">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="validationCustom05" class="form-label">Procince</label>
-                        <select class="form-select" name="province" aria-label="Default select example" id="validationCustom05">
+                        <label for="validationCustom04" class="form-label">Procince</label>
+                        <select class="form-select" name="province" aria-label="Default select example" id="validationCustom04">
                             <option selected>Select your province</option>
                             <option value="Antananarivo">Antananarivo</option>
                             <option value="Antsiranana">Antsiranana</option>
@@ -49,49 +51,25 @@
                             <option value="Toliara">Toliara</option>
                         </select>
                     </div>
+                    <div class="col-md-8">
+                        <label for="validationCustom05" class="form-label">Place</label>
+                        <input type="text" name="place" class="form-control" required id="validationCustom05">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="validationCustom06" class="form-label">Date</label>
+                        <input type="date" name="date" class="form-control" required id="validationCustom06">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="validationCustom06" class="form-label">Time</label>
+                        <input type="time" name="time" class="form-control" required id="validationCustom06">
+                    </div>
 
                     <div class="col-12">
-                        <label for="inputPassword6" class="form-label">Address</label>
-                        <input type="text" name="address" class="form-control" id="inputPassword6" placeholder="1234 Main St">
+                        <label for="inputPassword6" class="form-label">Description</label>
+                        <textarea class="form-control" id="inputPassword6" rows="3"></textarea>
                     </div>
 
-                    <!-- Contacts -->
-                    <div class="col-md-6">
-                        <label for="inputPassword7" class="form-label">Phone</label>
-                        <input type="input" name="phone" max="13" min="10" class="form-control" required id="inputPassword7">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="validationCustom08" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" required id="validationCustom08">
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="validationCustom05" class="form-label">Post</label>
-                        <select class="form-select" name="post" aria-label="Default select example" id="validationCustom05">
-                            <option selected>Apply as </option>
-                            <option value="Housekeeper">Housekeeper</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="validationCustom05" class="form-label">Resume</label>
-                        <div id="file-js-example" class="file has-name">
-                            <label class="file-label">
-                                <input class="file-input" type="file" name="resume">
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">
-                                        Choose a file…
-                                    </span>
-                                </span>
-                                <span class="file-name">
-                                    No file uploaded
-                                </span>
-                            </label>
-                        </div>
-                    </div>
                     <br>
                     <div class="col-12 d-flex flex-column-reverse bd-highlight ">
                         <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
