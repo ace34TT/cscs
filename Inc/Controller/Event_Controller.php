@@ -4,18 +4,15 @@ require_once(dirname(__FILE__) . '/../Model/Admin.php');
 
 class Event_Controller
 {
-    private $admin;
+    private $event;
 
     public function __construct()
     {
-        $this->admin = new Admin;
+        $this->event = new Event;
     }
 
-    public function login($email, $password)
+    public function store($data)
     {
-        if ($this->admin->login($email, sha1($password)) == true) {
-            return true;
-        }
-        return false;
+        $this->event->_save($data);
     }
 }
