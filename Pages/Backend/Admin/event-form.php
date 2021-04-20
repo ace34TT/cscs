@@ -8,8 +8,18 @@
     <!-- ======= Services Section ======= -->
     <section id="Apply" class="Apply">
         <div class="container">
+            <?php
+            if (isset($checker)) { ?>
+                <p class="mt-2" style="color: rgb(255, 208, 0);font-size : 20px;">
+                    <span class="fa fa-check"></span>
+                    Event upload successfully
+                </p>
+            <?php
+            }
+            ?>
+
             <div class="row">
-                <form class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="index.php?apply" autocomplete="on">
+                <form class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="index.php?admin=event_upload" autocomplete="on">
                     <!-- Author/Responsable -->
                     <div class="col-md-4">
                         <label for="author" class="form-label">Author</label>
@@ -62,17 +72,17 @@
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom06" class="form-label">Time</label>
-                        <input type="time" name="time" class="form-control" required id="validationCustom06">
+                        <input type="time" name="schedule" class="form-control" required id="validationCustom06">
                     </div>
 
                     <div class="col-12">
                         <label for="inputPassword6" class="form-label">Description</label>
-                        <textarea class="form-control" id="inputPassword6" rows="3"></textarea>
+                        <textarea class="form-control" name="description" id="inputPassword6" rows="3"></textarea>
                     </div>
 
                     <br>
                     <div class="col-12 d-flex flex-column-reverse bd-highlight ">
-                        <button type="button" class="btn btn-outline-warning">Warning</button>
+                        <button type="submit" class="btn btn-outline-warning">Warning</button>
                     </div>
                 </form>
             </div>

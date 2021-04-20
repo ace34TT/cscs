@@ -12,6 +12,8 @@
     <link href="Assets/Images/apple-touch-icon.png" rel="apple-touch-icon">
     <title> <?= $title ?> </title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+    <link href="Assets/Vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Bootstrap core CSS -->
     <link href="Assets/Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Assets/Styles/overview.css">
@@ -78,8 +80,8 @@
                             </button>
                             <div class="collapse show" id="event-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="index.php?admin=create_event" class="link-dark rounded">Create</a></li>
-                                    <li><a href="index.php?admin=overview" class="link-dark rounded">Manage</a></li>
+                                    <li><a href="index.php?admin=event_form" class="link-dark rounded">Create</a></li>
+                                    <li><a href="index.php?admin=organize_test" class="link-dark rounded">Organize test</a></li>
                                 </ul>
                             </div>
                         </li>

@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . '/Connection.php');
 class Event extends Connection
 {
     private $table = 'events';
-    private $fillable = array('author', 'responsable', 'contact', 'names', 'events', 'province', 'place', 'date', 'schedule', 'descriptions');
+    private $fillable = array('author', 'responsible', 'contact', 'names', 'events', 'province', 'place', 'dates', 'schedule', 'descriptions');
 
     public function __construct()
     {

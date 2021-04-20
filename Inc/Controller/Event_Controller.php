@@ -1,6 +1,6 @@
 <?php
 
-require_once(dirname(__FILE__) . '/../Model/Admin.php');
+require_once(dirname(__FILE__) . '/../Model/Event.php');
 
 class Event_Controller
 {
