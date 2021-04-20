@@ -1,0 +1,5 @@
+#pending {
+    color: white;
+    background: rgb(153, 149, 224);
+    background: linear-gradient(85deg, rgba(153, 149, 224, 1) 0%, rgba(78, 134, 166, 1) 100%);
+}
