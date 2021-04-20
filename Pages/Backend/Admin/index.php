@@ -40,7 +40,7 @@
                     </span>
                 </div>
 
-                <form class="login100-form validate-form" method="post" action="index.php?admin=login">
+                <form class="login100-form validate-form" method="post" action="index.php?admin=access">
                     <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                         <span class="label-input100">Email</span>
                         <input class="input100" type="text" name="email" placeholder="Enter username">

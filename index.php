@@ -40,13 +40,19 @@ if ($route == $uri) {
     }
     if (isset($_GET['admin'])) {
         session_start();
-        if ($_GET['admin'] == 'login') {
+        if ($_GET['admin'] == 'access') {
             if ($admin_controller->login($_POST['email'], $_POST['password']) == true) {
                 include('Pages/Backend/Admin/overview.php');
             } else {
                 include('Pages/Backend/Admin/index.php');
             }
-        } else {
+        } else if (isset($_SESSION['user'])) {
+            if ($_GET['admin'] == 'login') {
+                include('Pages/Backend/Admin/index.php');
+            } else if ($_GET['admin'] == 'overview') {
+                include('Pages/Backend/Admin/overview.php');
+            }
+        } else if ($_GET['admin'] == 'login') {
             include('Pages/Backend/Admin/index.php');
         }
     }
