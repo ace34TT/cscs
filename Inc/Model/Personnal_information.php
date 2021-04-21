@@ -14,7 +14,7 @@ class Personnal_information extends Connection
 
     public function check_validation($code)
     {
-        $req = $this->pdo->prepare('SELECT id , firstname , lastname , email FROM personnal_informations WHERE validation_code = ?');
+        $req = $this->pdo->prepare('SELECT * FROM personnal_informations WHERE validation_code = ?');
         $req->execute(array($code));
         $row = $this->fetch_resultSet($req);
         if ($row != null) {

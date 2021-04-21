@@ -17,7 +17,7 @@ class Personnal_information_Controller
 
         $this->send_mail();
         $this->personnal_information->_save($data);
-        $this->store_file($file, $data[7]);
+        //$this->store_file($file, $data[7]);
     }
 
     public function send_mail()

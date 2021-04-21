@@ -184,7 +184,7 @@
             </div>
         </section><!-- End Services Section -->
 
-        <!-- ======= Services Section ======= -->
+        <!-- ======= Apply Section ======= -->
         <section id="Apply" class="Apply">
             <div class="container">
                 <div class="section-title">
@@ -280,7 +280,7 @@
                     </form>
                 </div>
             </div>
-        </section><!-- End Services Section -->
+        </section><!-- End Apply Section -->
         <!-- ======= Cta Section ======= -->
         <section id="cta" class="cta">
             <div class="container">
