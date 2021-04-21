@@ -13,6 +13,9 @@ class Candidate_Controller
 
     public function store($data, $file)
     {
+        $this->candidate->_save($data);
+        $this->candidate->update_personnal_information($data[0]);
+        $this->store_file($file, $data[0]);
     }
 
     private function store_file($file, $name)

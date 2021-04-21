@@ -57,58 +57,66 @@ $info = $inf_controller->check_validation($_GET['validation'])
 
 
     <?php
-    if ($info != false) { ?>
-        <!-- ======= Apply Section ======= -->
-        <section id="Apply" class="Apply" style="margin-top: -30px; margin-bottom: 0px;">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Personnal information validation</h2>
-                    <p>Please , make sure every informations are correcte , you won't be able to make any change after you submmited this form</p>
-                </div>
 
-                <div class="row">
-                    <form onSubmit="return checkPassword(this)" class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="../../../index.php?validation=true&amp;personnal_information=<?= $info[0]['id'] ?> " autocomplete="on">
-                        <!-- Firstname / Lastname -->
-                        <div class="col-md-4">
-                            <label for="firstname" class="form-label">Firstname</label>
-                            <input type="password" readonly value=" <?= $info[0]['firstname'] ?> " name="firstname" class="form-control" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="lastname" class="form-label">Lastname</label>
-                            <input type="password" readonly value=" <?= $info[0]['lastname'] ?> " name="lastname" class="form-control" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" readonly value=" <?= $info[0]['email'] ?> " name="email" class="form-control" required>
-                        </div>
+    if ($info != false) {
+        if ($info[0]['code_status'] == 'used') {
+            header('Location: expired.php');
+        } else {
 
-                        <div class="col-md-6">
-                            <label for="validationCustom02" class="form-label">Password</label>
-                            <input type="text" name="password" id="password" class="form-control" required id="validationCustom02">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationCustom03" class="form-label">Confirm password</label>
-                            <input type="text" name="confirm" id="confirm-password" class="form-control" required id="validationCustom03">
-                        </div>
 
-                        <div class="col-md-6">
-                            <label for="validationCustom01" class="form-label">Resume</label>
-                            <div class="input-file-container">
-                                <input class="input-file" id="my-file" type="file" name="resume">
-                                <label tabindex="0" for="my-file" class="input-file-trigger"> <span class="fa fa-tv"></span> Select a file...</label>
+    ?>
+            <!-- ======= Apply Section ======= -->
+            <section id="Apply" class="Apply" style="margin-top: -30px; margin-bottom: 0px;">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Personnal information validation</h2>
+                        <p>Please , make sure every informations are correcte , you won't be able to make any change after you submmited this form</p>
+                    </div>
+
+                    <div class="row">
+                        <form onSubmit="return checkPassword(this)" class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="../../../index.php?validation=true&amp;personnal_information=<?= $info[0]['id'] ?> ">
+                            <!-- Firstname / Lastname -->
+                            <div class="col-md-4">
+                                <label for="firstname" class="form-label">Firstname</label>
+                                <input type="text" readonly value=" <?= $info[0]['firstname'] ?> " name="firstname" class="form-control" required>
                             </div>
-                            <p class="file-return"></p>
-                        </div>
-                        <br>
-                        <div class="col-12 d-flex flex-column-reverse bd-highlight ">
-                            <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
-                        </div>
+                            <div class="col-md-4">
+                                <label for="lastname" class="form-label">Lastname</label>
+                                <input type="text" readonly value=" <?= $info[0]['lastname'] ?> " name="lastname" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" readonly value=" <?= $info[0]['email'] ?> " name="email" class="form-control" required>
+                            </div>
 
-                    </form>
+                            <div class="col-md-6">
+                                <label for="validationCustom02" class="form-label">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" required id="validationCustom02">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom03" class="form-label">Confirm password</label>
+                                <input type="password" name="confirm" id="confirm-password" class="form-control" required id="validationCustom03">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="validationCustom01" class="form-label">Resume</label>
+                                <div class="input-file-container">
+                                    <input class="input-file" id="my-file" type="file" name="resume">
+                                    <label tabindex="0" for="my-file" class="input-file-trigger"> <span class="fa fa-tv"></span> Select a file...</label>
+                                </div>
+                                <p class="file-return"></p>
+                            </div>
+                            <br>
+                            <div class="col-12 d-flex flex-column-reverse bd-highlight ">
+                                <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </section><!-- End Apply Section -->
+            </section><!-- End Apply Section -->
     <?php
+        }
     } else {
         echo "404 not found";
     }

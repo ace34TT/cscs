@@ -15,15 +15,15 @@ class Personnal_information_Controller
         $data[9] = $data[7] . 'pdf';
         $data[10] = sha1($this->generate_validation_code());
         $data[11] = 'unused';
-        $this->send_mail();
+        $this->send_mail($data[7]);
         $this->personnal_information->_save($data);
         //$this->store_file($file, $data[7]);
     }
 
-    public function send_mail()
+    public function send_mail($email)
     {
         mail(
-            "tafinasoa@gmail.com",
+            $email,
             "Thank you for registering!",
             "Hello Homer, thank you for registering!",
             "From: ian@example.com"

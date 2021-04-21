@@ -103,11 +103,11 @@ if ($route == $uri) {
     //Validation candidate
     if (isset($_GET['validation'])) {
         $form[0] = $_POST['email'];
-        $form[1] = $_POST['password'];
-        $form[2] = sha1($_GET['personnal_information']);
+        $form[1] = sha1($_POST['password']);
+        $form[2] = $_GET['personnal_information'];
         $resume = $_FILES['resume'];
         $candidate_controller->store($form, $resume);
-        header('Location: <ital>index.php?candidate=login</ital>');
+        header('Location: index.php?candidate=login');
         // header('Location: <ital>http:</ital><ital>//www.commentcamarche.net/forum/</ital>');  
     }
 

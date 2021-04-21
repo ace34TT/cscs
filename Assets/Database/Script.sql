@@ -1,14 +1,7 @@
-CREATE TABLE personnal_informations (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    firstname VARCHAR(30) NOT NULL,
-    lastname VARCHAR(30) NOT NULL,
-    gender VARCHAR(30) NOT NULL,
-    date_of_birth VARCHAR(30) NOT NULL,
-    procince VARCHAR(30) NOT NULL,
-    addresses VARCHAR(30) NOT NULL,
-    phone VARCHAR(30) NOT NULL,
-    email VARCHAR(30) NOT NULL,
-    post VARCHAR(30) NOT NULL,
-    validation_code VARCHAR (40) NOT NULL,
-    reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-)
+CREATE TABLE candidates(
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50) UNIQUE NOT NULL,
+    passwords VARCHAR(40) NOT NULL,
+    personnal_information INT UNSIGNED NOT NULL,
+    FOREIGN KEY (personnal_information) REFERENCES personnal_informations(id)
+) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4;
