@@ -14,6 +14,7 @@ error_reporting(E_ALL);
 
 // Required files 
 require_once(dirname(__FILE__) . '/Inc/Controller/Personnal_information_Controller.php');
+require_once(dirname(__FILE__) . '/Inc/Controller/Candidate_Controller.php');
 require_once(dirname(__FILE__) . '/Inc/Controller/Admin_Controller.php');
 require_once(dirname(__FILE__) . '/Inc/Controller/Event_Controller.php');
 
@@ -21,6 +22,7 @@ require_once(dirname(__FILE__) . '/Inc/Controller/Event_Controller.php');
 $inf_controller = new Personnal_information_Controller;
 $admin_controller = new Admin_Controller;
 $event_controller = new Event_Controller;
+$candidate_controller = new Candidate_Controller;
 
 
 // gestion des routes
@@ -30,6 +32,7 @@ $route = "/cscs_v2.1/";
 if ($route == $uri) {
     include('Pages/Frontend/index.php');
 } else if ($route != $uri) {
+    // Applying process
     if (isset($_GET['apply'])) {
         $data[0] = $_POST['firstname'];
         $data[1] = $_POST['lastname'];
@@ -45,11 +48,11 @@ if ($route == $uri) {
 
         include('Pages/Frontend/index.php');
     }
+    // Admin
     if (isset($_GET['admin'])) {
         session_start();
         // Login process
         if ($_GET['admin'] == 'access') {
-
             if (isset($_POST['email']) && isset($_POST['password'])) {
                 if ($admin_controller->login($_POST['email'], $_POST['password']) == true) {
                     include('Pages/Backend/Admin/overview.php');
@@ -94,6 +97,23 @@ if ($route == $uri) {
             }
         } else if ($_GET['admin'] == 'login') {
             include('Pages/Backend/Admin/index.php');
+        }
+    }
+
+    //Validation candidate
+    if (isset($_GET['validation'])) {
+        $form[0] = $_POST['email'];
+        $form[1] = $_POST['password'];
+        $form[2] = sha1($_GET['personnal_information']);
+        $resume = $_FILES['resume'];
+        $candidate_controller->store($form, $resume);
+        header('Location: <ital>index.php?candidate=login</ital>');
+        // header('Location: <ital>http:</ital><ital>//www.commentcamarche.net/forum/</ital>');  
+    }
+
+    if (isset($_GET['candidate'])) {
+        if ($_GET['candidate'] == 'login') {
+            include('Pages/Backend/Candidate/index.php');
         }
     }
 } else {

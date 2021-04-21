@@ -1,7 +1,7 @@
 <?php
 // 127.0.0.1/cscs_v2.1/Pages/Backend/Candidate/validation.php?validation=657f215c06ebf0a5edd6bbb5bc38fe457ae3e693
 
-require_once('../../../Inc/Controller/Personnal_information_Controller.php');
+require_once(dirname(__FILE__) . ' /../../../Inc/Controller/Personnal_information_Controller.php');
 
 $inf_controller = new Personnal_information_Controller;
 
@@ -15,7 +15,7 @@ $info = $inf_controller->check_validation($_GET['validation'])
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>CSCS candidates</title>
+    <title>Validation form</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -67,15 +67,15 @@ $info = $inf_controller->check_validation($_GET['validation'])
                 </div>
 
                 <div class="row">
-                    <form class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="index.php?apply" autocomplete="on">
+                    <form onSubmit="return checkPassword(this)" class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="../../../index.php?validation=true&amp;personnal_information=<?= $info[0]['id'] ?> " autocomplete="on">
                         <!-- Firstname / Lastname -->
                         <div class="col-md-4">
                             <label for="firstname" class="form-label">Firstname</label>
-                            <input type="text" readonly value=" <?= $info[0]['firstname'] ?> " name="firstname" class="form-control" required>
+                            <input type="password" readonly value=" <?= $info[0]['firstname'] ?> " name="firstname" class="form-control" required>
                         </div>
                         <div class="col-md-4">
                             <label for="lastname" class="form-label">Lastname</label>
-                            <input type="text" readonly value=" <?= $info[0]['lastname'] ?> " name="lastname" class="form-control" required>
+                            <input type="password" readonly value=" <?= $info[0]['lastname'] ?> " name="lastname" class="form-control" required>
                         </div>
                         <div class="col-md-4">
                             <label for="email" class="form-label">Email</label>
@@ -84,17 +84,17 @@ $info = $inf_controller->check_validation($_GET['validation'])
 
                         <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Password</label>
-                            <input type="text" name="password" class="form-control" required id="validationCustom02">
+                            <input type="text" name="password" id="password" class="form-control" required id="validationCustom02">
                         </div>
                         <div class="col-md-6">
                             <label for="validationCustom03" class="form-label">Confirm password</label>
-                            <input type="text" name="confirm" class="form-control" required id="validationCustom03">
+                            <input type="text" name="confirm" id="confirm-password" class="form-control" required id="validationCustom03">
                         </div>
 
                         <div class="col-md-6">
                             <label for="validationCustom01" class="form-label">Resume</label>
                             <div class="input-file-container">
-                                <input class="input-file" id="my-file" type="file">
+                                <input class="input-file" id="my-file" type="file" name="resume">
                                 <label tabindex="0" for="my-file" class="input-file-trigger"> <span class="fa fa-tv"></span> Select a file...</label>
                             </div>
                             <p class="file-return"></p>
@@ -109,6 +109,8 @@ $info = $inf_controller->check_validation($_GET['validation'])
             </div>
         </section><!-- End Apply Section -->
     <?php
+    } else {
+        echo "404 not found";
     }
     ?>
 
@@ -131,6 +133,25 @@ $info = $inf_controller->check_validation($_GET['validation'])
         fileInput.addEventListener("change", function(event) {
             the_return.innerHTML = this.value;
         });
+    </script>
+
+    <script>
+        // Function to check Whether both passwords
+        // is same or not.
+        function checkPassword(form) {
+            password1 = form.password.value;
+            password2 = form.confirm.value;
+
+            // If Not same return False.    
+            if (password1 != password2) {
+                alert("\nPassword did not match: Please try again...")
+                return false;
+            }
+            // If same return True.
+            else {
+                return true;
+            }
+        }
     </script>
 
 </body>
