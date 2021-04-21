@@ -41,7 +41,7 @@ if ($route == $uri) {
         $data[7] = $_POST['email'];
         $data[8] = $_POST['post'];
 
-        $inf_controller->store($data, $_FILES['resume']);
+        $inf_controller->store($data);
 
         include('Pages/Frontend/index.php');
     }

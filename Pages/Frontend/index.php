@@ -253,26 +253,6 @@
                                 <option value="Housekeeper">Housekeeper</option>
                             </select>
                         </div>
-
-                        <div class="col-md-6">
-                            <label for="validationCustom05" class="form-label">Resume</label>
-                            <div id="file-js-example" class="file has-name">
-                                <label class="file-label">
-                                    <input class="file-input" type="file" name="resume">
-                                    <span class="file-cta">
-                                        <span class="file-icon">
-                                            <i class="fas fa-upload"></i>
-                                        </span>
-                                        <span class="file-label">
-                                            Choose a file…
-                                        </span>
-                                    </span>
-                                    <span class="file-name">
-                                        No file uploaded
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
                         <br>
                         <div class="col-12 d-flex flex-column-reverse bd-highlight ">
                             <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
