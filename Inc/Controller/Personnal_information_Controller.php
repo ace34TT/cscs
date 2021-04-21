@@ -13,11 +13,11 @@ class Personnal_information_Controller
     public function store($data, $file)
     {
         $data[9] = $data[7] . 'pdf';
-        $data[10] = $this->generate_validation_code();
+        $data[10] = sha1($this->generate_validation_code());
 
         $this->send_mail();
-        //$this->personnal_information->_save($data);
-        //$this->store_file($file, $data[7]);
+        $this->personnal_information->_save($data);
+        $this->store_file($file, $data[7]);
     }
 
     public function send_mail()
@@ -88,8 +88,9 @@ class Personnal_information_Controller
         }
     }
 
-    public function get_model()
+    public function check_validation($code)
     {
-        return $this->personnal_information;
+        $info = $this->personnal_information->check_validation($code);
+        return $info;
     }
 }
