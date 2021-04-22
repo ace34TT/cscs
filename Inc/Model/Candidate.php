@@ -33,4 +33,14 @@ class Candidate extends Connection
             'email' => $email
         ));
     }
+
+    public function insert_pending_pretest($email)
+    {
+        $req = $this->pdo->prepare('SELECT id FROM candidates WHERE email = ?');
+        $req->execute(array($email));
+        $row = $this->fetch_resultSet($req);
+        var_dump($row);
+        $req = $this->pdo->prepare('INSERT INTO pending_pretests (candidate)  VALUES(:candidate)');
+        $req->execute(array('candidate' => $row[0]['id']));
+    }
 }

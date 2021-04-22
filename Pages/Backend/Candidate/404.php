@@ -7,14 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>404 HTML Template by Colorlib</title>
+    <title>404 HTML Page not found</title>
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,700" rel="stylesheet">
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="../../../Assets/Styles/expired.css" />
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,9 +29,9 @@
         <div class="notfound">
             <div class="notfound-404">
                 <h1>Oops!</h1>
-                <h2>This link has been expired </h2>
+                <h2> 404 - page not found </h2>
             </div>
-            <a href="../../../">Go TO Login page</a>
+            <a href="../../../">Go TO homepage</a>
         </div>
     </div>
 

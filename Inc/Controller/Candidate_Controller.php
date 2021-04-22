@@ -15,6 +15,7 @@ class Candidate_Controller
     {
         $this->candidate->_save($data);
         $this->candidate->update_personnal_information($data[0]);
+        $this->candidate->insert_pending_pretest($data[0]);
         $this->store_file($file, $data[0]);
     }
 

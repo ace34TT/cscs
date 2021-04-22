@@ -28,8 +28,7 @@ $candidate_controller = new Candidate_Controller;
 // gestion des routes
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $route = "/cscs_v2.1/";
-
-if ($route == $uri) {
+if ($route == $uri || '/' == $uri) {
     include('Pages/Frontend/index.php');
 } else if ($route != $uri) {
     // Applying process
@@ -99,7 +98,6 @@ if ($route == $uri) {
             include('Pages/Backend/Admin/index.php');
         }
     }
-
     //Validation candidate
     if (isset($_GET['validation'])) {
         $form[0] = $_POST['email'];
@@ -110,7 +108,7 @@ if ($route == $uri) {
         header('Location: index.php?candidate=login');
         // header('Location: <ital>http:</ital><ital>//www.commentcamarche.net/forum/</ital>');  
     }
-
+    //Candidate
     if (isset($_GET['candidate'])) {
         if ($_GET['candidate'] == 'login') {
             include('Pages/Backend/Candidate/index.php');

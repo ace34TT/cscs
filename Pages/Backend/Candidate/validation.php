@@ -62,8 +62,6 @@ $info = $inf_controller->check_validation($_GET['validation'])
         if ($info[0]['code_status'] == 'used') {
             header('Location: expired.php');
         } else {
-
-
     ?>
             <!-- ======= Apply Section ======= -->
             <section id="Apply" class="Apply" style="margin-top: -30px; margin-bottom: 0px;">
@@ -118,7 +116,7 @@ $info = $inf_controller->check_validation($_GET['validation'])
     <?php
         }
     } else {
-        echo "404 not found";
+        header('Location: 404.php');
     }
     ?>
 
