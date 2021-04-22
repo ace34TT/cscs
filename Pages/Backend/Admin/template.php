@@ -11,13 +11,21 @@
     <link href="Assets/Images/Logo.png" rel="icon">
 
     <title> <?= $title ?> </title>
-    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/"> -->
     <link href="Assets/Vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> -->
+
     <!-- Bootstrap core CSS -->
-    <link href="Assets/Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="Assets/Vendor/Fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="Assets/Vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="Assets/Styles/overview.css">
-    <link href="Assets/Styles/sidebars.css" rel="stylesheet">
+    <link rel="stylesheet" href="Assets/Styles/sidebars.css">
+    <!-- -->
+    <?php
+    if (isset($links)) {
+        echo $links;
+    }
+    ?>
 
     <style>
         .bd-placeholder-img {
@@ -114,7 +122,11 @@
     <script src="Assets/JavaScripts/dashboard.js"></script>
     <script src="Assets/JavaScripts/sidebars.js"></script>
 
-    <?= $scripts ?>
+    <?php
+    if (isset($scripts)) {
+        echo $scripts;
+    }
+    ?>
 </body>
 
 </html>
