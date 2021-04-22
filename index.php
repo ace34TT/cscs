@@ -92,7 +92,9 @@ if ($route == $uri || '/' == $uri) {
                 $checker = true;
                 include('Pages/Backend/Admin/event-form.php');
             } elseif ($_GET['admin'] == 'organize_test') {
-                include('Pages/Backend/Admin/incomming-event.php');
+                $coming_pretest = $event_controller->get_comming_pretests();
+                $comping_final_test = $event_controller->get_coming_final_test();
+                include('Pages/Backend/Admin/coming-event.php');
             }
         } else if ($_GET['admin'] == 'login') {
             include('Pages/Backend/Admin/index.php');

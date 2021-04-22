@@ -9,11 +9,11 @@
     <meta name="generator" content="Hugo 0.82.0">
 
     <link href="Assets/Images/Logo.png" rel="icon">
-    <link href="Assets/Images/apple-touch-icon.png" rel="apple-touch-icon">
+
     <title> <?= $title ?> </title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/"> -->
     <link href="Assets/Vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> -->
     <!-- Bootstrap core CSS -->
     <link href="Assets/Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Assets/Styles/overview.css">
@@ -113,6 +113,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
     <script src="Assets/JavaScripts/dashboard.js"></script>
     <script src="Assets/JavaScripts/sidebars.js"></script>
+
+    <?= $scripts ?>
 </body>
 
 </html>

@@ -15,4 +15,14 @@ class Event_Controller
     {
         $this->event->_save($data);
     }
+
+    public function get_comming_pretests()
+    {
+        return $this->event->comming_pretests();
+    }
+
+    public function get_coming_final_test()
+    {
+        return $this->event->comming_final_test();
+    }
 }

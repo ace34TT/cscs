@@ -43,7 +43,7 @@
                         <label for="validationCustom03" class="form-label">Event</label>
                         <select class="form-select" name="event" aria-label="Default select example" id="validationCustom03">
                             <option selected>Select</option>
-                            <option value="Meeting">Meeting</option>
+                            <option value="meeting">Meeting</option>
                             <option value="pretest">Pretest</option>
                             <option value="final_test">Final test</option>
                         </select>
