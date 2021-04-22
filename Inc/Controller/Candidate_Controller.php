@@ -76,4 +76,13 @@ class Candidate_Controller
         }
         return false;
     }
+
+    public function get_pretest_pending_candidate()
+    {
+        return $this->candidate->pretest_pending_candidate();
+    }
+
+    public function get_candidate_by_event($event)
+    {
+    }
 }

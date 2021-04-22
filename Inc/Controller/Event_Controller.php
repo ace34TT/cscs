@@ -25,4 +25,9 @@ class Event_Controller
     {
         return $this->event->comming_final_test();
     }
+
+    public function get_event_by_id($id)
+    {
+        return $this->event->_id($id);
+    }
 }

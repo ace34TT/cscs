@@ -56,6 +56,21 @@ class Connection
         return null;
     }
 
+    public function _id($id)
+    {
+        try {
+            $query = 'SELECT * FROM ' . $this->table . ' WHERE id = ?';
+            $req = $this->pdo->prepare($query);
+            $req->execute(array($id));
+            $data = $this->fetch_resultSet($req);
+            $req->closeCursor();
+            return $data;
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+        return null;
+    }
+
     public function fetch_resultSet($reponse)
     {
         $i = 0;

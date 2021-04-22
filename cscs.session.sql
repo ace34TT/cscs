@@ -1,3 +1,17 @@
 -- UPDATE personnal_informations
 -- SET validation_code = 'unused';
-DELETE from `personnal_informations`;
+-- DELETE from `personnal_informations`;
+-- CREATE TABLE `pretest_candidate_assignment` (
+--     `id` INT unsigned NOT NULL AUTO_INCREMENT,
+--     `events` INT UNSIGNED NOT NULL,
+--     `candidate` INT UNSIGNED NOt NULL,
+--     `stat` BOOLEAN NOT NULL DEFAULT 0,
+--     PRIMARY KEY (`id`),
+--     FOREIGN KEY (events) REFERENCES events(id),
+--     FOREIGN KEY (candidate) REFERENCES candidates(id)
+-- ) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4;
+-- SELECT *
+-- FROM personnal_informations
+--     INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id
+--     INNER JOIN pending_pretests ON candidates.id = pending_pretests.candidate
+-- WHERE pending_pretests.stat = false

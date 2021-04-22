@@ -68,15 +68,15 @@ if ($route == $uri || '/' == $uri) {
                 include('Pages/Backend/Admin/index.php');
             }
             // Overview (homepage)
-            else if ($_GET['admin'] == 'overview') {
+            if ($_GET['admin'] == 'overview') {
                 include('Pages/Backend/Admin/overview.php');
             }
             // Event form
-            else if ($_GET['admin'] == 'event_form') {
+            if ($_GET['admin'] == 'event_form') {
                 include('Pages/Backend/Admin/event-form.php');
             }
             // Event upload
-            elseif ($_GET['admin'] == 'event_upload') {
+            if ($_GET['admin'] == 'event_upload') {
                 $data[0] = $_POST['author'];
                 $data[1] = $_POST['responsible'];
                 $data[2] = $_POST['contact'];
@@ -91,10 +91,22 @@ if ($route == $uri || '/' == $uri) {
                 $event_controller->store($data);
                 $checker = true;
                 include('Pages/Backend/Admin/event-form.php');
-            } elseif ($_GET['admin'] == 'organize_test') {
+            }
+            // show coming event list
+            if ($_GET['admin'] == 'organize_test') {
                 $coming_pretest = $event_controller->get_comming_pretests();
                 $comping_final_test = $event_controller->get_coming_final_test();
                 include('Pages/Backend/Admin/coming-event.php');
+            }
+            // candidate event assignment
+            if ($_GET['admin'] == 'pretest_assignement') {
+                $event = $event_controller->get_event_by_id($_GET['event']);
+                $pending_cnadidates = $candidate_controller->get_pretest_pending_candidate();
+                include('Pages/Backend/Admin/pretest-assignement.php');
+            }
+            // candidate card
+            if ($_GET['admin'] == 'candidate_card') {
+                echo $_GET['candidate'];
             }
         } else if ($_GET['admin'] == 'login') {
             include('Pages/Backend/Admin/index.php');

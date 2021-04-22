@@ -39,8 +39,29 @@ class Candidate extends Connection
         $req = $this->pdo->prepare('SELECT id FROM candidates WHERE email = ?');
         $req->execute(array($email));
         $row = $this->fetch_resultSet($req);
-        var_dump($row);
         $req = $this->pdo->prepare('INSERT INTO pending_pretests (candidate)  VALUES(:candidate)');
         $req->execute(array('candidate' => $row[0]['id']));
+    }
+
+    public function pretest_pending_candidate()
+    {
+        $req = $this->pdo->query('SELECT *
+                                    FROM personnal_informations
+                                        INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id
+                                        INNER JOIN pending_pretests ON candidates.id = pending_pretests.candidate
+                                    WHERE pending_pretests.stat = false');
+        $rows = $this->fetch_resultSet($req);
+        return $rows;
+    }
+
+    public function candidate_by_event()
+    {
+        $req = $this->pdo->query('SELECT *
+                                    FROM personnal_informations
+                                        INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id
+                                        INNER JOIN pending_pretests ON candidates.id = pending_pretests.candidate
+                                    WHERE pending_pretests.stat = false');
+        $rows = $this->fetch_resultSet($req);
+        return $rows;
     }
 }

@@ -20,7 +20,7 @@
                     <tbody>
                         <?php
                         foreach ($coming_pretest as $event) { ?>
-                            <tr onclick="window.location='index.php';">
+                            <tr onclick="window.location='index.php?admin=pretest_assignement&amp;event=<?= $event['id'] ?>';">
                                 <th scope="row"><?= $event['names'] ?></th>
                                 <td><?= $event['dates'] ?></td>
                                 <td><?= $event['schedule'] ?> </td>
