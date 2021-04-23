@@ -16,7 +16,6 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/Vendor/Fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="Assets/Vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="Assets/Styles/overview.css">
     <link rel="stylesheet" href="Assets/Styles/sidebars.css">

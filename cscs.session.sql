@@ -1,3 +1,11 @@
+ALTER TABLE pretest_candidate_assignment
+ADD notified BOOLEAN DEFAULT 0 NOT NULL;
+-- CREATE VIEW users AS
+-- SELECT candidates.id as users,
+--     candidates.passwords,
+--     personnal_informations.*
+-- FROM personnal_informations
+--     INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id;
 -- UPDATE personnal_informations
 -- SET validation_code = 'unused';
 -- DELETE from `personnal_informations`;
@@ -15,3 +23,6 @@
 --     INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id
 --     INNER JOIN pending_pretests ON candidates.id = pending_pretests.candidate
 -- WHERE pending_pretests.stat = false
+-- ALTER TABLE `personnal_informations`
+-- MODIFY `email` VARCHAR(75) UNIQUE NOT NULL;
+-- DELETE FROM `personnal_informations` WHERE id = 21 ;

@@ -82,7 +82,23 @@ class Candidate_Controller
         return $this->candidate->pretest_pending_candidate();
     }
 
-    public function get_candidate_by_event($event)
+    public function prestest_assignement($candidates, $event)
     {
+        $candidates = str_replace(' ', '', $candidates);
+        $candidates = explode(',', $candidates);
+        unset($candidates[count($candidates) - 1]);
+        foreach ($candidates as $candidate) {
+            $this->candidate->assign_pretest_candidate($candidate, $event);
+            $this->candidate->update_stat_pending_pretest($candidate);
+        }
+    }
+
+    private function chueck_event_type()
+    {
+    }
+
+    public function get_candidate_by_assigned_event($event)
+    {
+        return $this->candidate->active_candidate_by_event($event);
     }
 }

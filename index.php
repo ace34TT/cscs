@@ -101,8 +101,16 @@ if ($route == $uri || '/' == $uri) {
             // candidate event assignment
             if ($_GET['admin'] == 'pretest_assignement') {
                 $event = $event_controller->get_event_by_id($_GET['event']);
+                $assignet_curr_event = $candidate_controller->get_candidate_by_assigned_event($_GET['event']);
                 $pending_cnadidates = $candidate_controller->get_pretest_pending_candidate();
                 include('Pages/Backend/Admin/pretest-assignement.php');
+            }
+            // assigning candidate
+            if ($_GET['admin'] == 'pretest_assignement_validation') {
+                $ids = $_POST['selected_candidates'];
+                $event = $_GET['event'];
+                var_dump($ids, $event);
+                // $candidate_controller->prestest_assignement($ids, $event);
             }
             // candidate card
             if ($_GET['admin'] == 'candidate_card') {

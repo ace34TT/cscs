@@ -156,23 +156,23 @@ iframe {
 [ Table ]*/
 
 .limiter {
-    width: 1366px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .container-table100 {
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     background: #fff;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     flex-wrap: wrap;
-    padding: 33px 30px;
+    padding: 10px;
 }
 
 .wrap-table100 {
@@ -198,7 +198,7 @@ td {
 }
 
 .column1 {
-    width: 7%;
+    width: 10%;
     padding-left: 40px;
 }
 
@@ -207,7 +207,7 @@ td {
 }
 
 .column3 {
-    width: 25%;
+    width: 22%;
 }
 
 .column4 {
@@ -218,8 +218,8 @@ td {
     width: 13%;
 }
 
-.column6 {
-    width: 5%;
+.column5-1 {
+    width: 7%;
 }
 
 .table100-head th {
@@ -556,4 +556,14 @@ td {
 
 .table100.ver5 .ps__rail-y .ps__thumb-y::before {
     background-color: #cccccc;
+}
+
+#assign-btn {
+    background-color: #6c7ae0;
+    color: white;
+}
+
+#assign-btn:hover {
+    background-color: #8d9af7;
+    color: white;
 }

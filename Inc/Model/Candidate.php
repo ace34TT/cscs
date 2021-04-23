@@ -45,23 +45,55 @@ class Candidate extends Connection
 
     public function pretest_pending_candidate()
     {
-        $req = $this->pdo->query('SELECT *
-                                    FROM personnal_informations
-                                        INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id
-                                        INNER JOIN pending_pretests ON candidates.id = pending_pretests.candidate
+        try {
+            $req = $this->pdo->query('SELECT *
+                                    FROM users
+                                        INNER JOIN pending_pretests ON users.users = pending_pretests.candidate
                                     WHERE pending_pretests.stat = false');
-        $rows = $this->fetch_resultSet($req);
-        return $rows;
+            $rows = $this->fetch_resultSet($req);
+            return $rows;
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
     }
 
-    public function candidate_by_event()
+    public function assign_pretest_candidate($candidate, $event)
     {
-        $req = $this->pdo->query('SELECT *
-                                    FROM personnal_informations
-                                        INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id
-                                        INNER JOIN pending_pretests ON candidates.id = pending_pretests.candidate
-                                    WHERE pending_pretests.stat = false');
-        $rows = $this->fetch_resultSet($req);
-        return $rows;
+        try {
+            $req = $this->pdo->prepare('INSERT INTO pretest_candidate_assignment (events ,candidate)  VALUES(:events , :candidate)');
+            $req->execute(array(
+                'events' => $event,
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function update_stat_pending_pretest($candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('UPDATE pending_pretests SET stat = 1 WHERE candidate = :candidate');
+            $req->execute(array(
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function active_candidate_by_event($event)
+    {
+        try {
+            $req = $this->pdo->prepare('SELECT * , pretest_candidate_assignment.notified
+                                    FROM users
+                                        INNER JOIN pretest_candidate_assignment ON users.users = pretest_candidate_assignment.candidate
+                                    WHERE pretest_candidate_assignment.stat = false AND events = ?');
+            $req->execute(array($event));
+            $rows = $this->fetch_resultSet($req);
+            return $rows;
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
     }
 }
