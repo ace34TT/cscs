@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="Assets/Styles/table.css">
 
 <style>
-    .activ-dot {
+    .active-dot {
         height: 10px;
         width: 10px;
         background-color: #87f75b;
@@ -20,7 +20,7 @@
     .inactive-dot {
         height: 10px;
         width: 10px;
-        background-color: #f75b5b;
+        background-color: #9ab5ce;
         border-radius: 50%;
         display: inline-block;
     }
@@ -99,7 +99,7 @@
                                 </thead>
                             </table>
                         </div>
-                        <div class="table100-body js-pscroll">
+                        <div class="table100-body js-pscroll" id="assigned_candidates">
                             <table>
                                 <tbody>
                                     <?php
@@ -113,13 +113,14 @@
                                                 <td class="cell100 column5"><?= $candidate['post'] ?> </td>
                                                 <td class="cell100 column5 text-center"><span class="
                                     <?php
-                                            echo $candidate['notified'] == true ? 'active-dote' : 'inactive-dot';
+                                            echo $candidate['notified'] == true ? 'active-dot' : 'inactive-dot';
                                     ?> "></span>
+                                                    <input hidden type="checkbox" <?php
+                                                                                    echo $candidate['notified'] == true ? '' : 'checked';
+                                                                                    ?>>
                                                 </td>
-                                                <td class="cell100 column5">
-                                                    <svg class="bi" width="32" height="32" fill="currentColor">
-                                                        <use xlink:href="bootstrap-icons.svg#heart-fill" />
-                                                    </svg>
+                                                <td class="cell100 column5" id="remove">
+                                                    <span onclick="window.location='index.php?admin=unassign_pretest&amp;candidate=<?= $candidate['users'] ?>&amp;event= <?= $event[0]['id'] ?>';" class="fa fa-user-minus"></span>
                                                 </td>
                                             </tr>
                                     <?php
@@ -133,9 +134,16 @@
                 </div>
             </div>
         </div>
+        <form <?php
+                if (!isset($assignet_curr_event)) {
+                    echo 'hidden';
+                }
+                ?> action="index.php?admin=notify_candidate&amp;event=<?= $_GET['event'] ?>" method="POST">
+            <input type="text" hidden name="unotified_candidates" value="" id="unotified_candidates">
+            <input type="submit" id="notify-btn" value="Notify by email" style="height: 50px;" class="table-btn col-md-4 offset-7 mt-3 mb-3 btn">
+        </form>
     </div>
 </div>
-
 
 <div class="row mt-2 mb-3 border">
     <h1 class="col-md-12 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
@@ -158,7 +166,7 @@
                                 </thead>
                             </table>
                         </div>
-                        <div class="table100-body js-pscroll" id="table">
+                        <div class="table100-body js-pscroll" id="pending_candidates">
                             <table>
                                 <tbody>
                                     <?php
@@ -185,18 +193,15 @@
         </div>
         <form <?php
                 if (!isset($pending_cnadidates)) {
-                    echo 'id=0';
+                    echo 'hidden';
                 }
                 ?> action="index.php?admin=pretest_assignement_validation&amp;event=<?= $_GET['event'] ?>" method="POST">
             <input type="text" hidden name="selected_candidates" value="" id="selected_candidates">
-            <input type="submit" id="assign-btn" value="Assign selected candidates" style="height: 50px;" class="col-md-4 offset-7 mt-3 mb-3 btn">
+            <input type="submit" id="assign-btn" value="Assign selected candidates" style="height: 50px;" class="table-btn col-md-4 offset-7 mt-3 mb-3 btn">
         </form>
     </div>
 
 </div>
-
-
-
 <?php $content = ob_get_clean(); ?>
 
 
@@ -220,10 +225,21 @@
 <script type="text/javascript">
     $(function() {
         //Assign Click event to Button.
+        $("#notify-btn").hover(function() {
+            var ids = "";
+            //Loop through all checked CheckBoxes in GridView.
+            $("#assigned_candidates input[type=checkbox]:checked").each(function() {
+                var row = $(this).closest("tr")[0];
+                ids += row.cells[0].innerHTML;
+                ids += ",";
+            });
+            document.getElementById("unotified_candidates").value = ids;
+        });
+        //Assign Click event to Button.
         $("#assign-btn").hover(function() {
             var ids = "";
             //Loop through all checked CheckBoxes in GridView.
-            $("#table input[type=checkbox]:checked").each(function() {
+            $("#pending_candidates input[type=checkbox]:checked").each(function() {
                 var row = $(this).closest("tr")[0];
                 ids += row.cells[0].innerHTML;
                 ids += ",";
@@ -232,8 +248,8 @@
         });
     });
 </script>
-
 <script src="Assets/JavaScripts/table.js"></script>
 <?php $scripts = ob_get_clean(); ?>
+
 
 <?php require('template.php'); ?>

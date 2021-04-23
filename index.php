@@ -45,7 +45,7 @@ if ($route == $uri || '/' == $uri) {
 
         $inf_controller->store($data);
 
-        include('Pages/Frontend/index.php');
+        header("Location: index.php");
     }
     // Admin
     if (isset($_GET['admin'])) {
@@ -90,7 +90,7 @@ if ($route == $uri || '/' == $uri) {
 
                 $event_controller->store($data);
                 $checker = true;
-                include('Pages/Backend/Admin/event-form.php');
+                header("Location: index.php?admin=event_form");
             }
             // show coming event list
             if ($_GET['admin'] == 'organize_test') {
@@ -98,7 +98,7 @@ if ($route == $uri || '/' == $uri) {
                 $comping_final_test = $event_controller->get_coming_final_test();
                 include('Pages/Backend/Admin/coming-event.php');
             }
-            // candidate event assignment
+            // candidate event assignment list
             if ($_GET['admin'] == 'pretest_assignement') {
                 $event = $event_controller->get_event_by_id($_GET['event']);
                 $assignet_curr_event = $candidate_controller->get_candidate_by_assigned_event($_GET['event']);
@@ -109,8 +109,22 @@ if ($route == $uri || '/' == $uri) {
             if ($_GET['admin'] == 'pretest_assignement_validation') {
                 $ids = $_POST['selected_candidates'];
                 $event = $_GET['event'];
-                var_dump($ids, $event);
-                // $candidate_controller->prestest_assignement($ids, $event);
+                $candidate_controller->prestest_assignement($ids, $event);
+
+                header("Location: index.php?admin=pretest_assignement&event=" . $_GET['event']);
+            }
+            // unasigning candidate
+            if ($_GET['admin'] == 'unassign_pretest') {
+                $candidate = $_GET['candidate'];
+                $candidate_controller->unasign_candidate_from_prestest_event($candidate);
+
+                header("Location: index.php?admin=pretest_assignement&event=" . $_GET['event']);
+            }
+            // notifying candidates
+            if ($_GET['admin'] == 'notify_candidate') {
+                $candidates = $_POST['unotified_candidates'];
+                $candidate_controller->notify_candidate($candidates);
+                header("Location: index.php?admin=pretest_assignement&event=" . $_GET['event']);
             }
             // candidate card
             if ($_GET['admin'] == 'candidate_card') {

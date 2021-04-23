@@ -93,12 +93,40 @@ class Candidate_Controller
         }
     }
 
-    private function chueck_event_type()
-    {
-    }
-
     public function get_candidate_by_assigned_event($event)
     {
         return $this->candidate->active_candidate_by_event($event);
+    }
+
+    public function unasign_candidate_from_prestest_event($candidate)
+    {
+        $this->candidate->unassign_candidate_pretest($candidate);
+        $this->candidate->reset_stat_from_pending_pretest($candidate);
+    }
+
+    public function notify_candidate($candidates)
+    {
+        $candidates = str_replace(' ', '', $candidates);
+        $candidates = explode(',', $candidates);
+        unset($candidates[count($candidates) - 1]);
+
+        foreach ($candidates as $id_candidate) {
+            $email = $this->candidate->get_email_pretest_notifications($id_candidate)[0]['email'];
+            // $this->send_pretest_email($email);
+            $this->candidate->update_notif_pretest_event($id_candidate);
+        }
+    }
+
+    public function send_pretest_email($email)
+    {
+        $to_email = $email;
+        $subject = 'Testing PHP Mail';
+        $message = 'This mail is sent using the PHP mail function';
+        $headers = 'From: notification@cscsmadagascar.mg';
+        mail($to_email, $subject, $message, $headers);
+    }
+
+    private function chueck_event_type()
+    {
     }
 }

@@ -1,9 +1,17 @@
-ALTER TABLE pretest_candidate_assignment
-ADD notified BOOLEAN DEFAULT 0 NOT NULL;
+-- ALTER TABLE pretest_candidate_assignment
+-- ADD notified BOOLEAN DEFAULT 0 NOT NULL;
 -- CREATE VIEW users AS
 -- SELECT candidates.id as users,
---     candidates.passwords,
---     personnal_informations.*
+--     personnal_informations.firstname,
+--     personnal_informations.lastname,
+--     personnal_informations.gender,
+--     personnal_informations.date_of_birth,
+--     personnal_informations.province,
+--     personnal_informations.addresses,
+--     personnal_informations.phone,
+--     personnal_informations.email,
+--     personnal_informations.post,
+--     personnal_informations.reg_date
 -- FROM personnal_informations
 --     INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id;
 -- UPDATE personnal_informations

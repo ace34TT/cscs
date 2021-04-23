@@ -194,7 +194,7 @@ table {
 th,
 td {
     font-weight: unset;
-    padding-right: 10px;
+    padding-right: 0px;
 }
 
 .column1 {
@@ -203,7 +203,7 @@ td {
 }
 
 .column2 {
-    width: 25%;
+    width: 22%;
 }
 
 .column3 {
@@ -558,12 +558,21 @@ td {
     background-color: #cccccc;
 }
 
-#assign-btn {
+.table-btn {
     background-color: #6c7ae0;
     color: white;
 }
 
-#assign-btn:hover {
+.table-btn:hover {
     background-color: #8d9af7;
     color: white;
+}
+
+#remove {
+    color: #f8726d;
+}
+
+#remove :hover {
+    color: #f04b46;
+    font-size: 16px;
 }

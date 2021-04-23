@@ -708,6 +708,11 @@
             }
         }
     </script>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 
     <!-- Template Main JS File -->
     <script src="Assets/JavaScripts/index.js"></script>

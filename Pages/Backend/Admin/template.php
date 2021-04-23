@@ -12,7 +12,7 @@
 
     <title> <?= $title ?> </title>
     <link href="Assets/Vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/Vendor/Fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -120,6 +120,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
     <script src="Assets/JavaScripts/dashboard.js"></script>
     <script src="Assets/JavaScripts/sidebars.js"></script>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
 
     <?php
     if (isset($scripts)) {

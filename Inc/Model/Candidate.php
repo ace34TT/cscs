@@ -96,4 +96,51 @@ class Candidate extends Connection
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    public function unassign_candidate_pretest($candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('DELETE FROM pretest_candidate_assignment WHERE candidate = :candidate ');
+            $req->execute(array(
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function reset_stat_from_pending_pretest($candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('UPDATE pending_pretests SET stat = 0 WHERE candidate = :candidate');
+            $req->execute(array(
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function get_email_pretest_notifications($id_candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('SELECT email FROM users WHERE users =?');
+            $req->execute(array($id_candidate));
+            return $this->fetch_resultSet($req);
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function update_notif_pretest_event($id_candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('UPDATE pretest_candidate_assignment SET notified = true WHERE candidate = :candidate');
+            $req->execute(array(
+                'candidate' => $id_candidate
+            ));
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
 }
