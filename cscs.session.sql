@@ -1,10 +1,12 @@
--- CREATE TABLE `comments` (
+DROP TABLE pretest_results;
+-- CREATE TABLE `results` (
 --     `id` INT unsigned NOT NULL AUTO_INCREMENT,
+--     `event` INT UNSIGNED NOt NULL,
 --     `candidate` INT UNSIGNED NOt NULL,
---     `content` TEXT(65535) DEFAULT '' NOT NULL,
---     `author` VARCHAR(255) NOT NULL,
+--     `result` BOOLEAN NOT NULL,
 --     `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 --     PRIMARY KEY (`id`),
+--     FOREIGN KEY (event) REFERENCES events(id),
 --     FOREIGN KEY (candidate) REFERENCES candidates(id)
 -- ) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4;
 -- ALTER TABLE events
