@@ -126,6 +126,11 @@ class Candidate_Controller
         mail($to_email, $subject, $message, $headers);
     }
 
+    public function get_candidate_by_id($id_candidate)
+    {
+        return $this->candidate->identified_by_id($id_candidate)[0];
+    }
+
     private function chueck_event_type()
     {
     }

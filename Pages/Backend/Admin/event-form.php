@@ -35,17 +35,26 @@
                     </div>
 
                     <!-- Event Inf -->
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Name</label>
                         <input type="text" name="name" class="form-control" required id="validationCustom02">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <label for="validationCustom03" class="form-label">Event</label>
                         <select class="form-select" name="event" aria-label="Default select example" id="validationCustom03">
                             <option selected>Select</option>
                             <option value="meeting">Meeting</option>
                             <option value="pretest">Pretest</option>
                             <option value="final_test">Final test</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationCustom08" class="form-label">Method</label>
+                        <select class="form-select" name="method" aria-label="Default select example" id="validationCustom08">
+                            <option selected>Select</option>
+                            <option value="face_to_face">Face to face</option>
+                            <option value="video_call">Video call</option>
+                            <option value="vocal_call">Vocal call</option>
                         </select>
                     </div>
 
@@ -71,8 +80,8 @@
                         <input type="date" name="date" class="form-control" required id="validationCustom06">
                     </div>
                     <div class="col-md-6">
-                        <label for="validationCustom06" class="form-label">Time</label>
-                        <input type="time" name="schedule" class="form-control" required id="validationCustom06">
+                        <label for="validationCustom07" class="form-label">Time</label>
+                        <input type="time" name="schedule" class="form-control" required id="validationCustom07">
                     </div>
 
                     <div class="col-12">

@@ -43,14 +43,6 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-md-6 offset-md-1">
-                <p> <B>Responsible</B> : <?= $event['responsible'] ?></p>
-            </div>
-            <div class="col-md-3 offset-md-1 ">
-                <p> <B>Contact</B> : <?= $event['contact'] ?></p>
-            </div>
-        </div>
-        <div class="row mt-3">
             <div class="col-md-3 offset-md-1">
                 <p> <B>Date</B> : <?= $event['dates'] ?></p>
             </div>
@@ -94,7 +86,6 @@
                                         <th class="cell100 column4">Province</th>
                                         <th class="cell100 column5">Post</th>
                                         <th class="cell100 column6">Notified</th>
-                                        <th class="cell100 column6 ">Action</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -107,7 +98,7 @@
                                         foreach ($assignet_curr_event as $candidate) { ?>
                                             <tr class="row100 body">
                                                 <td class="cell100 column1"><?= $candidate['users'] ?> </td>
-                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=candidate_card&amp;candidate=<?= $candidate['users'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
+                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=pretest_form&amp;candidate=<?= $candidate['users'] ?>&amp;event=<?= $candidate['users'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
                                                 <td class="cell100 column3"><?= $candidate['email'] ?> </td>
                                                 <td class="cell100 column4"> <?= $candidate['province'] ?> </td>
                                                 <td class="cell100 column5"><?= $candidate['post'] ?> </td>
@@ -118,9 +109,6 @@
                                                     <input hidden type="checkbox" <?php
                                                                                     echo $candidate['notified'] == true ? '' : 'checked';
                                                                                     ?>>
-                                                </td>
-                                                <td class="cell100 column5" id="remove">
-                                                    <span onclick="window.location='index.php?admin=unassign_pretest&amp;candidate=<?= $candidate['users'] ?>&amp;event= <?= $event['id'] ?>';" class="fa fa-user-minus"></span>
                                                 </td>
                                             </tr>
                                     <?php
@@ -134,18 +122,10 @@
                 </div>
             </div>
         </div>
-        <form <?php
-                if (!isset($assignet_curr_event)) {
-                    echo 'hidden';
-                }
-                ?> action="index.php?admin=notify_candidate&amp;event=<?= $_GET['event'] ?>" method="POST">
-            <input type="text" hidden name="unotified_candidates" value="" id="unotified_candidates">
-            <input type="submit" id="notify-btn" value="Notify by email" style="height: 50px;" class="table-btn col-md-4 offset-7 mt-3 mb-3 btn">
-        </form>
     </div>
 </div>
 
-<div class="row mt-2 mb-3 border">
+<!-- <div class="row mt-2 mb-3 border">
     <h1 class="col-md-12 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
     <div class="container shadow-sm mt-3" style="font-size: 20px;">
         <div class="limiter">
@@ -201,7 +181,7 @@
         </form>
     </div>
 
-</div>
+</div> -->
 <?php $content = ob_get_clean(); ?>
 
 

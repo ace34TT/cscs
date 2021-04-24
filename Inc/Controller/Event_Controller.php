@@ -16,6 +16,15 @@ class Event_Controller
         $this->event->_save($data);
     }
 
+    public function count_cuurr_event()
+    {
+        return $this->event->count_curr_event()[0]['count(*)'];
+    }
+    public function get_cuurr_event()
+    {
+        return $this->event->curr_event_lists();
+    }
+
     public function get_comming_pretests()
     {
         return $this->event->comming_pretests();
@@ -28,6 +37,6 @@ class Event_Controller
 
     public function get_event_by_id($id)
     {
-        return $this->event->_id($id);
+        return $this->event->_id($id)[0];
     }
 }

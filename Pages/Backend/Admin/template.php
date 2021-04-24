@@ -88,6 +88,7 @@
                             <div class="collapse show" id="event-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li><a href="index.php?admin=event_form" class="link-dark rounded">Create</a></li>
+                                    <li><a href="index.php?admin=current_event" class="link-dark rounded">Today's event</a></li>
                                     <li><a href="index.php?admin=organize_test" class="link-dark rounded">Organize test</a></li>
                                 </ul>
                             </div>

@@ -143,4 +143,15 @@ class Candidate extends Connection
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    public function identified_by_id($id_candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('SELECT * FROM users WHERE users =?');
+            $req->execute(array($id_candidate));
+            return $this->fetch_resultSet($req);
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
 }

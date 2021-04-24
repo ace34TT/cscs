@@ -5,14 +5,28 @@
 <!-- Events -->
 <div class="row mt-2">
     <h1 class="col-md-12 mt-4">Events</h1>
-    <div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt mt-2 position-relative gx-5 overview " id="todays-events">
+                <div class=" col-md-12 mt-3 mb-3">
+                    <div class="row" style=" font-size: 40px;">
+                        <a href="index.php?admin=current_event" class="stretched-link col-11"> <span class="fa fa-calendar-alt"></span> Incoming events</a>
+                        <a href="" class="col-1">
+                            <?php
+                            echo $curr_event == null ? '0' : $curr_event;
+                            ?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row justify-content-evenly mt-3">
-            <div class="col-md-4 position-relative gx-5 overview " id="incoming">
+            <div class="col-md-4 mt mt-2 position-relative gx-5 overview " id="incoming">
                 <div class=" col-md-12 mt-3 mb-3">
                     <a href="" class="stretched-link" style=" font-size: 40px;"> Incoming events</a>
                 </div>
             </div>
-            <div class="col-md-4 position-relative gx-5 overview " id="lastest">
+            <div class="col-md-4 mt-2 position-relative gx-5 overview " id="lastest">
                 <div class=" col-md-12 mt-3 mb-3">
                     <a href="" class="stretched-link" style=" font-size: 40px;"> 5 lastest events </a>
                 </div>

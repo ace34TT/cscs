@@ -1,5 +1,14 @@
--- ALTER TABLE pretest_candidate_assignment
--- ADD notified BOOLEAN DEFAULT 0 NOT NULL;
+-- CREATE TABLE `comments` (
+--     `id` INT unsigned NOT NULL AUTO_INCREMENT,
+--     `candidate` INT UNSIGNED NOt NULL,
+--     `content` TEXT(65535) DEFAULT '' NOT NULL,
+--     `author` VARCHAR(255) NOT NULL,
+--     `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--     PRIMARY KEY (`id`),
+--     FOREIGN KEY (candidate) REFERENCES candidates(id)
+-- ) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4;
+-- ALTER TABLE events
+-- ADD COLUMN stat BOOLEAN DEFAULT FALSE NOT NULL;
 -- CREATE VIEW users AS
 -- SELECT candidates.id as users,
 --     personnal_informations.firstname,
@@ -17,11 +26,11 @@
 -- UPDATE personnal_informations
 -- SET validation_code = 'unused';
 -- DELETE from `personnal_informations`;
--- CREATE TABLE `pretest_candidate_assignment` (
+-- CREATE TABLE `pretest_results` (
 --     `id` INT unsigned NOT NULL AUTO_INCREMENT,
 --     `events` INT UNSIGNED NOT NULL,
 --     `candidate` INT UNSIGNED NOt NULL,
---     `stat` BOOLEAN NOT NULL DEFAULT 0,
+--     `result` BOOLEAN NOT NULL DEFAULT 0,
 --     PRIMARY KEY (`id`),
 --     FOREIGN KEY (events) REFERENCES events(id),
 --     FOREIGN KEY (candidate) REFERENCES candidates(id)
