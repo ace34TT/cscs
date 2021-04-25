@@ -131,6 +131,10 @@ class Candidate_Controller
         return $this->candidate->identified_by_id($id_candidate)[0];
     }
 
+    public function update_test_candidate_assignment($event, $candidate)
+    {
+    }
+
     private function chueck_event_type()
     {
     }
