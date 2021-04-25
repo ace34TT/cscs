@@ -1,4 +1,20 @@
-DROP TABLE pretest_results;
+-- DELETE from `events` ;
+-- -- RENAME TABLE pretest_candidate_assignment TO test_candidate_assignment ;Add
+-- ALTER TABLE comments
+-- ADD COLUMN events INT UNSIGNED NOT NULL;
+-- AFTER candidate;
+-- ALTER TABLE comments DROP COLUMN events;
+-- select *
+-- from comments
+-- where events not in (
+--         select distinct id
+--         from events
+--     );
+-- ALTER TABLE comments
+-- ADD FOREIGN KEY (events) REFERENCES events(id);
+-- ALTER TABLE (comments)
+-- ADD FOREIGN KEY events REFERENCES events(id);
+-- DROP TABLE pretest_results;
 -- CREATE TABLE `results` (
 --     `id` INT unsigned NOT NULL AUTO_INCREMENT,
 --     `event` INT UNSIGNED NOt NULL,
@@ -25,8 +41,8 @@ DROP TABLE pretest_results;
 --     personnal_informations.reg_date
 -- FROM personnal_informations
 --     INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id;
--- UPDATE personnal_informations
--- SET validation_code = 'unused';
+UPDATE `pendings`
+SET stat = FALSE;
 -- DELETE from `personnal_informations`;
 -- CREATE TABLE `pretest_results` (
 --     `id` INT unsigned NOT NULL AUTO_INCREMENT,

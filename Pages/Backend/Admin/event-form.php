@@ -23,11 +23,11 @@
                     <!-- Author/Responsable -->
                     <div class="col-md-4">
                         <label for="author" class="form-label">Author</label>
-                        <input type="text" name="author" readonly class="form-control" value="  <?= $_SESSION['admin'][0]['names'] ?>" id="author">
+                        <input type="text" name="author" readonly class="form-control" value="  <?= $_SESSION['admin']['names'] ?>" id="author">
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Respensible</label>
-                        <input type="text" name="responsible" class="form-control" value="  <?= $_SESSION['admin'][0]['names'] ?>" id="validationCustom01">
+                        <input type="text" name="responsible" class="form-control" value="  <?= $_SESSION['admin']['names'] ?>" id="validationCustom01">
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Contact</label>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Assets/Vendor/bootstrap/css/bootstrap.min.css">
     <link href="Assets/Images/Logo.png" rel="icon">
-    <title>Document</title>
+    <title>Prest-From- <?= $candidate['lastname'] . ' ' . $candidate['firstname']  ?> </title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
     </style>

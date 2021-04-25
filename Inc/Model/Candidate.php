@@ -39,7 +39,7 @@ class Candidate extends Connection
         $req = $this->pdo->prepare('SELECT id FROM candidates WHERE email = ?');
         $req->execute(array($email));
         $row = $this->fetch_resultSet($req);
-        $req = $this->pdo->prepare('INSERT INTO pending_pretests (candidate)  VALUES(:candidate)');
+        $req = $this->pdo->prepare('INSERT INTO pendings (candidate,test)  VALUES(:candidate,0)');
         $req->execute(array('candidate' => $row[0]['id']));
     }
 
@@ -48,8 +48,9 @@ class Candidate extends Connection
         try {
             $req = $this->pdo->query('SELECT *
                                     FROM users
-                                        INNER JOIN pending_pretests ON users.users = pending_pretests.candidate
-                                    WHERE pending_pretests.stat = false');
+                                        INNER JOIN pendings ON users.users = pendings.candidate
+                                    WHERE pendings.stat = false 
+                                    AND pendings.test = 0');
             $rows = $this->fetch_resultSet($req);
             return $rows;
         } catch (Exception $e) {
@@ -60,7 +61,7 @@ class Candidate extends Connection
     public function assign_pretest_candidate($candidate, $event)
     {
         try {
-            $req = $this->pdo->prepare('INSERT INTO pretest_candidate_assignment (events ,candidate)  VALUES(:events , :candidate)');
+            $req = $this->pdo->prepare('INSERT INTO test_candidate_assignment (events ,candidate)  VALUES(:events , :candidate)');
             $req->execute(array(
                 'events' => $event,
                 'candidate' => $candidate
@@ -73,7 +74,7 @@ class Candidate extends Connection
     public function update_stat_pending_pretest($candidate)
     {
         try {
-            $req = $this->pdo->prepare('UPDATE pending_pretests SET stat = 1 WHERE candidate = :candidate');
+            $req = $this->pdo->prepare('UPDATE pendings SET stat = 1 WHERE candidate = :candidate');
             $req->execute(array(
                 'candidate' => $candidate
             ));
@@ -85,10 +86,10 @@ class Candidate extends Connection
     public function active_candidate_by_event($event)
     {
         try {
-            $req = $this->pdo->prepare('SELECT * , pretest_candidate_assignment.notified
-                                    FROM users
-                                        INNER JOIN pretest_candidate_assignment ON users.users = pretest_candidate_assignment.candidate
-                                    WHERE pretest_candidate_assignment.stat = false AND events = ?');
+            $req = $this->pdo->prepare('SELECT * , test_candidate_assignment.notified
+                                        FROM users
+                                            INNER JOIN test_candidate_assignment ON users.users = test_candidate_assignment.candidate
+                                        WHERE test_candidate_assignment.stat = false AND events = ?');
             $req->execute(array($event));
             $rows = $this->fetch_resultSet($req);
             return $rows;
@@ -100,11 +101,17 @@ class Candidate extends Connection
     public function unassign_candidate_pretest($candidate)
     {
         try {
-            $req = $this->pdo->prepare('DELETE FROM pretest_candidate_assignment WHERE candidate = :candidate ');
+            $req = $this->pdo->prepare('DELETE test_candidate_assignment FROM test_candidate_assignment
+                                            INNER JOIN events
+                                                ON events.id = test_candidate_assignment.events
+                                        WHERE candidate = :candidate 
+                                        AND events.events = \'pretest\'
+            ');
             $req->execute(array(
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
+
             die('Erreur : ' . $e->getMessage());
         }
     }
@@ -112,11 +119,12 @@ class Candidate extends Connection
     public function reset_stat_from_pending_pretest($candidate)
     {
         try {
-            $req = $this->pdo->prepare('UPDATE pending_pretests SET stat = 0 WHERE candidate = :candidate');
+            $req = $this->pdo->prepare('UPDATE pendings SET stat = 0 WHERE candidate = :candidate AND test = 0 ');
             $req->execute(array(
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
+            echo 'here <br>';
             die('Erreur : ' . $e->getMessage());
         }
     }
@@ -135,11 +143,17 @@ class Candidate extends Connection
     public function update_notif_pretest_event($id_candidate)
     {
         try {
-            $req = $this->pdo->prepare('UPDATE pretest_candidate_assignment SET notified = true WHERE candidate = :candidate');
+            $req = $this->pdo->prepare('UPDATE test_candidate_assignment 
+                                            INNER JOIN events 
+                                            ON events.id = test_candidate_assignment.events 
+                                        SET notified = true 
+                                        WHERE candidate = :candidate
+                                        AND events.events =\'pretest\' ');
             $req->execute(array(
                 'candidate' => $id_candidate
             ));
         } catch (Exception $e) {
+
             die('Erreur : ' . $e->getMessage());
         }
     }
@@ -151,6 +165,23 @@ class Candidate extends Connection
             $req->execute(array($id_candidate));
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function update_test_candidate_assignment($event, $candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('UPDATE test_candidate_assignment 
+                                        SET stat = true 
+                                        WHERE candidate = :candidate
+                                        AND events = :events');
+            $req->execute(array(
+                'candidate' => $candidate,
+                'event' => $event
+            ));
+        } catch (Exception $e) {
+
             die('Erreur : ' . $e->getMessage());
         }
     }

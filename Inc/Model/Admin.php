@@ -18,7 +18,7 @@ class Admin extends Connection
         $req->execute(array($email, $password));
         $row = $this->fetch_resultSet($req);
         if ($row != null) {
-            $_SESSION['admin'] = $row;
+            $_SESSION['admin'] = $row[0];
             return true;
         } else {
             return false;

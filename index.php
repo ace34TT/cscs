@@ -17,13 +17,14 @@ require_once(dirname(__FILE__) . '/Inc/Controller/Personnal_information_Controll
 require_once(dirname(__FILE__) . '/Inc/Controller/Candidate_Controller.php');
 require_once(dirname(__FILE__) . '/Inc/Controller/Admin_Controller.php');
 require_once(dirname(__FILE__) . '/Inc/Controller/Event_Controller.php');
-require_once(dirname(__FILE__) . '/Inc/Controller/Result_controller.php');
-
+require_once(dirname(__FILE__) . '/Inc/Controller/Result_Controller.php');
+require_once(dirname(__FILE__) . '/Inc/Controller/Comment_Controller.php');
 $inf_controller = new Personnal_information_Controller;
 $admin_controller = new Admin_Controller;
 $event_controller = new Event_Controller;
 $candidate_controller = new Candidate_Controller;
 $result_controller = new Result_Controller;
+$comment_controller = new Commnet_controller;
 
 // gestion des routes
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -119,8 +120,26 @@ if ($route == $uri || '/' == $uri) {
             }
 
             if ($_GET['admin'] == 'upload_pretest_result') {
-                echo ($_GET['candidate'] . ' ' . $_GET['event'] . '<br>');
-                echo ($_POST['result'] . ' ' . $_POST['comment'] . ' ' . $_POST['post']);
+                // insert into result
+                // if commnet , insert 
+                // update candidate state 
+                $event = $_GET['event'];
+                $candidate = $_GET['candidate'];
+                $test_result =  $_POST['result'] == 'success' ? true : false;
+                $result[0] = $event;
+                $result[1] = $candidate;
+                $result[2] = $test_result;
+
+                $comment_value = $_POST['comment'];
+                $comment[0] = $candidate;
+                $comment[1] = $comment_value;
+                $comment[2] =  $_SESSION['admin']['names'];
+
+                // echo ($_SESSION['admin']['names']);
+                //$result_controller->store($result, $event, $candidate);
+                $comment != '' ? $comment_controller->store($comment) : null;
+                // echo ($_GET['candidate'] . ' ' . $_GET['event'] . '<br>');
+                // echo ($_POST['result'] . ' ' . $_POST['comment'] . ' ' . $_POST['post']);
                 return;
                 # code...
             }
