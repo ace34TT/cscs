@@ -74,7 +74,7 @@ class Candidate extends Connection
     public function update_stat_pending_pretest($candidate)
     {
         try {
-            $req = $this->pdo->prepare('UPDATE pendings SET stat = 1 WHERE candidate = :candidate');
+            $req = $this->pdo->prepare('UPDATE pendings SET stat = 1 WHERE candidate = :candidate AND test = 0');
             $req->execute(array(
                 'candidate' => $candidate
             ));
@@ -129,7 +129,7 @@ class Candidate extends Connection
         }
     }
 
-    public function get_email_pretest_notifications($id_candidate)
+    public function get_email($id_candidate)
     {
         try {
             $req = $this->pdo->prepare('SELECT email FROM users WHERE users =?');
@@ -174,11 +174,105 @@ class Candidate extends Connection
         try {
             $req = $this->pdo->prepare('UPDATE test_candidate_assignment 
                                         SET stat = true 
-                                        WHERE candidate = :candidate
-                                        AND events = :events');
+                                        WHERE events = :events
+                                        AND candidate = :candidate    
+                                    ');
             $req->execute(array(
-                'candidate' => $candidate,
-                'event' => $event
+                'events' => $event,
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function insert_pending_final_test($candidate)
+    {
+        $req = $this->pdo->prepare('INSERT INTO pendings (candidate,test)  VALUES(:candidate,1)');
+        $req->execute(array('candidate' => $candidate));
+    }
+
+    public function final_test_pending_candidate()
+    {
+        try {
+            $req = $this->pdo->query('SELECT *
+                                    FROM users
+                                        INNER JOIN pendings ON users.users = pendings.candidate
+                                    WHERE pendings.stat = false 
+                                    AND pendings.test = 1');
+            $rows = $this->fetch_resultSet($req);
+            return $rows;
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function update_stat_pending_final_test($candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('UPDATE pendings SET stat = 1 WHERE candidate = :candidate AND test = 1');
+            $req->execute(array(
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function assign_final_test_candidate($candidate, $event)
+    {
+        try {
+            $req = $this->pdo->prepare('INSERT INTO test_candidate_assignment (events ,candidate)  VALUES(:events , :candidate)');
+            $req->execute(array(
+                'events' => $event,
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+    public function unassign_candidate_final_test($candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('DELETE test_candidate_assignment FROM test_candidate_assignment
+                                            INNER JOIN events
+                                                ON events.id = test_candidate_assignment.events
+                                        WHERE candidate = :candidate 
+                                        AND events.events = \'final_test\'
+            ');
+            $req->execute(array(
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+    public function reset_stat_from_pending_final_test($candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('UPDATE pendings SET stat = 0 WHERE candidate = :candidate AND test = 1');
+            $req->execute(array(
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+            echo 'here <br>';
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function update_notif_final_test_event($id_candidate)
+    {
+        try {
+            $req = $this->pdo->prepare('UPDATE test_candidate_assignment 
+                                            INNER JOIN events 
+                                            ON events.id = test_candidate_assignment.events 
+                                        SET notified = true 
+                                        WHERE candidate = :candidate
+                                        AND events.events =\'final_test\' ');
+            $req->execute(array(
+                'candidate' => $id_candidate
             ));
         } catch (Exception $e) {
 

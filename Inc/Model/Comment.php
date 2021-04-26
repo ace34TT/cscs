@@ -7,7 +7,7 @@ class Comment extends Connection
 
     private $table = 'comments';
 
-    private $fillable = array('candidate', 'content', 'author');
+    private $fillable = array('candidate', 'content', 'author', 'events');
 
     public function __construct()
     {

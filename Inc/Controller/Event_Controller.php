@@ -25,9 +25,9 @@ class Event_Controller
         return $this->event->curr_event_lists();
     }
 
-    public function get_comming_pretests()
+    public function get_coming_pretests()
     {
-        return $this->event->comming_pretests();
+        return $this->event->coming_pretests();
     }
 
     public function get_coming_final_test()

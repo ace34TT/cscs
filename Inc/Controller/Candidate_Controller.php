@@ -104,14 +104,14 @@ class Candidate_Controller
         $this->candidate->reset_stat_from_pending_pretest($candidate);
     }
 
-    public function notify_candidate($candidates)
+    public function notify_pretest_candidate($candidates)
     {
         $candidates = str_replace(' ', '', $candidates);
         $candidates = explode(',', $candidates);
         unset($candidates[count($candidates) - 1]);
 
         foreach ($candidates as $id_candidate) {
-            $email = $this->candidate->get_email_pretest_notifications($id_candidate)[0]['email'];
+            $email = $this->candidate->get_email($id_candidate)[0]['email'];
             // $this->send_pretest_email($email);
             $this->candidate->update_notif_pretest_event($id_candidate);
         }
@@ -131,8 +131,39 @@ class Candidate_Controller
         return $this->candidate->identified_by_id($id_candidate)[0];
     }
 
-    public function update_test_candidate_assignment($event, $candidate)
+    public function get_final_test_pending_candidate()
     {
+        return $this->candidate->final_test_pending_candidate();
+    }
+
+    public function final_test_assignement($candidates, $event)
+    {
+        $candidates = str_replace(' ', '', $candidates);
+        $candidates = explode(',', $candidates);
+        unset($candidates[count($candidates) - 1]);
+        foreach ($candidates as $candidate) {
+            $this->candidate->assign_final_test_candidate($candidate, $event);
+            $this->candidate->update_stat_pending_final_test($candidate);
+        }
+    }
+
+    public function unasign_candidate_from_final_test_event($candidate)
+    {
+        $this->candidate->unassign_candidate_final_test($candidate);
+        $this->candidate->reset_stat_from_pending_final_test($candidate);
+    }
+
+    public function notify_final_test_candidate($candidates)
+    {
+        $candidates = str_replace(' ', '', $candidates);
+        $candidates = explode(',', $candidates);
+        unset($candidates[count($candidates) - 1]);
+
+        foreach ($candidates as $id_candidate) {
+            $email = $this->candidate->get_email($id_candidate)[0]['email'];
+            // $this->send_pretest_email($email);
+            $this->candidate->update_notif_final_test_event($id_candidate);
+        }
     }
 
     private function chueck_event_type()

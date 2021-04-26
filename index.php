@@ -104,28 +104,27 @@ if ($route == $uri || '/' == $uri) {
             if ($_GET['admin'] == 'pretest_overview') {
                 $event = $event_controller->get_event_by_id($_GET['event']);
                 $assignet_curr_event = $candidate_controller->get_candidate_by_assigned_event($_GET['event']);
-                // $pending_cnadidates = $candidate_controller->get_pretest_pending_candidate();
+                $result = $result_controller->get_results_list($_GET['event']);
+                $result_stat = $result_controller->get_event_result_stat($_GET['event']);
                 include('Pages/Backend/Admin/pretest-overview.php');
                 return;
             }
 
-            if ($_GET['admin'] == 'pretest_form') {
+            if ($_GET['admin'] == 'test_form') {
                 $comment = '';
                 $candidate = $_GET['candidate'];
                 $candidate = $candidate_controller->get_candidate_by_id($candidate);
                 $event = $_GET['event'];
 
-                include('Pages/Backend/Admin/pretest-form.php');
+                include('Pages/Backend/Admin/test-form.php');
                 return;
             }
 
-            if ($_GET['admin'] == 'upload_pretest_result') {
-                // insert into result
-                // if commnet , insert 
-                // update candidate state 
+            if ($_GET['admin'] == 'upload_result') {
                 $event = $_GET['event'];
                 $candidate = $_GET['candidate'];
-                $test_result =  $_POST['result'] == 'success' ? true : false;
+                $test_result =  $_POST['result'] == 'success' ? 1 : 0;
+
                 $result[0] = $event;
                 $result[1] = $candidate;
                 $result[2] = $test_result;
@@ -134,20 +133,18 @@ if ($route == $uri || '/' == $uri) {
                 $comment[0] = $candidate;
                 $comment[1] = $comment_value;
                 $comment[2] =  $_SESSION['admin']['names'];
+                $comment[3] =  $event;
 
-                // echo ($_SESSION['admin']['names']);
-                //$result_controller->store($result, $event, $candidate);
-                $comment != '' ? $comment_controller->store($comment) : null;
-                // echo ($_GET['candidate'] . ' ' . $_GET['event'] . '<br>');
-                // echo ($_POST['result'] . ' ' . $_POST['comment'] . ' ' . $_POST['post']);
+                $result_controller->store($result, $event, $candidate);
+                // $comment != '' ? $comment_controller->store($comment) : null;
+                // header("Location: index.php?admin=pretest_overview&event=" . $event);
                 return;
-                # code...
             }
 
             // -----------------organize test
             // show coming event list
             if ($_GET['admin'] == 'organize_test') {
-                $coming_pretest = $event_controller->get_comming_pretests();
+                $coming_pretest = $event_controller->get_coming_pretests();
                 $comping_final_test = $event_controller->get_coming_final_test();
                 include('Pages/Backend/Admin/coming-event.php');
                 return;
@@ -175,21 +172,59 @@ if ($route == $uri || '/' == $uri) {
                 header("Location: index.php?admin=pretest_assignement&event=" . $_GET['event']);
                 return;
             }
-            // notifying candidates
+            // notifying candidates pretest
             if ($_GET['admin'] == 'notify_candidate') {
                 $candidates = $_POST['unotified_candidates'];
-                $candidate_controller->notify_candidate($candidates);
+                $candidate_controller->notify_pretest_candidate($candidates);
                 header("Location: index.php?admin=pretest_assignement&event=" . $_GET['event']);
                 return;
             }
-
-            //--
-            // candidate card
-            if ($_GET['admin'] == 'candidate_card') {
-                echo $_GET['candidate'];
+            // 
+            if ($_GET['admin'] == 'final_test_overview') {
+                $event = $event_controller->get_event_by_id($_GET['event']);
+                $assignet_curr_event = $candidate_controller->get_candidate_by_assigned_event($_GET['event']);
+                $result = $result_controller->get_results_list($_GET['event']);
+                $result_stat = $result_controller->get_event_result_stat($_GET['event']);
+                include('Pages/Backend/Admin/final-test-overview.php');
                 return;
             }
-            header("Location: index.php?admin=overview");
+            if ($_GET['admin'] == 'final_test_assignment') {
+                $event = $event_controller->get_event_by_id($_GET['event']);
+                $assignet_curr_event = $candidate_controller->get_candidate_by_assigned_event($_GET['event']);
+                $pending_cnadidates = $candidate_controller->get_final_test_pending_candidate();
+                include('Pages/Backend/Admin/final-test-assignment.php');
+                return;
+            }
+            //assign final_test event to a candidtes
+            if ($_GET['admin'] == 'final_test_assignement_validation') {
+                $ids = $_POST['selected_candidates'];
+                $event = $_GET['event'];
+                $candidate_controller->final_test_assignement($ids, $event);
+                header("Location: index.php?admin=final_test_assignment&event=" . $_GET['event']);
+                return;
+            }
+
+            if ($_GET['admin'] == 'unassign_final_test') {
+                $candidate = $_GET['candidate'];
+                $candidate_controller->unasign_candidate_from_final_test_event($candidate);
+                header("Location: index.php?admin=final_test_assignment&event=" . $_GET['event']);
+                return;
+            }
+
+            if ($_GET['admin'] == 'notify_candidate_final_test') {
+                $candidates = $_POST['unotified_candidates'];
+                $candidate_controller->notify_final_test_candidate($candidates);
+                header("Location: index.php?admin=final_test_assignment&event=" . $_GET['event']);
+                return;
+            }
+            // candidate card
+            if ($_GET['admin'] == 'candidate_card') {
+                $candidate = $_GET['candidate'];
+                $candidate = $candidate_controller->get_candidate_by_id($candidate);
+                include('Pages/Backend/Admin/candidate-card.php');
+                return;
+            }
+            // header("Location: index.php?admin=overview");
         } else if ($_GET['admin'] == 'login') {
             include('Pages/Backend/Admin/index.php');
         } else if ($_GET['admin'] == 'access') {

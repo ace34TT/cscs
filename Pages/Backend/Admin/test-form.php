@@ -48,7 +48,7 @@
                         <h2 style="font-family: 'Oswald', sans-serif;"> Deliberation</h2>
                     </div>
                     <div class="row">
-                        <form method="POST" action="index.php?admin=upload_pretest_result&amp;event=<?= $event ?>&amp;candidate=<?= $candidate['users'] ?>">
+                        <form method="POST" action="index.php?admin=upload_result&amp;event=<?= $event ?>&amp;candidate=<?= $candidate['users'] ?>">
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label"><B>Assigned post</B> :</label>
                                 <select class="form-select" name="post" aria-label="Default select example">

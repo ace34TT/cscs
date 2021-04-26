@@ -24,7 +24,7 @@ class Event extends Connection
         return $this->fetch_resultSet($req);
     }
 
-    public function comming_pretests()
+    public function coming_pretests()
     {
         $req = $this->pdo->query('  SELECT id , names ,dates , schedule ,province  ,responsible 
                                         FROM events 
@@ -36,7 +36,7 @@ class Event extends Connection
 
     public function comming_final_test()
     {
-        $req = $this->pdo->query('SELECT id , names, dates , schedule , province ,responsible FROM events WHERE dates != CURDATE() AND events = \'final_test\' ');
+        $req = $this->pdo->query('SELECT id , names, dates , schedule , province ,responsible FROM events WHERE dates >= CURDATE() AND events = \'final_test\' ');
         $rows = $this->fetch_resultSet($req);
         return $rows;
     }

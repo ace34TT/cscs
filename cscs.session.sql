@@ -41,8 +41,8 @@
 --     personnal_informations.reg_date
 -- FROM personnal_informations
 --     INNER JOIN candidates ON candidates.personnal_information = personnal_informations.id;
-UPDATE `pendings`
-SET stat = FALSE;
+-- UPDATE `pendings`
+-- SET stat = FALSE;
 -- DELETE from `personnal_informations`;
 -- CREATE TABLE `pretest_results` (
 --     `id` INT unsigned NOT NULL AUTO_INCREMENT,
@@ -61,3 +61,18 @@ SET stat = FALSE;
 -- ALTER TABLE `personnal_informations`
 -- MODIFY `email` VARCHAR(75) UNIQUE NOT NULL;
 -- DELETE FROM `personnal_informations` WHERE id = 21 ;
+-- CREATE VIEW results_view AS
+-- SELECT candidates.id as users,
+--     personnal_informations.firstname,
+--     personnal_informations.lastname,
+--     personnal_informations.post,
+--     results.events,
+--     results.result,
+--     results.created_date,
+--     events.events as types
+-- FROM results
+--     INNER JOIN candidates ON results.candidate = candidates.id 
+--     INNER JOIN personnal_informations ON candidates.personnal_information = personnal_informations.id
+--     INNER JOIN events ON results.events = events.id ;
+
+Select count(*) from results_view where result = 1 
