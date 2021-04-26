@@ -250,7 +250,14 @@
                             <label for="validationCustom05" class="form-label">Post</label>
                             <select class="form-select" name="post" aria-label="Default select example" id="validationCustom05">
                                 <option selected>Apply as </option>
-                                <option value="Housekeeper">Housekeeper</option>
+                                <?php
+                                foreach ($all_post as $post) {
+                                ?>
+                                    <option value="<?= $post['name'] ?> "> <?= $post['name'] ?></option>
+                                <?php
+                                }
+                                ?>
+
                             </select>
                         </div>
                         <br>

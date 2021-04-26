@@ -15,15 +15,13 @@
 -- ALTER TABLE (comments)
 -- ADD FOREIGN KEY events REFERENCES events(id);
 -- DROP TABLE pretest_results;
--- CREATE TABLE `results` (
+-- CREATE TABLE `posts` (
 --     `id` INT unsigned NOT NULL AUTO_INCREMENT,
---     `event` INT UNSIGNED NOt NULL,
---     `candidate` INT UNSIGNED NOt NULL,
---     `result` BOOLEAN NOT NULL,
+--     `name` VARCHAR (255) NOt NULL,
+--     `category` VARCHAR (255) NOt NULL,
+--     `quota` INT NOT NULL,
 --     `created_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
---     PRIMARY KEY (`id`),
---     FOREIGN KEY (event) REFERENCES events(id),
---     FOREIGN KEY (candidate) REFERENCES candidates(id)
+--     PRIMARY KEY (`id`)
 -- ) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARSET = utf8mb4;
 -- ALTER TABLE events
 -- ADD COLUMN stat BOOLEAN DEFAULT FALSE NOT NULL;
@@ -74,5 +72,4 @@
 --     INNER JOIN candidates ON results.candidate = candidates.id 
 --     INNER JOIN personnal_informations ON candidates.personnal_information = personnal_informations.id
 --     INNER JOIN events ON results.events = events.id ;
-
-Select count(*) from results_view where result = 1 
+-- Select count(*) from results_view where result = 1

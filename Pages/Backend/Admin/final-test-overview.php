@@ -28,7 +28,22 @@
 <?php $links = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-
+<div class="row mt-2 border ">
+    <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Result stat</h1>
+    <div class="container mb-4" style="font-size: 20px;">
+        <div class="row mt-3">
+            <div class="col-md-4 offset-md-1">
+                <p> <B>Total</B> : <?= $result_stat[0]['COUNT(*)'] + $result_stat[1]['COUNT(*)'] ?> </p>
+            </div>
+            <div class="col-md-3">
+                <p> <B>Received</B> : <?= $result_stat[1]['COUNT(*)'] ?> </p>
+            </div>
+            <div class="col-md-3 ">
+                <p> <B>Fail</B> :<?= $result_stat[0]['COUNT(*)']  ?> </p>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row mt-2 border">
     <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Event information</h1>
     <div class="container mb-5" style="font-size: 20px;">

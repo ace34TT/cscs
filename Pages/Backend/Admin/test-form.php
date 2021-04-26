@@ -53,9 +53,13 @@
                                 <label for="exampleFormControlTextarea1" class="form-label"><B>Assigned post</B> :</label>
                                 <select class="form-select" name="post" aria-label="Default select example">
                                     <option selected value=" <?= $candidate['post'] ?>"> <?= $candidate['post'] ?> </option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <?php
+                                    foreach ($all_post as $post) {
+                                    ?>
+                                        <option value="<?= $post['name'] ?> "> <?= $post['name'] ?></option>
+                                    <?php
+                                    }
+                                    ?>
                                 </select>
                             </div>
                             <div class="mb-3">
