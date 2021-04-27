@@ -28,22 +28,31 @@
 <?php $links = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-<div class="row mt-2 border ">
-    <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Result stat</h1>
-    <div class="container mb-4" style="font-size: 20px;">
-        <div class="row mt-3">
-            <div class="col-md-4 offset-md-1">
-                <p> <B>Total</B> : <?= $result_stat[0]['COUNT(*)'] + $result_stat[1]['COUNT(*)'] ?> </p>
-            </div>
-            <div class="col-md-3">
-                <p> <B>Received</B> : <?= $result_stat[1]['COUNT(*)'] ?> </p>
-            </div>
-            <div class="col-md-3 ">
-                <p> <B>Fail</B> :<?= $result_stat[0]['COUNT(*)']  ?> </p>
+
+<?php
+if (!empty($result_stat)) {
+?>
+    <div class="row mt-2 border ">
+        <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Result stat</h1>
+        <div class="container mb-4" style="font-size: 20px;">
+            <div class="row mt-3">
+
+                <div class="col-md-4 offset-md-1">
+                    <p> <B>Total</B> : <?= $result_stat[0]['COUNT(*)'] + $result_stat[1]['COUNT(*)'] ?> </p>
+                </div>
+                <div class="col-md-3">
+                    <p> <B>Received</B> : <?= $result_stat[1]['COUNT(*)'] ?> </p>
+                </div>
+                <div class="col-md-3 ">
+                    <p> <B>Fail</B> :<?= $result_stat[0]['COUNT(*)']  ?> </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<?php
+}
+?>
+
 <div class="row mt-2 border">
     <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Event information</h1>
     <div class="container mb-5" style="font-size: 20px;">
@@ -85,7 +94,10 @@
     </div>
 </div>
 <div class="row mt-2 mb-3 border">
-    <h1 class="col-md-12 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
+    <div class="row">
+        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
+        <input class="col-md-5 mt-3" type="text" id="assigned_id_input" onkeyup="assigned_search()" placeholder="Search for ID..">
+    </div>
     <div class="container shadow-sm mt-3" style="font-size: 20px;">
         <div class="limiter">
             <div class="container-table100">
@@ -105,14 +117,14 @@
                             </table>
                         </div>
                         <div class="table100-body js-pscroll" id="assigned_candidates">
-                            <table>
+                            <table id="assigned">
                                 <tbody>
                                     <?php
                                     if (isset($assignet_curr_event)) {
                                         foreach ($assignet_curr_event as $candidate) { ?>
                                             <tr class="row100 body">
                                                 <td class="cell100 column1"><?= $candidate['users'] ?> </td>
-                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=pretest_form&amp;candidate=<?= $candidate['users'] ?>&amp;event=<?= $event['id'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
+                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=test_form&amp;candidate=<?= $candidate['users'] ?>&amp;event=<?= $event['id'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
                                                 <td class="cell100 column3"> <?= $candidate['province'] ?> </td>
                                                 <td class="cell100 column4"><?= $candidate['post'] ?> </td>
                                                 <td class="cell100 column5 text-center"><span class="
@@ -139,7 +151,10 @@
 </div>
 
 <div class="row mt-2 mb-3 border">
-    <h1 class="col-md-12 mt-3" style="margin-left: 40px;">Results</h1>
+    <div class="row">
+        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Results</h1>
+        <input class="col-md-5 mt-3" type="text" id="result_id_input" onkeyup="result_search()" placeholder="Search for ID..">
+    </div>
     <div class="container shadow-sm mt-3" style="font-size: 20px;">
         <div class="limiter">
             <div class="container-table100">
@@ -158,7 +173,7 @@
                             </table>
                         </div>
                         <div class="table100-body js-pscroll" id="assigned_candidates">
-                            <table>
+                            <table id="result">
                                 <tbody>
                                     <?php
                                     if (isset($result)) {
@@ -232,6 +247,52 @@
     });
 </script>
 <script src="Assets/JavaScripts/table.js"></script>
+<script>
+    function result_search() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("result_id_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("result");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<script>
+    function assigned_search() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("assigned_id_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("assigned");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 <?php $scripts = ob_get_clean(); ?>
 
 

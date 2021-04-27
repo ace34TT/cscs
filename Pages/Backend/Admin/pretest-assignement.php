@@ -78,7 +78,10 @@
 </div>
 
 <div class="row mt-2 mb-3 border">
-    <h1 class="col-md-12 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
+    <div class="row">
+        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
+        <input class="col-md-5 mt-3" type="text" id="assigned_id_input" onkeyup="assigned_search()" placeholder="Search for ID..">
+    </div>
     <div class="container shadow-sm mt-3" style="font-size: 20px;">
         <div class="limiter">
             <div class="container-table100">
@@ -100,7 +103,7 @@
                             </table>
                         </div>
                         <div class="table100-body js-pscroll" id="assigned_candidates">
-                            <table>
+                            <table id="assigned">
                                 <tbody>
                                     <?php
                                     if (isset($assignet_curr_event)) {
@@ -146,7 +149,10 @@
 </div>
 
 <div class="row mt-2 mb-3 border">
-    <h1 class="col-md-12 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
+    <div class="row">
+        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Final test pending</h1>
+        <input class="col-md-5 mt-3" type="text" id="pending_id_input" onkeyup="pretest_pending_search()" placeholder="Search for ID..">
+    </div>
     <div class="container shadow-sm mt-3" style="font-size: 20px;">
         <div class="limiter">
             <div class="container-table100">
@@ -167,7 +173,7 @@
                             </table>
                         </div>
                         <div class="table100-body js-pscroll" id="pending_candidates">
-                            <table>
+                            <table id="pending">
                                 <tbody>
                                     <?php
                                     if (isset($pending_cnadidates)) {
@@ -249,6 +255,52 @@
     });
 </script>
 <script src="Assets/JavaScripts/table.js"></script>
+<script>
+    function assigned_search() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("assigned_id_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("assigned");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+<script>
+    function pretest_pending_search() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("pending_id_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("pending");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 <?php $scripts = ob_get_clean(); ?>
 
 

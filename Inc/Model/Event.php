@@ -40,4 +40,15 @@ class Event extends Connection
         $rows = $this->fetch_resultSet($req);
         return $rows;
     }
+
+    public function all_events()
+    {
+        try {
+            $req = $this->pdo->query("SELECT * FROM `events` ORDER BY dates DESC");
+            return $this->fetch_resultSet($req);
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+        return null;
+    }
 }

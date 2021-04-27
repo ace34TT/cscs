@@ -73,3 +73,5 @@
 --     INNER JOIN personnal_informations ON candidates.personnal_information = personnal_informations.id
 --     INNER JOIN events ON results.events = events.id ;
 -- Select count(*) from results_view where result = 1
+
+INSERT INTO admins(names,email,passwords) VALUES ('Mampionona Tsiky Kezia','kezia@cscsmadagascar.mg','7c59b57991d55631c7b18c1fb082af0e5bb00852');

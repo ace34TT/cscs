@@ -18,15 +18,17 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($coming_pretest as $event) { ?>
-                            <tr onclick="window.location='index.php?admin=pretest_assignement&amp;event=<?= $event['id'] ?>';">
-                                <th scope="row"><?= $event['names'] ?></th>
-                                <td><?= $event['dates'] ?></td>
-                                <td><?= $event['schedule'] ?> </td>
-                                <td><?= $event['province'] ?> </td>
-                                <td><?= $event['responsible'] ?> </td>
-                            </tr>
+                        if (isset($coming_pretest)) {
+                            foreach ($coming_pretest as $event) { ?>
+                                <tr onclick="window.location='index.php?admin=pretest_assignement&amp;event=<?= $event['id'] ?>';">
+                                    <th scope="row"><?= $event['names'] ?></th>
+                                    <td><?= $event['dates'] ?></td>
+                                    <td><?= $event['schedule'] ?> </td>
+                                    <td><?= $event['province'] ?> </td>
+                                    <td><?= $event['responsible'] ?> </td>
+                                </tr>
                         <?php
+                            }
                         }
                         ?>
                     </tbody>
@@ -53,15 +55,19 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($comping_final_test as $event) { ?>
-                            <tr onclick="window.location='index.php?admin=final_test_assignment&amp;event=<?= $event['id'] ?>';">
-                                <th scope="row"><?= $event['names'] ?></th>
-                                <td><?= $event['dates'] ?></td>
-                                <td><?= $event['schedule'] ?> </td>
-                                <td><?= $event['province'] ?> </td>
-                                <td><?= $event['responsible'] ?> </td>
-                            </tr>
+                        if (isset($comping_final_test)) {
+                            foreach ($comping_final_test as $event) { ?>
+                                <tr onclick="window.location='index.php?admin=final_test_assignment&amp;event=<?= $event['id'] ?>';">
+                                    <th scope="row"><?= $event['names'] ?></th>
+                                    <td><?= $event['dates'] ?></td>
+                                    <td><?= $event['schedule'] ?> </td>
+                                    <td><?= $event['province'] ?> </td>
+                                    <td><?= $event['responsible'] ?> </td>
+                                </tr>
+
+
                         <?php
+                            }
                         }
                         ?>
                     </tbody>

@@ -90,6 +90,7 @@
                                     <li><a href="index.php?admin=event_form" class="link-dark rounded">Create</a></li>
                                     <li><a href="index.php?admin=current_event" class="link-dark rounded">Today's event</a></li>
                                     <li><a href="index.php?admin=organize_test" class="link-dark rounded">Organize test</a></li>
+                                    <li><a href="index.php?admin=all_events" class="link-dark rounded">All events</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -100,7 +101,7 @@
                             <div class="collapse show" id="event-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li><a href="index.php?admin=post_form" class="link-dark rounded">Create</a></li>
-                                    <li><a href="index.php?admin=organize_test" class="link-dark rounded">Manage</a></li>
+                                    <li><a href="index.php?admin=manage_post" class="link-dark rounded">Manage</a></li>
                                 </ul>
                             </div>
                         </li>

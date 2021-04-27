@@ -52,9 +52,19 @@ if ($route == $uri || '/' == $uri) {
         header("Location: index.php");
         return;
     }
+    //Validation candidate
+    if (isset($_GET['validation'])) {
+        $form[0] = $_POST['email'];
+        $form[1] = sha1($_POST['password']);
+        $form[2] = $_GET['personnal_information'];
+        $resume = $_FILES['resume'];
+        $candidate_controller->store($form, $resume);
+        header('Location: index.php');
+        return;
+        // header('Location: <ital>http:</ital><ital>//www.commentcamarche.net/forum/</ital>');  
+    }
     // Admin
     if (isset($_GET['admin'])) {
-
         session_start();
         // Logged
         if (isset($_SESSION['admin'])) {
@@ -87,7 +97,7 @@ if ($route == $uri || '/' == $uri) {
 
                 $event_controller->store($data);
                 $checker = true;
-                header("Location: index.php?admin=event_form");
+                header("Location: index.php?admin=event_form&amp;checker");
                 return;
             }
             // current event
@@ -222,6 +232,13 @@ if ($route == $uri || '/' == $uri) {
                 include('Pages/Backend/Admin/candidate-card.php');
                 return;
             }
+
+            // all events ;
+            if ($_GET['admin'] == 'all_events') {
+                $events = $event_controller->get_all_events();
+                include('Pages/Backend/Admin/all-event.php');
+                return;
+            }
             // -----------------------------------POST-----------------------------------
             if ($_GET['admin'] == 'post_form') {
                 include('Pages/Backend/Admin/post-form.php');
@@ -238,7 +255,18 @@ if ($route == $uri || '/' == $uri) {
 
                 $post_controller->store($data);
 
-                header("Location: index.php?admin=post_form&checker");
+                header("Location: index.php?admin=post_form&amp;checker");
+                return;
+            }
+            if ($_GET['admin'] == 'manage_post') {
+                $posts = $post_controller->all();
+                include('Pages/Backend/Admin/post-managing.php');
+                return;
+            }
+            if ($_GET['admin'] == 'delete_post') {
+                $post_controller->delete($_GET['post']);
+                header("Location: index.php?admin=manage_post");
+                return;
             }
 
             // -----------------------------------HOME-----------------------------------
@@ -258,23 +286,20 @@ if ($route == $uri || '/' == $uri) {
             }
         }
     }
-    //Validation candidate
-    if (isset($_GET['validation'])) {
-        $form[0] = $_POST['email'];
-        $form[1] = sha1($_POST['password']);
-        $form[2] = $_GET['personnal_information'];
-        $resume = $_FILES['resume'];
-        $candidate_controller->store($form, $resume);
-        header('Location: index.php?candidate=login');
-        // header('Location: <ital>http:</ital><ital>//www.commentcamarche.net/forum/</ital>');  
-    }
+
+
     //Candidate
     if (isset($_GET['candidate'])) {
         if ($_GET['candidate'] == 'login') {
-            include('Pages/Backend/Candidate/index.php');
+            header("Location: index.php");
+            return;
+            //include('Pages/Backend/Candidate/index.php');
         }
     }
 } else {
     header('Status: 404 Not Found');
     echo '<html><body><h1>Page Not Found</h1></body></html>';
+    return;
 }
+
+include('Pages/Frontend/index.php');

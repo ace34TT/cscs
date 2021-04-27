@@ -20,4 +20,9 @@ class Post_Controller
     {
         return $this->post->_all();
     }
+
+    public function delete($id)
+    {
+        $this->post->_delete($id);
+    }
 }

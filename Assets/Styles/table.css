@@ -71,7 +71,8 @@ li {
 
 /* ------------------------------------ */
 
-input {
+
+/* input {
     display: block;
     outline: none;
     border: none !important;
@@ -85,7 +86,7 @@ textarea {
 textarea:focus,
 input:focus {
     border-color: transparent !important;
-}
+} */
 
 
 /* ------------------------------------ */
@@ -575,4 +576,21 @@ td {
 #remove :hover {
     color: #f04b46;
     font-size: 16px;
+}
+
+.column1-1 {
+    width: 22%;
+    padding-left: 40px;
+}
+
+.column2-1 {
+    width: 22%;
+}
+
+.column3-1 {
+    width: 22%;
+}
+
+.column4-1 {
+    width: 10%;
 }

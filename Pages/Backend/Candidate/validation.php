@@ -88,18 +88,18 @@ $info = $inf_controller->check_validation($_GET['validation'])
                             </div>
 
                             <div class="col-md-6">
-                                <label for="validationCustom02" class="form-label">Password</label>
-                                <input type="password" name="password" id="password" class="form-control" required id="validationCustom02">
+                                <label for="validationCustom01" class="form-label">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" required id="validationCustom01">
                             </div>
                             <div class="col-md-6">
-                                <label for="validationCustom03" class="form-label">Confirm password</label>
-                                <input type="password" name="confirm" id="confirm-password" class="form-control" required id="validationCustom03">
+                                <label for="validationCustom02" class="form-label">Confirm password</label>
+                                <input type="password" name="confirm" id="confirm-password" class="form-control" required id="validationCustom02">
                             </div>
 
                             <div class="col-md-6">
-                                <label for="validationCustom01" class="form-label">Resume</label>
+                                <label for="validationCustom02" class="form-label">Resume</label>
                                 <div class="input-file-container">
-                                    <input class="input-file" id="my-file" type="file" name="resume">
+                                    <input class="input-file" id="my-file" type="file" name="resume" required>
                                     <label tabindex="0" for="my-file" class="input-file-trigger"> <span class="fa fa-tv"></span> Select a file...</label>
                                 </div>
                                 <p class="file-return"></p>

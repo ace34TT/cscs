@@ -39,4 +39,9 @@ class Event_Controller
     {
         return $this->event->_id($id)[0];
     }
+
+    public function get_all_events()
+    {
+        return $this->event->all_events();
+    }
 }

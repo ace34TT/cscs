@@ -71,6 +71,20 @@ class Connection
         return null;
     }
 
+    public function _delete($id)
+    {
+        try {
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id = ?';
+            $req = $this->pdo->prepare($query);
+            $req->execute(array($id));
+            $req->closeCursor();
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+        return null;
+    }
+
+
     public function fetch_resultSet($reponse)
     {
         $i = 0;

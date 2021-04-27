@@ -19,27 +19,28 @@
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($current_events as $event) {
-                            echo $event['events'] ?>
-
-                            <tr onclick="window.location='index.php?admin=<?php echo ($event['events'] == 'pretest' ? 'pretest_overview' : 'final_test_overview'); ?>&amp;event=<?= $event['id'] ?>';">
-                                <th scope="row"><?= $event['names'] ?></th>
-                                <td> <?php
-                                        if ($event['events'] == 'pretest') {
-                                            echo 'Pretest';
-                                        }
-                                        if ($event['events'] == 'final_test') {
-                                            echo 'Final test';
-                                        }
-                                        if ($event['events'] == 'meeting') {
-                                            echo 'Meeting';
-                                        }
-                                        ?> </td>
-                                <td><?= $event['schedule'] ?> </td>
-                                <td><?= $event['province'] ?> </td>
-                                <td><?= $event['responsible'] ?> </td>
-                            </tr>
+                        if (isset($current_events)) {
+                            foreach ($current_events as $event) {
+                        ?>
+                                <tr onclick="window.location='index.php?admin=<?php echo ($event['events'] == 'pretest' ? 'pretest_overview' : 'final_test_overview'); ?>&amp;event=<?= $event['id'] ?>';">
+                                    <th scope="row"><?= $event['names'] ?></th>
+                                    <td> <?php
+                                            if ($event['events'] == 'pretest') {
+                                                echo 'Pretest';
+                                            }
+                                            if ($event['events'] == 'final_test') {
+                                                echo 'Final test';
+                                            }
+                                            if ($event['events'] == 'meeting') {
+                                                echo 'Meeting';
+                                            }
+                                            ?> </td>
+                                    <td><?= $event['schedule'] ?> </td>
+                                    <td><?= $event['province'] ?> </td>
+                                    <td><?= $event['responsible'] ?> </td>
+                                </tr>
                         <?php
+                            }
                         }
                         ?>
                     </tbody>

@@ -1,4 +1,4 @@
-<?php $title = "Test scheduling"; ?>
+<?php $title = "Post management"; ?>
 
 <?php ob_start(); ?>
 <link rel="stylesheet" type="text/css" href="Assets/Vendor/animate/animate.css">
@@ -28,73 +28,7 @@
 <?php $links = ob_get_clean(); ?>
 
 <?php ob_start(); ?>
-
-<?php
-if (isset($result_stat)) {
-?>
-    <div class="row mt-2 border ">
-        <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Result stat</h1>
-
-        <div class="container mb-4" style="font-size: 20px;">
-            <div class="row mt-3">
-                <div class="col-md-4 offset-md-1">
-                    <p> <B>Total</B> : <?= $result_stat[0]['COUNT(*)'] + $result_stat[1]['COUNT(*)'] ?> </p>
-                </div>
-                <div class="col-md-3">
-                    <p> <B>Received</B> : <?= $result_stat[1]['COUNT(*)'] ?> </p>
-                </div>
-                <div class="col-md-3 ">
-                    <p> <B>Fail</B> :<?= $result_stat[0]['COUNT(*)']  ?> </p>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php
-}
-?>
-
-<div class="row mt-2 border">
-    <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Event information</h1>
-    <div class="container mb-5" style="font-size: 20px;">
-        <div class="row mt-3">
-            <div class="col-md-2 offset-md-1">
-                <p> <B>ID</B> : <?= $event['id'] ?></p>
-            </div>
-            <div class="col-md-5 ">
-                <p> <B>Author</B> : <?= $event['author'] ?></p>
-            </div>
-            <div class="col-md-2">
-                <p> <B>Name</B> : <?= $event['names'] ?></p>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-3 offset-md-1">
-                <p> <B>Date</B> : <?= $event['dates'] ?></p>
-            </div>
-            <div class="col-md-4">
-                <p> <B>Schedule</B> : <?= $event['schedule'] ?></p>
-            </div>
-            <div class="col-md-2">
-                <p> <B>Place</B> : <?= $event['place'] ?></p>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-4 offset-md-1">
-                <p> <B>Province</B> : <?= $event['province'] ?></p>
-            </div>
-            <div class="col-md-3 offset-md-3">
-                <p> <B>Event</B> : <?= $event['events'] ?></p>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-11 offset-md-1">
-                <p> <B>Description</B> : <?= $event['descriptions'] ?></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row mt-2 mb-3 border">
+<!-- <div class="row mt-2 mb-3 border">
     <div class="row">
         <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
         <input class="col-md-5 mt-3" type="text" id="assigned_id_input" onkeyup="assigned_search()" placeholder="Search for ID..">
@@ -149,12 +83,12 @@ if (isset($result_stat)) {
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="row mt-2 mb-3 border">
     <div class="row">
-        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Results</h1>
-        <input class="col-md-5 mt-3" type="text" id="result_id_input" onkeyup="result_search()" placeholder="Search for ID..">
+        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">All post </h1>
+        <input class="col-md-5 mt-3" type="text" id="post_name_input" onkeyup="search_post()" placeholder="Search for ID..">
     </div>
     <div class="container shadow-sm mt-3" style="font-size: 20px;">
         <div class="limiter">
@@ -165,31 +99,27 @@ if (isset($result_stat)) {
                             <table>
                                 <thead>
                                     <tr class="row100 head">
-                                        <th class="cell100 column1">ID</th>
-                                        <th class="cell100 column2">Name</th>
-                                        <th class="cell100 column3">Assigned post</th>
-                                        <th class="cell100 column4">result</th>
+                                        <th class="cell100 column1-1">Name</th>
+                                        <th class="cell100 column2-1">category</th>
+                                        <th class="cell100 column3-1">Quota</th>
+                                        <th class="cell100 column4-1"></th>
                                     </tr>
                                 </thead>
                             </table>
                         </div>
                         <div class="table100-body js-pscroll" id="assigned_candidates">
-                            <table id="result">
+                            <table id="post">
                                 <tbody>
                                     <?php
-                                    if (isset($result)) {
-                                        foreach ($result as $candidate) { ?>
-
-                                            <tr style="<?php
-                                                        echo $candidate['result'] == 1 ? ' background-color: rgba(180, 255, 145, 0.452);' : ' background-color: rgba(255, 160, 160, 0.452);';
-                                                        ?>" class="row100 body">
-                                                <td class="cell100 column1"><?= $candidate['users'] ?> </td>
-                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=candidate_card&amp;candidate=<?= $candidate['users'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
-                                                <td class="cell100 column3"><?= $candidate['post'] ?> </td>
-                                                <td class="cell100 column4">
-                                                    <?php
-                                                    echo $candidate['result'] == 1 ? 'success' : 'fail';
-                                                    ?>
+                                    if (isset($posts)) {
+                                        foreach ($posts as $post) { ?>
+                                            <tr class="row100 body">
+                                                <td class="cell100 column1-1"><?= $post['name'] ?> </td>
+                                                <td class="cell100 column2-1"> <?= $post['category'] ?> </td>
+                                                <td class="cell100 column3-1"><?= $post['quota'] ?> </td>
+                                                <td class="cell100 column4-1" id="remove">
+                                                    <span onclick="window.location='index.php?admin=delete_post&amp;post=<?= $post['id'] ?>';" class="fa fa-trash-alt"></span>
+                                                </td>
                                             </tr>
                                     <?php
                                         }
@@ -204,7 +134,6 @@ if (isset($result_stat)) {
         </div>
     </div>
 </div>
-
 <?php $content = ob_get_clean(); ?>
 
 
@@ -225,64 +154,14 @@ if (isset($result_stat)) {
 </script>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript">
-    $(function() {
-        //Assign Click event to Button.
-        $("#notify-btn").hover(function() {
-            var ids = "";
-            //Loop through all checked CheckBoxes in GridView.
-            $("#assigned_candidates input[type=checkbox]:checked").each(function() {
-                var row = $(this).closest("tr")[0];
-                ids += row.cells[0].innerHTML;
-                ids += ",";
-            });
-            document.getElementById("unotified_candidates").value = ids;
-        });
-        //Assign Click event to Button.
-        $("#assign-btn").hover(function() {
-            var ids = "";
-            //Loop through all checked CheckBoxes in GridView.
-            $("#pending_candidates input[type=checkbox]:checked").each(function() {
-                var row = $(this).closest("tr")[0];
-                ids += row.cells[0].innerHTML;
-                ids += ",";
-            });
-            document.getElementById("selected_candidates").value = ids;
-        });
-    });
-</script>
 <script src="Assets/JavaScripts/table.js"></script>
-
 <script>
-    function result_search() {
+    function search_post() {
         // Declare variables
         var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("result_id_input");
+        input = document.getElementById("post_name_input");
         filter = input.value.toUpperCase();
-        table = document.getElementById("result");
-        tr = table.getElementsByTagName("tr");
-
-        // Loop through all table rows, and hide those who don't match the search query
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
-<script>
-    function assigned_search() {
-        // Declare variables
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("assigned_id_input");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("assigned");
+        table = document.getElementById("post");
         tr = table.getElementsByTagName("tr");
 
         // Loop through all table rows, and hide those who don't match the search query
