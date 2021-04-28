@@ -62,8 +62,8 @@
                         </div>
 
                         <div>
-                            <a href="#" class="txt1">
-                                Forgot Password?
+                            <a href="index.php" class=" txt1">
+                                go to homepage
                             </a>
                         </div>
                     </div>

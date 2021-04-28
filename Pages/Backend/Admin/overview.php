@@ -40,7 +40,7 @@
 </div>
 <!-- Transactions -->
 <div class="row mt-3 mb-3">
-    <h1 class="col-md-12 mt-4">Transactions</h1>
+    <!-- <h1 class="col-md-12 mt-4">Transactions</h1>
     <div class="container-fluid">
         <div class="row justify-content-evenly mt-3">
             <div class="col-11 overview" id="pending">
@@ -54,39 +54,39 @@
                         <p class="text-center" style="font-size: 75px;">1564</p>
                     </div>
                     <div class="col-md-4 mt-3 border-start border-bottom">
-                        <h1>Pending final test</h1>
+                        <h1>Pending final </h1>
                         <p class="text-center" style="font-size: 75px;">1564</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-evenly mt-3">
-            <div class="col-11 overview" id="total">
-                <div class="row">
-                    <div class=" col-md-6 mt-3 border-start border-bottom">
-                        <h1>Total</h1>
-                        <p class="text-center" style="font-size: 75px;"> <?php
-                                                                            if (isset($total_candidates)) {
-                                                                                echo $total_candidates['COUNT(*)'];
-                                                                            } else {
-                                                                                echo ('0');
-                                                                            }
-                                                                            ?></p>
-                    </div>
-                    <div class="col-md-6 mt-3 border-start border-bottom">
-                        <h1>Received</h1>
-                        <p class="text-center" style="font-size: 75px;"><?php
-                                                                        if (isset($total_received)) {
-                                                                            echo $total_received['COUNT(*)'];
+        </div> -->
+    <div class="row justify-content-evenly mt-3">
+        <div class="col-11 overview" id="total">
+            <div class="row">
+                <div class=" col-md-6 mt-3 border-start border-bottom">
+                    <h1>Total</h1>
+                    <p class="text-center" style="font-size: 75px;"> <?php
+                                                                        if (isset($total_candidates)) {
+                                                                            echo $total_candidates['COUNT(*)'];
                                                                         } else {
                                                                             echo ('0');
                                                                         }
                                                                         ?></p>
-                    </div>
+                </div>
+                <div class="col-md-6 mt-3 border-start border-bottom">
+                    <h1>Received</h1>
+                    <p class="text-center" style="font-size: 75px;"><?php
+                                                                    if (isset($total_received)) {
+                                                                        echo $total_received['COUNT(*)'];
+                                                                    } else {
+                                                                        echo ('0');
+                                                                    }
+                                                                    ?></p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

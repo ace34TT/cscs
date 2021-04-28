@@ -147,9 +147,9 @@
                     <p>The person in charge: "the Managing Director" who is located in Mauritius, is in constant correspondence with the local person in charge in Madagascar, and makes known the personnel needs of the boat: assistant cooks, waiters, waiters helpers, cleaners, Bartender, mechanics, security, etc. The list would be long to list all the available positions. Others are always to be filled according to the needs of the boat. Many young people your age have already taken this destination thanks to the CSCS.</p>
                 </div>
 
-                <div class="row">
+                <div class="row justify-content-md-center">
 
-                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box iconbox-blue">
                             <div class="icon">
                                 <i class="bx bxl-dribbble"></i>
@@ -157,7 +157,7 @@
                             <h4><a href="">Lorem Ipsum</a></h4>
                             <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
                         <div class="icon-box iconbox-orange ">
