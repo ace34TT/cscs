@@ -68,10 +68,18 @@ if ($route == $uri || '/' == $uri) {
         session_start();
         // Logged
         if (isset($_SESSION['admin'])) {
+
+            if ($_GET['admin'] == 'logout') {
+                session_destroy();
+                header("Location: index.php?admin=login");
+                return;
+            }
             // -----------------------------------HOME-----------------------------------
             // Overview (homepage)
             if ($_GET['admin'] == 'overview') {
                 $curr_event = $event_controller->count_cuurr_event();
+                $total_candidates = $candidate_controller->total_candidate();
+                $total_received = $candidate_controller->received_candidate();
                 include('Pages/Backend/Admin/overview.php');
                 return;
             }
@@ -111,18 +119,19 @@ if ($route == $uri || '/' == $uri) {
                 $event = $event_controller->get_event_by_id($_GET['event']);
                 $assignet_curr_event = $candidate_controller->get_candidate_by_assigned_event($_GET['event']);
                 $result = $result_controller->get_results_list($_GET['event']);
-                $result_stat = $result_controller->get_event_result_stat($_GET['event']);
+                $success = $result_controller->get_event_result_success($_GET['event']);
+                $fail = $result_controller->get_event_result_fail($_GET['event']);
+                $total = $result_controller->count_candidate($_GET['event']);
                 include('Pages/Backend/Admin/pretest-overview.php');
                 return;
             }
             //  test form
             if ($_GET['admin'] == 'test_form') {
                 $all_post = $post_controller->all();
-                $comment = '';
+                $comments = $comment_controller->get_canidate_comments($_GET['candidate']);
                 $candidate = $_GET['candidate'];
                 $candidate = $candidate_controller->get_candidate_by_id($candidate);
                 $event = $_GET['event'];
-
                 include('Pages/Backend/Admin/test-form.php');
                 return;
             }
@@ -131,6 +140,7 @@ if ($route == $uri || '/' == $uri) {
                 $event = $_GET['event'];
                 $candidate = $_GET['candidate'];
                 $test_result =  $_POST['result'] == 'success' ? 1 : 0;
+                $assigne_post = $_POST['post'];
 
                 $result[0] = $event;
                 $result[1] = $candidate;
@@ -142,8 +152,8 @@ if ($route == $uri || '/' == $uri) {
                 $comment[2] =  $_SESSION['admin']['names'];
                 $comment[3] =  $event;
 
-                $result_controller->store($result, $event, $candidate);
-                $comment != '' ? $comment_controller->store($comment) : null;
+                $result_controller->store($result, $event, $candidate, $assigne_post);
+                empty($comment)  ? $comment_controller->store($comment) : null;
                 header("Location: index.php?admin=pretest_overview&event=" . $event);
                 return;
             }
@@ -191,7 +201,9 @@ if ($route == $uri || '/' == $uri) {
                 $event = $event_controller->get_event_by_id($_GET['event']);
                 $assignet_curr_event = $candidate_controller->get_candidate_by_assigned_event($_GET['event']);
                 $result = $result_controller->get_results_list($_GET['event']);
-                $result_stat = $result_controller->get_event_result_stat($_GET['event']);
+                $success = $result_controller->get_event_result_success($_GET['event']);
+                $fail = $result_controller->get_event_result_fail($_GET['event']);
+                $total = $result_controller->count_candidate($_GET['event']);
                 include('Pages/Backend/Admin/final-test-overview.php');
                 return;
             }
@@ -227,6 +239,7 @@ if ($route == $uri || '/' == $uri) {
             }
             // candidate card
             if ($_GET['admin'] == 'candidate_card') {
+                $comments = $comment_controller->get_canidate_comments($_GET['candidate']);
                 $candidate = $_GET['candidate'];
                 $candidate = $candidate_controller->get_candidate_by_id($candidate);
                 include('Pages/Backend/Admin/candidate-card.php');
@@ -263,9 +276,42 @@ if ($route == $uri || '/' == $uri) {
                 include('Pages/Backend/Admin/post-managing.php');
                 return;
             }
+
             if ($_GET['admin'] == 'delete_post') {
                 $post_controller->delete($_GET['post']);
                 header("Location: index.php?admin=manage_post");
+                return;
+            }
+
+
+            // -----------------------------------CANDIDATE-----------------------------------
+            if ($_GET['admin'] == 'pretest_candidate_overview') {
+                $pretest_pending_candidates = $candidate_controller->get_pretest_pending_candidate();
+                $declined_candidates = $candidate_controller->get_pretest_declined_candidates();
+                include('Pages/Backend/Admin/pretest-candidate-overview.php');
+                return;
+            }
+
+            if ($_GET['admin'] == 'insert_pretest') {
+                $result_controller->update_result_stat($_GET['result']);
+                $candidate_controller->insert_into_pretest_pending(($_GET['email']));
+                header("Location: index.php?admin=pretest_candidate_overview");
+                return;
+            }
+
+            if ($_GET['admin'] == 'final_test_candidate_overview') {
+                $final_test_pending_candidates = $candidate_controller->get_final_test_pending_candidate();
+                $declined_candidates = $candidate_controller->get_final_test_declined_candidates();
+                $received_candidate = $candidate_controller->get_received_candidate();
+                include('Pages/Backend/Admin/final-test-candidate-overview.php');
+                return;
+            }
+
+            if ($_GET['admin'] == 'insert_final_test') {
+                $result_controller->update_result_stat($_GET['result']);
+                $candidate_controller->isnert_into_final_test_pending($_GET['candidate']);
+
+                header("Location: index.php?admin=final_test_candidate_overview");
                 return;
             }
 
@@ -273,16 +319,20 @@ if ($route == $uri || '/' == $uri) {
             header("Location: index.php?admin=overview");
         } else if ($_GET['admin'] == 'login') {
             include('Pages/Backend/Admin/index.php');
+            return;
         } else if ($_GET['admin'] == 'access') {
             echo ('here');
             if (isset($_POST['email']) && isset($_POST['password'])) {
                 if ($admin_controller->login($_POST['email'], $_POST['password']) == true) {
                     header("Location: index.php?admin=overview");
+                    return;
                 } else {
                     include('Pages/Backend/Admin/index.php');
+                    return;
                 }
             } else {
                 include('Pages/Backend/Admin/index.php');
+                return;
             }
         }
     }
@@ -301,5 +351,5 @@ if ($route == $uri || '/' == $uri) {
     echo '<html><body><h1>Page Not Found</h1></body></html>';
     return;
 }
-
+// echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 include('Pages/Frontend/index.php');

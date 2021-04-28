@@ -29,29 +29,25 @@
 
 <?php ob_start(); ?>
 
-<?php
-if (isset($result_stat)) {
-?>
-    <div class="row mt-2 border ">
-        <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Result stat</h1>
 
-        <div class="container mb-4" style="font-size: 20px;">
-            <div class="row mt-3">
-                <div class="col-md-4 offset-md-1">
-                    <p> <B>Total</B> : <?= $result_stat[0]['COUNT(*)'] + $result_stat[1]['COUNT(*)'] ?> </p>
-                </div>
-                <div class="col-md-3">
-                    <p> <B>Received</B> : <?= $result_stat[1]['COUNT(*)'] ?> </p>
-                </div>
-                <div class="col-md-3 ">
-                    <p> <B>Fail</B> :<?= $result_stat[0]['COUNT(*)']  ?> </p>
-                </div>
+<div class="row mt-2 border ">
+    <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Result stat</h1>
+
+    <div class="container mb-4" style="font-size: 20px;">
+        <div class="row mt-3">
+            <div class="col-md-4 offset-md-1">
+                <p> <B>Total</B> : <?php echo (isset($total[0]) ? $total[0] : '0') ?> </p>
+            </div>
+            <div class="col-md-3">
+                <p> <B>Received</B> : <?php echo (isset($success[0]) ? $success[0] : 0) ?> </p>
+            </div>
+            <div class="col-md-3 ">
+                <p> <B>Fail</B> : <?php echo (isset($fail[0]) ? $fail[0] : 0) ?> </p>
             </div>
         </div>
     </div>
-<?php
-}
-?>
+</div>
+
 
 <div class="row mt-2 border">
     <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Event information</h1>
@@ -125,7 +121,7 @@ if (isset($result_stat)) {
                                         foreach ($assignet_curr_event as $candidate) { ?>
                                             <tr class="row100 body">
                                                 <td class="cell100 column1"><?= $candidate['users'] ?> </td>
-                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=test_form&amp;candidate=<?= $candidate['users'] ?>&amp;event=<?= $event['id'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
+                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="<?php echo ($_SESSION['admin']['email'] == 'kezia@cscsmadagascar.mg' ? 'index.php?admin=test_form&amp;candidate=' . $candidate['users'] . '&amp;event=' . $event['id']  : 'index.php?admin=candidate_card&amp;candidate=' . $candidate['users']) ?> "><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
                                                 <td class="cell100 column3"> <?= $candidate['province'] ?> </td>
                                                 <td class="cell100 column4"><?= $candidate['post'] ?> </td>
                                                 <td class="cell100 column5 text-center"><span class="

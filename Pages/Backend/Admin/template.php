@@ -17,7 +17,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="Assets/Vendor/Fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Assets/Vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Assets/Styles/overview.css">
+
     <link rel="stylesheet" href="Assets/Styles/sidebars.css">
     <!-- -->
     <?php
@@ -82,7 +82,7 @@
                             </div>
                         </li>
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#event-collapse" aria-expanded="true">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#event-collapse" aria-expanded="false">
                                 Event
                             </button>
                             <div class="collapse show" id="event-collapse">
@@ -95,13 +95,24 @@
                             </div>
                         </li>
                         <li class="mb-1">
-                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#event-collapse" aria-expanded="true">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#post-collapse" aria-expanded="false">
                                 Post
                             </button>
-                            <div class="collapse show" id="event-collapse">
+                            <div class="collapse show" id="post-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                     <li><a href="index.php?admin=post_form" class="link-dark rounded">Create</a></li>
                                     <li><a href="index.php?admin=manage_post" class="link-dark rounded">Manage</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="mb-1">
+                            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#candidate-collapse" aria-expanded="false">
+                                Candidates
+                            </button>
+                            <div class="collapse show" id="candidate-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                    <li><a href="index.php?admin=pretest_candidate_overview" class="link-dark rounded">Prestest</a></li>
+                                    <li><a href="index.php?admin=final_test_candidate_overview" class="link-dark rounded">Final test</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -112,10 +123,7 @@
                             </button>
                             <div class="collapse" id="account-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                    <li><a href="#" class="link-dark rounded">New...</a></li>
-                                    <li><a href="#" class="link-dark rounded">Profile</a></li>
-                                    <li><a href="#" class="link-dark rounded">Settings</a></li>
-                                    <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                                    <li><a href="index.php?admin=logout" class="link-dark rounded">Sign out</a></li>
                                 </ul>
                             </div>
                         </li>

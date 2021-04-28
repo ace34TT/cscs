@@ -1,3 +1,5 @@
+-- ALTER TABLE results
+-- ADD stat BOOLEAN DEFAULT false NOT NULL;
 -- DELETE from `events` ;
 -- -- RENAME TABLE pretest_candidate_assignment TO test_candidate_assignment ;Add
 -- ALTER TABLE comments
@@ -59,19 +61,32 @@
 -- ALTER TABLE `personnal_informations`
 -- MODIFY `email` VARCHAR(75) UNIQUE NOT NULL;
 -- DELETE FROM `personnal_informations` WHERE id = 21 ;
--- CREATE VIEW results_view AS
--- SELECT candidates.id as users,
---     personnal_informations.firstname,
---     personnal_informations.lastname,
---     personnal_informations.post,
---     results.events,
---     results.result,
---     results.created_date,
---     events.events as types
--- FROM results
---     INNER JOIN candidates ON results.candidate = candidates.id 
---     INNER JOIN personnal_informations ON candidates.personnal_information = personnal_informations.id
---     INNER JOIN events ON results.events = events.id ;
--- Select count(*) from results_view where result = 1
+CREATE VIEW results_view AS
+SELECT candidates.id as users,
+    personnal_informations.firstname,
+    personnal_informations.lastname,
+    personnal_informations.post,
+    results.events,
+    results.result,
+    results.stat,
+    results.created_date,
+    events.events as types
 
-INSERT INTO admins(names,email,passwords) VALUES ('Mampionona Tsiky Kezia','kezia@cscsmadagascar.mg','7c59b57991d55631c7b18c1fb082af0e5bb00852');
+FROM results
+    INNER JOIN candidates ON results.candidate = candidates.id 
+    INNER JOIN personnal_informations ON candidates.personnal_information = personnal_informations.id
+    INNER JOIN events ON results.events = events.id ;
+-- Select count(*) from results_view where result = 1
+-- INSERT INTO admins(names, email, passwords)
+-- VALUES (
+--         'Mampionona Tsiky Kezia',
+--         'kezia@cscsmadagascar.mg',
+--         '7c59b57991d55631c7b18c1fb082af0e5bb00852'
+--     );
+-- -- 
+-- SELECT *
+-- FROM users
+--     INNER JOIN results ON users.users = results.candidate
+--     INNER JOIN events ON results.events = events.id
+-- WHERE events.events = 'pretest'
+--     AND results.result = 1;

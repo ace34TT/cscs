@@ -166,7 +166,38 @@ class Candidate_Controller
         }
     }
 
-    private function chueck_event_type()
+    public function get_pretest_declined_candidates()
     {
+        return $this->candidate->declined_pretest_candidates();
+    }
+
+    public function insert_into_pretest_pending($email)
+    {
+        $this->candidate->insert_pending_pretest($email);
+    }
+
+    public function get_final_test_declined_candidates()
+    {
+        return $this->candidate->declined_final_test_candidates();
+    }
+
+    public function isnert_into_final_test_pending($candidate)
+    {
+        $this->candidate->insert_pending_final_test($candidate);
+    }
+
+    public function get_received_candidate()
+    {
+        return $this->candidate->get_received_candidate();
+    }
+
+    public function total_candidate()
+    {
+        return $this->candidate->count_candidate()[0];
+    }
+
+    public function received_candidate()
+    {
+        return $this->candidate->count_received_candidate()[0];
     }
 }

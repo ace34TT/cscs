@@ -279,4 +279,92 @@ class Candidate extends Connection
             die('Erreur : ' . $e->getMessage());
         }
     }
+
+    public function update_post($post, $candidate)
+    {
+        try {
+
+            $req = $this->pdo->prepare('UPDATE personnal_informations INNER JOIN candidates ON personnal_informations.id = candidates.personnal_information SET post = :post WHERE candidates.id = :candidate');
+            $req->execute(array(
+                'post' => $post,
+                'candidate' => $candidate
+            ));
+        } catch (Exception $e) {
+            echo 'here <br>';
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+    public function declined_pretest_candidates()
+    {
+        try {
+            $req = $this->pdo->query("SELECT results.id AS verdict , users.*
+                                        FROM users
+                                            INNER JOIN results ON users.users = results.candidate
+                                            INNER JOIN events ON results.events = events.id
+                                        WHERE events.events = 'pretest'
+                                            AND results.result = 0
+                                            AND results.stat = 0");
+            return $this->fetch_resultSet($req);
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+    public function declined_final_test_candidates()
+    {
+        try {
+            $req = $this->pdo->query("SELECT results.id AS verdict , users.*
+                                        FROM users
+                                            INNER JOIN results ON users.users = results.candidate
+                                            INNER JOIN events ON results.events = events.id
+                                        WHERE events.events = 'final_test'
+                                            AND results.result = 0
+                                            AND results.stat = 0");
+            return $this->fetch_resultSet($req);
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function get_received_candidate()
+    {
+        try {
+            $req = $this->pdo->query("SELECT *
+                                        FROM users
+                                            INNER JOIN results ON users.users = results.candidate
+                                            INNER JOIN events ON results.events = events.id
+                                        WHERE events.events = 'final_test'
+                                            AND results.result = 1
+                                            AND results.stat = 0");
+            return $this->fetch_resultSet($req);
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function count_candidate()
+    {
+        try {
+            $req = $this->pdo->query("SELECT COUNT(*)
+                                        FROM candidates ");
+            return $this->fetch_resultSet($req);
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
+
+    public function count_received_candidate()
+    {
+        try {
+            $req = $this->pdo->query("SELECT COUNT(*)
+                                        FROM users
+                                            INNER JOIN results ON users.users = results.candidate
+                                            INNER JOIN events ON results.events = events.id
+                                        WHERE events.events = 'final_test'
+                                            AND results.result = 1
+                                            AND results.stat = 0");
+            return $this->fetch_resultSet($req);
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+    }
 }

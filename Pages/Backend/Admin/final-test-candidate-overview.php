@@ -29,69 +29,10 @@
 
 <?php ob_start(); ?>
 
-<div class="row mt-2 border ">
-    <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Result stat</h1>
-    <div class="container mb-4" style="font-size: 20px;">
-        <div class="row mt-3">
-
-            <div class="col-md-4 offset-md-1">
-                <p> <B>Total</B> : <?php echo (isset($total[0]) ? $total[0] : '0') ?> </p>
-            </div>
-            <div class="col-md-3">
-                <p> <B>Received</B> : <?php echo (isset($success[0]) ? $success[0] : 0) ?> </p>
-            </div>
-            <div class="col-md-3 ">
-                <p> <B>Fail</B> : <?php echo (isset($fail[0]) ? $fail[0] : 0) ?> </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="row mt-2 border">
-    <h1 class="col-md-12 mt-4" style="margin-left: 40px;">Event information</h1>
-    <div class="container mb-5" style="font-size: 20px;">
-        <div class="row mt-3">
-            <div class="col-md-2 offset-md-1">
-                <p> <B>ID</B> : <?= $event['id'] ?></p>
-            </div>
-            <div class="col-md-5 ">
-                <p> <B>Author</B> : <?= $event['author'] ?></p>
-            </div>
-            <div class="col-md-2">
-                <p> <B>Name</B> : <?= $event['names'] ?></p>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-3 offset-md-1">
-                <p> <B>Date</B> : <?= $event['dates'] ?></p>
-            </div>
-            <div class="col-md-4">
-                <p> <B>Schedule</B> : <?= $event['schedule'] ?></p>
-            </div>
-            <div class="col-md-2">
-                <p> <B>Place</B> : <?= $event['place'] ?></p>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-4 offset-md-1">
-                <p> <B>Province</B> : <?= $event['province'] ?></p>
-            </div>
-            <div class="col-md-3 offset-md-3">
-                <p> <B>Event</B> : <?= $event['events'] ?></p>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-11 offset-md-1">
-                <p> <B>Description</B> : <?= $event['descriptions'] ?></p>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="row mt-2 mb-3 border">
     <div class="row">
-        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Assigned candidates</h1>
-        <input class="col-md-5 mt-3" type="text" id="assigned_id_input" onkeyup="assigned_search()" placeholder="Search for ID..">
+        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Pending candidates</h1>
+        <input class="col-md-5 mt-3" type="text" id="pending_id_input" onkeyup="pending_search()" placeholder="Search for ID..">
     </div>
     <div class="container shadow-sm mt-3" style="font-size: 20px;">
         <div class="limiter">
@@ -105,32 +46,24 @@
                                         <th class="cell100 column1">ID</th>
                                         <th class="cell100 column2">Name</th>
                                         <th class="cell100 column3">Province</th>
-                                        <th class="cell100 column4">Post</th>
-                                        <th class="cell100 column5">Notified</th>
+                                        <th class="cell100 column4">Email</th>
+                                        <th class="cell100 column5">Phone</th>
                                     </tr>
                                 </thead>
                             </table>
                         </div>
                         <div class="table100-body js-pscroll" id="assigned_candidates">
-                            <table id="assigned">
+                            <table id="pending">
                                 <tbody>
                                     <?php
-                                    if (isset($assignet_curr_event)) {
-                                        foreach ($assignet_curr_event as $candidate) { ?>
+                                    if (isset($final_test_pending_candidates)) {
+                                        foreach ($final_test_pending_candidates as $candidate) { ?>
                                             <tr class="row100 body">
                                                 <td class="cell100 column1"><?= $candidate['users'] ?> </td>
-                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="<?php echo ($_SESSION['admin']['email'] == 'kezia@cscsmadagascar.mg' ? 'index.php?admin=test_form&amp;candidate=' . $candidate['users'] . '&amp;event=' . $event['id']  : 'index.php?admin=candidate_card&amp;candidate=' . $candidate['users']) ?> "><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
+                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=candidate_card&amp;candidate=<?= $candidate['users'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
                                                 <td class="cell100 column3"> <?= $candidate['province'] ?> </td>
-                                                <!-- -->
-                                                <td class="cell100 column4"><?= $candidate['post'] ?> </td>
-                                                <td class="cell100 column5 text-center"><span class="
-                                    <?php
-                                            echo $candidate['notified'] == true ? 'active-dot' : 'inactive-dot';
-                                    ?> "></span>
-                                                    <input hidden type="checkbox" <?php
-                                                                                    echo $candidate['notified'] == true ? '' : 'checked';
-                                                                                    ?>>
-                                                </td>
+                                                <td class="cell100 column4"> <?= $candidate['email'] ?> </td>
+                                                <td class="cell100 column5"><?= $candidate['phone'] ?> </td>
                                             </tr>
                                     <?php
                                         }
@@ -148,7 +81,7 @@
 
 <div class="row mt-2 mb-3 border">
     <div class="row">
-        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Results</h1>
+        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Failed</h1>
         <input class="col-md-5 mt-3" type="text" id="result_id_input" onkeyup="result_search()" placeholder="Search for ID..">
     </div>
     <div class="container shadow-sm mt-3" style="font-size: 20px;">
@@ -162,8 +95,9 @@
                                     <tr class="row100 head">
                                         <th class="cell100 column1">ID</th>
                                         <th class="cell100 column2">Name</th>
-                                        <th class="cell100 column3">Assigned post</th>
-                                        <th class="cell100 column4">result</th>
+                                        <th class="cell100 column3">Province</th>
+                                        <th class="cell100 column4">Phone</th>
+                                        <th class="cell100 column5"></th>
                                     </tr>
                                 </thead>
                             </table>
@@ -172,16 +106,14 @@
                             <table id="result">
                                 <tbody>
                                     <?php
-                                    if (isset($result)) {
-                                        foreach ($result as $candidate) { ?>
-
-                                            <tr style="<?php
-                                                        echo $candidate['result'] == 1 ? ' background-color: rgba(180, 255, 145, 0.452);' : ' background-color: rgba(255, 160, 160, 0.452);';
-                                                        ?>" class="row100 body">
+                                    if (isset($declined_candidates)) {
+                                        foreach ($declined_candidates as $candidate) { ?>
+                                            <tr class="row100 body">
                                                 <td class="cell100 column1"><?= $candidate['users'] ?> </td>
                                                 <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=candidate_card&amp;candidate=<?= $candidate['users'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
-                                                <td class="cell100 column3"><?= $candidate['post'] ?> </td>
-                                                <td class="cell100 column4"> <?= $candidate['result'] ?> </td>
+                                                <td class="cell100 column3"> <?= $candidate['province'] ?> </td>
+                                                <td class="cell100 column4"> <?= $candidate['phone'] ?> </td>
+                                                <td class="cell100 column5"><a href="index.php?admin=insert_final_test&amp;candidate=<?= $candidate['users'] ?>&amp;result= <?= $candidate['verdict'] ?>"> <span class="fa fa-redo"></span> </a> </td>
                                             </tr>
                                     <?php
                                         }
@@ -196,6 +128,57 @@
         </div>
     </div>
 </div>
+
+<div class="row mt-2 mb-3 border">
+    <div class="row">
+        <h1 class="col-md-6 mt-3" style="margin-left: 40px;">Received</h1>
+        <input class="col-md-5 mt-3" type="text" id="received_id_input" onkeyup="received_search()" placeholder="Search for ID..">
+    </div>
+    <div class="container shadow-sm mt-3" style="font-size: 20px;">
+        <div class="limiter">
+            <div class="container-table100">
+                <div class="wrap-table100">
+                    <div class="table100 border ver1 m-b-110">
+                        <div class="table100-head">
+                            <table>
+                                <thead>
+                                    <tr class="row100 head">
+                                        <th class="cell100 column1">ID</th>
+                                        <th class="cell100 column2">Name</th>
+                                        <th class="cell100 column3">Province</th>
+                                        <th class="cell100 column4">Phone</th>
+                                        <th class="cell100 column5">Email</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="table100-body js-pscroll" id="assigned_candidates">
+                            <table id="received">
+                                <tbody>
+                                    <?php
+                                    if (isset($received_candidate)) {
+                                        foreach ($received_candidate as $candidate) { ?>
+                                            <tr class="row100 body">
+                                                <td class="cell100 column1"><?= $candidate['users'] ?> </td>
+                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="index.php?admin=candidate_card&amp;candidate=<?= $candidate['users'] ?>"><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
+                                                <td class="cell100 column3"> <?= $candidate['province'] ?> </td>
+                                                <td class="cell100 column4"> <?= $candidate['phone'] ?> </td>
+                                                <td class="cell100 column4"> <?= $candidate['email'] ?> </td>
+                                            </tr>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php $content = ob_get_clean(); ?>
 
 
@@ -243,6 +226,30 @@
     });
 </script>
 <script src="Assets/JavaScripts/table.js"></script>
+
+<script>
+    function pending_search() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("pending_id_input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("pending");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 <script>
     function result_search() {
         // Declare variables
@@ -267,12 +274,12 @@
     }
 </script>
 <script>
-    function assigned_search() {
+    function received_search() {
         // Declare variables
         var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("assigned_id_input");
+        input = document.getElementById("received_id_input");
         filter = input.value.toUpperCase();
-        table = document.getElementById("assigned");
+        table = document.getElementById("received");
         tr = table.getElementsByTagName("tr");
 
         // Loop through all table rows, and hide those who don't match the search query

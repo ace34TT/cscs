@@ -14,4 +14,9 @@ class Commnet_controller
     {
         $this->comment->_save($data);
     }
+
+    public function get_canidate_comments($candidate)
+    {
+        return $this->comment->candidate_comments($candidate);
+    }
 }

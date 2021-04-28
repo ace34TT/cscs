@@ -219,7 +219,7 @@
                             <input type="date" name="date_of_birth" class="form-control" required id="validationCustom04">
                         </div>
                         <div class="col-md-4">
-                            <label for="validationCustom05" class="form-label">Procince</label>
+                            <label for="validationCustom05" class="form-label">Province</label>
                             <select class="form-select" name="province" aria-label="Default select example" id="validationCustom05">
                                 <option selected>Select your province</option>
                                 <option value="Antananarivo">Antananarivo</option>
@@ -257,7 +257,6 @@
                                 <?php
                                 }
                                 ?>
-
                             </select>
                         </div>
                         <br>

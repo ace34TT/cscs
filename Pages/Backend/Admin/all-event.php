@@ -36,7 +36,7 @@
     <div class="container ">
         <div class="row mt-3">
             <div class="col-10">
-                <table class="table table-hover">
+                <table class="table table-hover" id="event">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -53,8 +53,9 @@
                             foreach ($events as $event) {
                         ?>
                                 <tr onclick="window.location='index.php?admin=<?php echo ($event['events'] == 'pretest' ? 'pretest_overview' : 'final_test_overview'); ?>&amp;event=<?= $event['id'] ?>';">
-                                    <th scope="row"><?= $event['id'] ?></th>
-                                    <th scope="row"><?= $event['names'] ?></th>
+                                    <td scope="row"><?= $event['id'] ?></td>
+                                    <td><?= $event['names'] ?></td>
+                                    <td><?= $event['author'] ?> </td>
                                     <td> <?php
                                             if ($event['events'] == 'pretest') {
                                                 echo 'Pretest';
@@ -66,8 +67,6 @@
                                                 echo 'Meeting';
                                             }
                                             ?> </td>
-                                    <td><?= $event['author'] ?> </td>
-                                    <td><?= $event['events'] ?> </td>
                                     <td><?= $event['method'] ?> </td>
                                     <td><?= $event['dates'] ?> </td>
                                 </tr>
@@ -104,12 +103,12 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="Assets/JavaScripts/table.js"></script>
 <script>
-    function search_post() {
+    function search_event() {
         // Declare variables
         var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("post_name_input");
+        input = document.getElementById("event_name_input");
         filter = input.value.toUpperCase();
-        table = document.getElementById("post");
+        table = document.getElementById("event");
         tr = table.getElementsByTagName("tr");
 
         // Loop through all table rows, and hide those who don't match the search query

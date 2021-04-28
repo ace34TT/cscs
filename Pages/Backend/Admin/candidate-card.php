@@ -50,11 +50,33 @@
                 <embed src="Assets/Resumes/<?= $candidate['email'] ?>.pdf" type="application/pdf" width="100%" height="665px" />
             </div>
         </div>
-        <div class="mb-4">
+        <div class="row text-center">
+            <h1 class="mt-4 mb-4 " style="font-family: 'Arvo', serif;font-family: 'Oswald', sans-serif;">Comment(s)</h1>
+        </div>
+        <div class="container">
+            <div class="row ">
+                <?php
+                if (isset($comments)) {
+                    foreach ($comments as $comment) {
+                ?>
+                        <div class="card">
+                            <div class="card-header">
+                                <?= $comment['author'] ?>
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p><?= $comment['content'] ?> </p>
+                                    <footer class="blockquote-footer"> <?= $comment['created_date'] ?> / event : <cite title="Source Title"> <a href="" style="text-decoration: none;"><?= $comment['events'] ?></a></cite></footer>
+                                </blockquote>
+                            </div>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
+            </div>
         </div>
     </div>
-
-
 </body>
 
 </html>
