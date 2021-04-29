@@ -44,4 +44,14 @@ class Event_Controller
     {
         return $this->event->all_events();
     }
+
+    public function get_coming_events_7_days()
+    {
+        return $this->event->coming_events_7_days();
+    }
+
+    public function get_last_7_days_events()
+    {
+        return $this->event->last_7_days();
+    }
 }

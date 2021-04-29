@@ -51,4 +51,18 @@ class Event extends Connection
         }
         return null;
     }
+
+    public function coming_events_7_days()
+    {
+        $req = $this->pdo->query('SELECT * FROM events WHERE dates BETWEEN CURRENT_DATE() AND DATE_ADD(CURRENT_DATE, INTERVAL 7  DAY)');
+        $rows = $this->fetch_resultSet($req);
+        return $rows;
+    }
+
+    public function last_7_days()
+    {
+        $req = $this->pdo->query(' SELECT * FROM events WHERE dates BETWEEN  NOW() - INTERVAL 7 day AND CURDATE()');
+        $rows = $this->fetch_resultSet($req);
+        return $rows;
+    }
 }

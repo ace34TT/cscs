@@ -336,7 +336,26 @@ if ($route == $uri || '/' == $uri) {
             }
         }
     }
-
+    // candidate
+    if (isset($_GET['candidate'])) {
+        if ($_GET['candidate'] == 'events') {
+            $current_event = $event_controller->get_cuurr_event();
+            $coming_events = $event_controller->get_coming_events_7_days();
+            $last_events = $event_controller->get_last_7_days_events();
+            include('Pages/Backend/Candidate/index.php');
+            return;
+        }
+        if ($_GET['candidate'] == 'event_card') {
+            $event = $event_controller->get_event_by_id($_GET['event']);
+            $assignet_curr_event = $candidate_controller->get_candidate_by_assigned_event($_GET['event']);
+            $result = $result_controller->get_results_list($_GET['event']);
+            $success = $result_controller->get_event_result_success($_GET['event']);
+            $fail = $result_controller->get_event_result_fail($_GET['event']);
+            $total = $result_controller->count_candidate($_GET['event']);
+            include('Pages/Backend/Candidate/event-card.php');
+            return;
+        }
+    }
 
     //Candidate
     if (isset($_GET['candidate'])) {

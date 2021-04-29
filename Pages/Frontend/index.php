@@ -57,7 +57,7 @@
                     <li>
                         <div class="vl" style="margin-left:25px; ;border-left: 2px solid white;height: 25px;"></div>
                     </li>
-                    <li><a class="nav-link " href="index.php?candidate">Candidate</a></li>
+                    <li><a class="nav-link " href="index.php?candidate=events">Candidate</a></li>
                     <li><a class="nav-link " href="index.php?admin=login">Admin</a></li>
 
                 </ul>
@@ -148,7 +148,6 @@
                 </div>
 
                 <div class="row justify-content-md-center">
-
                     <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                         <div class="icon-box iconbox-blue">
                             <div class="icon">
