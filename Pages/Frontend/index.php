@@ -88,7 +88,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="Assets/Images/wp8558986-royal-caribbean-wallpapers(1)(1).jpg" class="img-fluid" alt="">
+                        <img src="Assets/Images/wp8558986-royal-caribbean-wallpapers(1)(2)(2)(1).jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
                         <h3>What is the CSCS?</h3>
@@ -98,8 +98,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <i class="bx bx-receipt"></i>
-                                <h4>Work for young Malagasy people in the USA. Yes ! To USA</h4>
-                                <p>This is a golden opportunity, which is opening up for the young people of Madagascar. CSCS InternationalManning LTD recruiting company grants you this timely circumstance. All positions are provided aboard a cruise ship the "Cruise Ship" floating off Miami.</p>
+                                <h4>Work for young Malagasy people in the USA</h4>
+                                <p>CSCS InternationalManning LTD recruiting company grants you this timely circumstance. All positions are provided aboard a cruise ship the "Cruise Ship" floating off Miami.</p>
                             </div>
                             <div class="col-md-6">
                                 <i class="bx bx-cube-alt"></i>
@@ -146,23 +146,13 @@
                 </div>
 
                 <div class="row justify-content-md-center">
-                    <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="icon-box iconbox-blue">
-                            <div class="icon">
-                                <i class="bx bxl-dribbble"></i>
-                            </div>
-                            <h4><a href="">Lorem Ipsum</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-                        </div>
-                    </div> -->
-
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
                         <div class="icon-box iconbox-orange ">
                             <div class="icon">
                                 <i class="bx bxs-dish"></i>
                             </div>
                             <h4><a href="">Culinary</a></h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                            <p>Baker,Chef Pastry & Bakery,Head Baker,Butcher,Chef de Partie,Chef de Partie - Baker,Commis Cook,Teppanyaki Chef,Pantry Cook Assistant,Pastry Trainee,Assistant Galley Operations Manager,Executive Sous Chef,...</p>
                         </div>
                     </div>
 
@@ -172,10 +162,9 @@
                                 <i class="bx bx-home-heart"></i>
                             </div>
                             <h4><a href="">Housekeeping</a></h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                            <p>Butler,Stateroom Attendant,Cleaner,Bell Attendant,Pool Monitor,Deck Attendant,Public Area Attendant,Housekeeping,Deck Supervisor,Assistant Chief Housekeeper,Traveling Chief Housekeeper,...</p>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -290,18 +279,16 @@
         <!-- ======= Cta Section ======= -->
         <section id="cta" class="cta">
             <div class="container">
-
                 <div class="text-center">
-                    <h3>Call To Action</h3>
-                    <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <a class="cta-btn" href="#">Call To Action</a>
+                    <h3>What should you do?</h3>
+                    <p> Yes ! It shows ! You itch to go get a job in the New World. All you have to do is contact the local representative of the CSCS Company in Madagascar by e-mail or any other correspondence in order to receive further knowledge about this job in the land of dreams. To say the least, fluency in the language of Shakespeare is required. Mainly orally. Of course, because you will be dealing with people and customers who are generally English speaking. However, a job interview will always precede any hiring process, whether or not you are the candidate we expect.</p>
+                    <a class="cta-btn" href="">Apply</a>
                 </div>
-
             </div>
         </section><!-- End Cta Section -->
 
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials">
+        <!-- <section id="testimonials" class="testimonials">
             <div class="container">
 
                 <div class="section-title">
@@ -323,7 +310,7 @@
                                 <h3>Saul Goodman</h3>
                                 <h4>Ceo &amp; Founder</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -336,7 +323,7 @@
                                 <h3>Sara Wilsson</h3>
                                 <h4>Designer</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -349,7 +336,7 @@
                                 <h3>Jena Karlis</h3>
                                 <h4>Store Owner</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -362,7 +349,7 @@
                                 <h3>Matt Brandon</h3>
                                 <h4>Freelancer</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item">
@@ -375,14 +362,15 @@
                                 <h3>John Larson</h3>
                                 <h4>Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
 
             </div>
-        </section><!-- End Testimonials Section -->
+        </section> -->
+        <!-- End Testimonials Section -->
 
         <!-- ======= Team Section ======= -->
         <section id="team" class="team section-bg">
@@ -548,7 +536,7 @@
 
                 <div class="section-title">
                     <h2>Contact</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <p>For more information we invite you to contact us directly</p>
                 </div>
 
                 <div class="row">
@@ -567,14 +555,14 @@
                                 <div class="info-box mt-4">
                                     <i class="bx bx-envelope"></i>
                                     <h3>Email Us</h3>
-                                    <p>info@example.com<br>contact@example.com</p>
+                                    <p> info@cscsmadagascar.mg<br>zara@cscsmadagascar.mg</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="info-box mt-4">
                                     <i class="bx bx-phone-call"></i>
                                     <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                                    <p>+261 34 03 902 97<br>+261 34 73 201 30</p>
                                 </div>
                             </div>
                         </div>
@@ -612,11 +600,9 @@
         </section><!-- End Contact Section -->
 
         <!-- ======= Clients Section ======= -->
-        <section id="clients" class="clients section-bg">
+        <!-- <section id="clients" class="clients section-bg">
             <div class="container">
-
                 <div class="row">
-
                     <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
                         <img src="Assets/Images/clients/client-1.png" class="img-fluid" alt="">
                     </div>
@@ -644,7 +630,8 @@
                 </div>
 
             </div>
-        </section><!-- End Clients Section -->
+        </section> -->
+        <!-- End Clients Section -->
 
     </main><!-- End #main -->
 
@@ -655,18 +642,18 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>Baker</h3>
+                    <div class="col-lg-4 col-md-6 footer-contact">
+                        <h3>CSCS Mada</h3>
                         <p>
                             A108 Adam Street <br>
-                            New York, NY 535022<br>
-                            United States <br><br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
+                            Antananarivo, Antsimondrano<br>
+                            Madagascar <br><br>
+                            <strong>Phone:</strong> +261 34 03 902 97<br>
+                            <strong>Email:</strong> info@cscsmadagascar.mg<br>
                         </p>
                     </div>
 
-                    <div class="col-lg-2 col-md-6 footer-links">
+                    <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
@@ -677,7 +664,7 @@
                         </ul>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 footer-links">
+                    <!-- <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Services</h4>
                         <ul>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -686,11 +673,11 @@
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
                             <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
                         </ul>
-                    </div>
+                    </div> -->
 
-                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <div class="col-lg-5 col-md-6 footer-newsletter">
                         <h4>Join Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <p>Feel free to subscibe to get updated for our lastest news </p>
                         <form action="" method="post">
                             <input type="email" name="email"><input type="submit" value="Subscribe">
                         </form>
@@ -797,10 +784,10 @@
                         itemWidth = sampwidth / incno + 150;
                     } else if (bodyWidth >= 768) {
                         incno = itemsSplit[1];
-                        itemWidth = sampwidth / incno + 150;
+                        itemWidth = sampwidth / incno - 50;
                     } else {
                         incno = itemsSplit[0];
-                        itemWidth = sampwidth / incno + 150;
+                        itemWidth = sampwidth / incno - 50;
                     }
                     $(this).css({
                         'transform': 'translateX(0px)',

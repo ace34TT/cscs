@@ -32,6 +32,14 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
+                            <p> <B>Height :</B> <?= $candidate['height'] ?> m</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p> <B>weight :</B> <?= $candidate['weights'] ?> kg</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                             <p> <B>Gender :</B> <?= $candidate['gender'] ?></p>
                         </div>
                         <div class="col-md-6">
