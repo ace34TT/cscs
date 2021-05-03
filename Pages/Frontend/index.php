@@ -88,7 +88,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="Assets/Images/bg_1.jpg" class="img-fluid" alt="">
+                        <img src="Assets/Images/75540047_104846330980169_2972667073106280448_n.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
                         <h3>What is the CSCS?</h3>
@@ -227,12 +227,28 @@
                             <label for="validationCustom05" class="form-label">Province</label>
                             <select class="form-select" name="province" aria-label="Default select example" id="validationCustom05">
                                 <option selected>Select your province</option>
-                                <option value="Antananarivo">Antananarivo</option>
-                                <option value="Antsiranana">Antsiranana</option>
-                                <option value="Fianarantsoa">Fianarantsoa</option>
-                                <option value="Mahajanga">Mahajanga</option>
-                                <option value="Toamasina">Toamasina</option>
-                                <option value="Toliara">Toliara</option>
+                                <option value="Analamanga">Analamanga </option>
+                                <option value="Bongolava">Bongolava </option>
+                                <option value="Itasy">Itasy </option>
+                                <option value="Vakinakaratra">Vakinakaratra </option>
+                                <option value="Amoroni Mania">Amoroni Mania </option>
+                                <option value="Atsimo-Atsinanana">Atsimo-Atsinanana </option>
+                                <option value="Haute Mtsiatra">Haute Mtsiatra </option>
+                                <option value="Vatovavy-Fitovinany">Vatovavy-Fitovinany </option>
+                                <option value="Ihorombe">Ihorombe </option>
+                                <option value="Alaotra Mangoro">Alaotra Mangoro </option>
+                                <option value="Analanjorofo">Analanjorofo </option>
+                                <option value="Antsinanana">Antsinanana </option>
+                                <option value="Betsiboka">Betsiboka </option>
+                                <option value="Boeny">Boeny </option>
+                                <option value="Melaky">Melaky </option>
+                                <option value="Sodia">Sodia </option>
+                                <option value="Androy">Androy </option>
+                                <option value="Anosy">Anosy </option>
+                                <option value="Atsimo-Andrefana">Atsimo-Andrefana </option>
+                                <option value="Menabe">Menabe </option>
+                                <option value="Diana">Diana </option>
+                                <option value="Sava">Sava </option>
                             </select>
                         </div>
                         <div class="col-8">
