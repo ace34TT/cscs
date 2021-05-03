@@ -27,11 +27,11 @@
 
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 
     <!-- Template Main CSS File -->
     <link href="Assets/Styles/index.css" rel="stylesheet">
-    <link href="Assets/Styles/index.scss" rel="stylesheet">
+    <link href="Assets/Styles/index.scss" rel="stylesheet" type="text/css">
 
     <!-- =======================================================
   * Template Name: Baker - v4.1.0
@@ -839,7 +839,7 @@
 
         });
     </script>
-
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!-- Template Main JS File -->
     <script src="Assets/JavaScripts/index.js"></script>
 
