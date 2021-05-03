@@ -23,7 +23,7 @@ class Personnal_information_Controller
 
         $from = "notif@cscsmadagascar.mg";
         $to = $email;
-        $subject = "Essai de PHP Mail";
+        $subject = "Validation link";
         $message = "Hi , here is your validation link " . $link;
         $headers = "De :" . $from;
         mail($to, $subject, $message, $headers);
