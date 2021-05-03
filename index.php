@@ -2,6 +2,13 @@
 // index.php
 // On charge les modeles et les controleurs
 
+$from = "notif@cscsmadagascar.mg";
+$to = "tafinasoa35@gmail.com";
+$subject = "Essai de PHP Mail";
+$message = "PHP Mail fonctionne parfaitement";
+$headers = "De :" . $from;
+mail($to, $subject, $message, $headers);
+
 //Avoid document expired
 ini_set('session.cache_limiter', 'public');
 session_cache_limiter(false);
