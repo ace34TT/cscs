@@ -31,7 +31,9 @@
 
     <!-- Template Main CSS File -->
     <link href="Assets/Styles/index.css" rel="stylesheet">
-    <link href="Assets/Styles/index.scss" rel="stylesheet" type="text/css">
+    <!-- <link href="Assets/Styles/index.scss" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet/less" type="text/css" href="Assets/Styles/index.scss" />
+    <script src="less.js" type="text/javascript"></script>
 
     <!-- =======================================================
   * Template Name: Baker - v4.1.0
