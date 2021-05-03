@@ -163,7 +163,7 @@ if ($route == $uri || '/' == $uri) {
                 $comment[3] =  $event;
 
                 // $result_controller->store($result, $event, $candidate, $assigne_post);
-                empty($comment_value) ? $comment_controller->store($comment) : null;
+                !empty($comment_value) ? $comment_controller->store($comment) : null;
                 // header("Location: index.php?admin=pretest_overview&event=" . $event);
                 return;
             }
