@@ -54,4 +54,9 @@ class Event_Controller
     {
         return $this->event->last_7_days();
     }
+
+    public function count_events()
+    {
+        return $this->event->count_events()[0]['COUNT(*)'];
+    }
 }

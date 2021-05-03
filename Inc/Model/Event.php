@@ -61,7 +61,14 @@ class Event extends Connection
 
     public function last_7_days()
     {
-        $req = $this->pdo->query(' SELECT * FROM events WHERE dates BETWEEN  NOW() - INTERVAL 7 day AND CURDATE()');
+        $req = $this->pdo->query('SELECT * FROM events WHERE dates BETWEEN  NOW() - INTERVAL 7 day AND CURDATE()');
+        $rows = $this->fetch_resultSet($req);
+        return $rows;
+    }
+
+    public function count_events()
+    {
+        $req = $this->pdo->query('SELECT COUNT(*) FROM events');
         $rows = $this->fetch_resultSet($req);
         return $rows;
     }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>CSCS candidates</title>
+    <title>CSCS MADA</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -25,8 +25,13 @@
 
     <!-- <link rel="stylesheet" href="Assets/Vendor/bulma/css/bulma.min.css"> -->
 
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <!-- Template Main CSS File -->
     <link href="Assets/Styles/index.css" rel="stylesheet">
+    <link href="Assets/Styles/index.scss" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Baker - v4.1.0
@@ -34,6 +39,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
 </head>
 
 <body>
@@ -82,7 +88,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="Assets/Images/about.jpg" class="img-fluid" alt="">
+                        <img src="Assets/Images/bg_1.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
                         <h3>What is the CSCS?</h3>
@@ -112,25 +118,17 @@
             <div class="container">
 
                 <div class="row counters">
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Clients</p>
+                    <div class="col-md-4 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end=" <?= $total ?>" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Candidates</p>
                     </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Projects</p>
+                    <div class="col-md-4 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end=" <?= $received ?>" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Received</p>
                     </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Hours Of Support</p>
-                    </div>
-
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Hard Workers</p>
+                    <div class="col-md-4 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end=" <?= $events ?>" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Events</p>
                     </div>
 
                 </div>
@@ -373,88 +371,96 @@
         <!-- ======= Team Section ======= -->
         <section id="team" class="team section-bg">
             <div class="container">
-
                 <div class="section-title">
                     <h2>Team</h2>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
                 </div>
-
                 <div class="row">
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="Assets/Images/team/team-1.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
+                        <div class="MultiCarousel-inner">
+                            <div class="item">
+                                <div class="d-flex align-items-stretch">
+                                    <div class="member">
+                                        <div class="member-img">
+                                            <img src="Assets/Images/team/team-4.jpg" class="img-fluid" alt="">
+                                            <div class="social">
+                                                <a href=""><i class="bi bi-twitter"></i></a>
+                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="member-info">
+                                            <h4>Amanda Jepson</h4>
+                                            <span>Accountant</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="member-info">
-                                <h4>RABENANDRASANA Tafinasoa</h4>
-                                <span>Chief Executive Officer</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="Assets/Images/team/team-2.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                            <div class="item">
+                                <div class="d-flex align-items-stretch">
+                                    <div class="member">
+                                        <div class="member-img">
+                                            <img src="Assets/Images/team/team-4.jpg" class="img-fluid" alt="">
+                                            <div class="social">
+                                                <a href=""><i class="bi bi-twitter"></i></a>
+                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="member-info">
+                                            <h4>Amanda Jepson</h4>
+                                            <span>Accountant</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Product Manager</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="Assets/Images/team/team-3.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                            <div class="item">
+                                <div class="d-flex align-items-stretch">
+                                    <div class="member">
+                                        <div class="member-img">
+                                            <img src="Assets/Images/team/team-4.jpg" class="img-fluid" alt="">
+                                            <div class="social">
+                                                <a href=""><i class="bi bi-twitter"></i></a>
+                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="member-info">
+                                            <h4>Amanda Jepson</h4>
+                                            <span>Accountant</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="member-info">
-                                <h4>William Anderson</h4>
-                                <span>CTO</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="Assets/Images/team/team-4.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                            <div class="item">
+                                <div class="d-flex align-items-stretch">
+                                    <div class="member">
+                                        <div class="member-img">
+                                            <img src="Assets/Images/team/team-4.jpg" class="img-fluid" alt="">
+                                            <div class="social">
+                                                <a href=""><i class="bi bi-twitter"></i></a>
+                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="member-info">
+                                            <h4>Amanda Jepson</h4>
+                                            <span>Accountant</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
-                            </div>
                         </div>
+                        <button class="btn btn-primary leftLst">
+                            < </button>
+                                <button class="btn btn-primary rightLst">
+                                    > </button>
                     </div>
-
                 </div>
-
             </div>
         </section><!-- End Team Section -->
 
@@ -724,6 +730,114 @@
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            var itemsMainDiv = ('.MultiCarousel');
+            var itemsDiv = ('.MultiCarousel-inner');
+            var itemWidth = "";
+
+            $('.leftLst, .rightLst').click(function() {
+                var condition = $(this).hasClass("leftLst");
+                if (condition)
+                    click(0, this);
+                else
+                    click(1, this)
+            });
+
+            ResCarouselSize();
+
+
+
+
+            $(window).resize(function() {
+                ResCarouselSize();
+            });
+
+            //this function define the size of the items
+            function ResCarouselSize() {
+                var incno = 0;
+                var dataItems = ("data-items");
+                var itemClass = ('.item');
+                var id = 0;
+                var btnParentSb = '';
+                var itemsSplit = '';
+                var sampwidth = $(itemsMainDiv).width();
+                var bodyWidth = $('body').width();
+                $(itemsDiv).each(function() {
+                    id = id + 1;
+                    var itemNumbers = $(this).find(itemClass).length;
+                    btnParentSb = $(this).parent().attr(dataItems);
+                    itemsSplit = btnParentSb.split(',');
+                    $(this).parent().attr("id", "MultiCarousel" + id);
+
+
+                    if (bodyWidth >= 1200) {
+                        incno = itemsSplit[3];
+                        itemWidth = sampwidth / incno + 150;
+                    } else if (bodyWidth >= 992) {
+                        incno = itemsSplit[2];
+                        itemWidth = sampwidth / incno + 150;
+                    } else if (bodyWidth >= 768) {
+                        incno = itemsSplit[1];
+                        itemWidth = sampwidth / incno + 150;
+                    } else {
+                        incno = itemsSplit[0];
+                        itemWidth = sampwidth / incno + 150;
+                    }
+                    $(this).css({
+                        'transform': 'translateX(0px)',
+                        'width': itemWidth * itemNumbers
+                    });
+                    $(this).find(itemClass).each(function() {
+                        $(this).outerWidth(itemWidth);
+                    });
+
+                    $(".leftLst").addClass("over");
+                    $(".rightLst").removeClass("over");
+
+                });
+            }
+
+
+            //this function used to move the items
+            function ResCarousel(e, el, s) {
+                var leftBtn = ('.leftLst');
+                var rightBtn = ('.rightLst');
+                var translateXval = '';
+                var divStyle = $(el + ' ' + itemsDiv).css('transform');
+                var values = divStyle.match(/-?[\d\.]+/g);
+                var xds = Math.abs(values[4]);
+                if (e == 0) {
+                    translateXval = parseInt(xds) - parseInt(itemWidth * s);
+                    $(el + ' ' + rightBtn).removeClass("over");
+
+                    if (translateXval <= itemWidth / 2) {
+                        translateXval = 0;
+                        $(el + ' ' + leftBtn).addClass("over");
+                    }
+                } else if (e == 1) {
+                    var itemsCondition = $(el).find(itemsDiv).width() - $(el).width();
+                    translateXval = parseInt(xds) + parseInt(itemWidth * s);
+                    $(el + ' ' + leftBtn).removeClass("over");
+
+                    if (translateXval >= itemsCondition - itemWidth / 2) {
+                        translateXval = itemsCondition;
+                        $(el + ' ' + rightBtn).addClass("over");
+                    }
+                }
+                $(el + ' ' + itemsDiv).css('transform', 'translateX(' + -translateXval + 'px)');
+            }
+
+            //It is used to get some elements from btn
+            function click(ell, ee) {
+                var Parent = "#" + $(ee).parent().attr("id");
+                var slide = $(Parent).attr("data-slide");
+                ResCarousel(ell, Parent, slide);
+            }
+
+        });
     </script>
 
     <!-- Template Main JS File -->
