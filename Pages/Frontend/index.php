@@ -88,7 +88,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="Assets/Images/75540047_104846330980169_2972667073106280448_n.jpg" class="img-fluid" alt="">
+                        <img src="Assets/Images/wp8558986-royal-caribbean-wallpapers.jpg" class="img-fluid" alt="">
                     </div>
                     <div class="col-lg-6 pt-4 pt-lg-0">
                         <h3>What is the CSCS?</h3>
