@@ -379,4 +379,4 @@ if ($route == $uri || '/' == $uri) {
     return;
 }
 // echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-// include('Pages/Frontend/index.php');
+include('Pages/Frontend/index.php');
