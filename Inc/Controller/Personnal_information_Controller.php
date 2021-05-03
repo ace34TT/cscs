@@ -14,18 +14,19 @@ class Personnal_information_Controller
     {
         $data[11] = sha1($this->generate_validation_code());
         $data[12] = 'unused';
-        $this->send_mail($data[9]);
+        $this->send_mail($data[9], 'https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=' . $data[11]);
         $this->personnal_information->_save($data);
     }
 
-    public function send_mail($email)
+    public function send_mail($email, $link)
     {
-        mail(
-            $email,
-            "Thank you for registering!",
-            "Hello Homer, thank you for registering!",
-            "From: ian@example.com"
-        );
+
+        $from = "notif@cscsmadagascar.mg";
+        $to = $email;
+        $subject = "Essai de PHP Mail";
+        $message = "Hi , here is your validation link " . $link;
+        $headers = "De :" . $from;
+        mail($to, $subject, $message, $headers);
     }
 
     private function generate_validation_code()
