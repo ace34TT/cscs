@@ -7,7 +7,7 @@ class Result extends Connection
 
     private $table = 'results';
 
-    private $fillable = array('events', 'candidate', 'result');
+    private $fillable = array('events', 'candidate', 'note', 'result');
 
     public function __construct()
     {

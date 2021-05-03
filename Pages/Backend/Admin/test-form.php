@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Assets/Vendor/bootstrap/css/bootstrap.min.css">
     <link href="Assets/Images/Logo.png" rel="icon">
-    <title>Prest-From- <?= $candidate['lastname'] . ' ' . $candidate['firstname']  ?> </title>
+    <title>Test-From- <?= $candidate['lastname'] . ' ' . $candidate['firstname']  ?> </title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
     </style>
@@ -16,7 +16,7 @@
 <body>
     <div class="container-fluid ml-1 mr-1 mt-4 mb-4 shadow-lg border">
         <div class="row text-center">
-            <h1 class="mt-4 mb-4 " style="font-family: 'Arvo', serif;font-family: 'Oswald', sans-serif;">Pretest form</h1>
+            <h1 class="mt-4 mb-4 " style="font-family: 'Arvo', serif;font-family: 'Oswald', sans-serif;">Test form</h1>
         </div>
         <div class="row">
             <div class="col-md-5">
@@ -70,6 +70,11 @@
                                 <label for="result" class="form-label"><B>Result</B> :</label>
                                 <input type="text" id="result" value="" name="result">
                             </div>
+                            <div class="mb-3">
+                                <label for="customRange3" class="form-label"><B> Note (0-10)</B> </label>
+                                <input type="range" name="note" class="form-range" min="0" max="10" step="1" id="customRange3">
+                            </div>
+
                             <div class="row ">
                                 <div class="mb-3 col-md-6 ">
                                     <button type="submit" id="success" class="offset-4 btn btn-success">Success</button>
@@ -83,7 +88,7 @@
                 </div>
             </div>
             <div class="col-md-7 border shadow-sm">
-                <embed src="Assets/Resumes/<?= $candidate['email'] ?>.pdf" type="application/pdf" width="100%" height="665px" />
+                <embed src="Assets/Resumes/<?= $candidate['email'] ?>.pdf" type="application/pdf" width="100%" height=750px" />
             </div>
 
         </div>

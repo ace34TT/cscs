@@ -205,7 +205,7 @@
                         </div>
 
                         <!-- Gender / Date of birth -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label for="validationCustom02" class="form-label">Gender</label>
                             <select class="form-select" name="gender" aria-label="Default select example" id="validationCustom03">
                                 <option selected>Select your gender</option>
@@ -213,9 +213,17 @@
                                 <option value="Female">Female</option>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label for="validationCustom04" class="form-label">Date of birth</label>
                             <input type="date" name="date_of_birth" class="form-control" required id="validationCustom04">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationCustom04" class="form-label">Height (m) </label>
+                            <input type="number" step="0.01" min="0" name="height" class="form-control" required id="validationCustom04">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword6" class="form-label">Weight (kg)</label>
+                            <input type="number" step="0.01" min="0" name="weight" class="form-control" id="inputPassword6">
                         </div>
                         <div class="col-md-4">
                             <label for="validationCustom05" class="form-label">Province</label>
@@ -229,8 +237,7 @@
                                 <option value="Toliara">Toliara</option>
                             </select>
                         </div>
-
-                        <div class="col-12">
+                        <div class="col-8">
                             <label for="inputPassword6" class="form-label">Address</label>
                             <input type="text" name="address" class="form-control" id="inputPassword6" placeholder="1234 Main St">
                         </div>
@@ -386,7 +393,7 @@
                                 </div>
                             </div>
                             <div class="member-info">
-                                <h4>Walter White</h4>
+                                <h4>RABENANDRASANA Tafinasoa</h4>
                                 <span>Chief Executive Officer</span>
                             </div>
                         </div>

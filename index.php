@@ -28,6 +28,8 @@ $result_controller = new Result_Controller;
 $comment_controller = new Commnet_controller;
 $post_controller = new Post_Controller;
 
+
+
 // gestion des routes
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $route = "/cscs_v2.1/";
@@ -42,13 +44,16 @@ if ($route == $uri || '/' == $uri) {
         $data[1] = $_POST['lastname'];
         $data[2] = $_POST['gender'];
         $data[3] = $_POST['date_of_birth'];
-        $data[4] = $_POST['province'];
-        $data[5] = $_POST['address'];
-        $data[6] = $_POST['phone'];
-        $data[7] = $_POST['email'];
-        $data[8] = $_POST['post'];
+        $data[4] = $_POST['height'];
+        $data[5] = $_POST['weight'];
+        $data[6] = $_POST['province'];
+        $data[7] = $_POST['address'];
+        $data[8] = $_POST['phone'];
+        $data[9] = $_POST['email'];
+        $data[10] = $_POST['post'];
 
         $inf_controller->store($data);
+
         header("Location: index.php");
         return;
     }
@@ -59,7 +64,7 @@ if ($route == $uri || '/' == $uri) {
         $form[2] = $_GET['personnal_information'];
         $resume = $_FILES['resume'];
         $candidate_controller->store($form, $resume);
-        header('Location: index.php');
+        //header('Location: index.php');
         return;
         // header('Location: <ital>http:</ital><ital>//www.commentcamarche.net/forum/</ital>');  
     }
@@ -139,12 +144,14 @@ if ($route == $uri || '/' == $uri) {
             if ($_GET['admin'] == 'upload_result') {
                 $event = $_GET['event'];
                 $candidate = $_GET['candidate'];
+                $note = $_POST['note'];
                 $test_result =  $_POST['result'] == 'success' ? 1 : 0;
                 $assigne_post = $_POST['post'];
 
                 $result[0] = $event;
                 $result[1] = $candidate;
-                $result[2] = $test_result;
+                $result[2] = $note;
+                $result[3] = $test_result;
 
                 $comment_value = $_POST['comment'];
                 $comment[0] = $candidate;
@@ -356,13 +363,11 @@ if ($route == $uri || '/' == $uri) {
             return;
         }
     }
-
     //Candidate
     if (isset($_GET['candidate'])) {
         if ($_GET['candidate'] == 'login') {
             header("Location: index.php");
             return;
-            //include('Pages/Backend/Candidate/index.php');
         }
     }
 } else {
@@ -371,4 +376,4 @@ if ($route == $uri || '/' == $uri) {
     return;
 }
 // echo parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-include('Pages/Frontend/index.php');
+// include('Pages/Frontend/index.php');

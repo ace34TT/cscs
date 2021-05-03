@@ -1,3 +1,6 @@
+-- ALTER TABLE  results
+-- ADD COLUMN note DOUBLE NOT NULL AFTER candidate; 
+
 -- ALTER TABLE results
 -- ADD stat BOOLEAN DEFAULT false NOT NULL;
 -- DELETE from `events` ;
@@ -33,6 +36,8 @@
 --     personnal_informations.lastname,
 --     personnal_informations.gender,
 --     personnal_informations.date_of_birth,
+--     personnal_informations.height,
+--     personnal_informations.weights,
 --     personnal_informations.province,
 --     personnal_informations.addresses,
 --     personnal_informations.phone,
@@ -67,11 +72,11 @@ SELECT candidates.id as users,
     personnal_informations.lastname,
     personnal_informations.post,
     results.events,
+    results.note ,
     results.result,
     results.stat,
     results.created_date,
     events.events as types
-
 FROM results
     INNER JOIN candidates ON results.candidate = candidates.id 
     INNER JOIN personnal_informations ON candidates.personnal_information = personnal_informations.id

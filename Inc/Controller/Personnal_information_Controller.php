@@ -12,11 +12,10 @@ class Personnal_information_Controller
     }
     public function store($data)
     {
-        $data[9] = sha1($this->generate_validation_code());
-        $data[10] = 'unused';
-        $this->send_mail($data[7]);
+        $data[11] = sha1($this->generate_validation_code());
+        $data[12] = 'unused';
+        $this->send_mail($data[9]);
         $this->personnal_information->_save($data);
-        //$this->store_file($file, $data[7]);
     }
 
     public function send_mail($email)

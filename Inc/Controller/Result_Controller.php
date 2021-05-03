@@ -47,6 +47,6 @@ class Result_Controller
 
     public function update_result_stat($result)
     {
-        $this->result ->update_stat($result);
+        $this->result->update_stat($result);
     }
 }
