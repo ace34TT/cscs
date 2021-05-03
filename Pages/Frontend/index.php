@@ -98,13 +98,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <i class="bx bx-receipt"></i>
-                                <h4>The CSCS is official in Madagascar</h4>
-                                <p>No shadow of a doubt as to the authenticity of this recruitment company in Madagascar. The CSCS is recognized by the Malagasy government by the certificate of approval to the service of Manning n ° 006 / APMF / DG / 10 of 08 November 2019 from the AMPF: the Maritime Port and Fluvial Agency by declaring that "it is approved to carry out the recruitment and placement activities of seafarers as a service of Manning ”. In addition, the company regularly fulfills its tax duty to the tax authorities. The official name of the company is "CSCS International Manning Mada" and its domicile is "Lot FA III 90B Amboarohy Ampanefy Antananarivo 101"</p>
+                                <h4>Work for young Malagasy people in the USA. Yes ! To USA</h4>
+                                <p>This is a golden opportunity, which is opening up for the young people of Madagascar. CSCS InternationalManning LTD recruiting company grants you this timely circumstance. All positions are provided aboard a cruise ship the "Cruise Ship" floating off Miami.</p>
                             </div>
                             <div class="col-md-6">
                                 <i class="bx bx-cube-alt"></i>
-                                <h4>Ullamco laboris nisi</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                                <h4>The CSCS is official in Madagascar</h4>
+                                <p>CSCS is recognized by the Malagasy government by the certificate of approval to the service of Manning n ° 006 / APMF / DG / 10 of 08 November 2019 from the AMPF</p>
                             </div>
                         </div>
                     </div>
