@@ -162,9 +162,9 @@ if ($route == $uri || '/' == $uri) {
                 $comment[2] =  $_SESSION['admin']['names'];
                 $comment[3] =  $event;
 
-                // $result_controller->store($result, $event, $candidate, $assigne_post);
+                $result_controller->store($result, $event, $candidate, $assigne_post);
                 !empty($comment_value) ? $comment_controller->store($comment) : null;
-                // header("Location: index.php?admin=pretest_overview&event=" . $event);
+                header("Location: index.php?admin=pretest_overview&event=" . $event);
                 return;
             }
 
