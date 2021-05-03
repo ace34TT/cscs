@@ -331,12 +331,12 @@ if ($route == $uri || '/' == $uri) {
             include('Pages/Backend/Admin/index.php');
             return;
         } else if ($_GET['admin'] == 'access') {
-            echo ('here');
             if (isset($_POST['email']) && isset($_POST['password'])) {
                 if ($admin_controller->login($_POST['email'], $_POST['password']) == true) {
                     header("Location: index.php?admin=overview");
                     return;
                 } else {
+                    $error = 'please , verify your login address';
                     include('Pages/Backend/Admin/index.php');
                     return;
                 }
