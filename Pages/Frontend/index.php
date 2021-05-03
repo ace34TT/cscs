@@ -30,7 +30,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <!-- Template Main CSS File -->
-    <link href="Assets/Styles/index.css" rel="stylesheet/less" type="text/css">
+    <link href="Assets/Styles/index.css" rel="stylesheet">
     <link href="Assets/Styles/index.scss" rel="stylesheet">
 
     <!-- =======================================================
