@@ -269,9 +269,9 @@
                             </select>
                         </div>
                         <br>
-                        <div class="col-12 d-flex flex-column-reverse bd-highlight ">
+                        <!-- <div class="col-12 d-flex flex-column-reverse bd-highlight ">
                             <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>

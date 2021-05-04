@@ -157,6 +157,7 @@ if ($route == $uri || '/' == $uri) {
                 $result[3] = $test_result;
 
                 $comment_value = $_POST['comment'];
+                $comment_value = str_replace("'", "\'", $comment_value);
                 $comment[0] = $candidate;
                 $comment[1] = $comment_value;
                 $comment[2] =  $_SESSION['admin']['names'];
