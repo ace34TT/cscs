@@ -231,7 +231,7 @@
                                 <option value="Betsiboka">Betsiboka </option>
                                 <option value="Boeny">Boeny </option>
                                 <option value="Melaky">Melaky </option>
-                                <option value="Sodia">Sodia </option>
+                                <option value="Sodia">Sofia </option>
                                 <option value="Androy">Androy </option>
                                 <option value="Anosy">Anosy </option>
                                 <option value="Atsimo-Andrefana">Atsimo-Andrefana </option>
@@ -386,7 +386,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/team-4.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/IMG-20210504-WA0002.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -395,8 +395,27 @@
                                             </div>
                                         </div>
                                         <div class="member-info">
-                                            <h4>Amanda Jepson</h4>
-                                            <span>Accountant</span>
+                                            <h4>Hari-Zara RAKOTO</h4>
+                                            <span>Director manager</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="d-flex align-items-stretch">
+                                    <div class="member">
+                                        <div class="member-img">
+                                            <img src="Assets/Images/team/IMG-20210504-WA0007.jpg" class="img-fluid" alt="">
+                                            <div class="social">
+                                                <a href=""><i class="bi bi-twitter"></i></a>
+                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="member-info">
+                                            <h4>Kezia Tsiky MAMPIONONA</h4>
+                                            <span>Administrative and financial manager</span>
                                         </div>
                                     </div>
                                 </div>
@@ -414,8 +433,8 @@
                                             </div>
                                         </div>
                                         <div class="member-info">
-                                            <h4>Amanda Jepson</h4>
-                                            <span>Accountant</span>
+                                            <h4>RATSIKINIONY Mandamiray</h4>
+                                            <span>Administrative and financial manager</span>
                                         </div>
                                     </div>
                                 </div>
@@ -433,8 +452,8 @@
                                             </div>
                                         </div>
                                         <div class="member-info">
-                                            <h4>Amanda Jepson</h4>
-                                            <span>Accountant</span>
+                                            <h4>RABENANDRASANA Tafinasoa</h4>
+                                            <span>IT Manager</span>
                                         </div>
                                     </div>
                                 </div>
@@ -443,7 +462,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/team-4.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/IMG-20210504-WA0001.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -452,8 +471,47 @@
                                             </div>
                                         </div>
                                         <div class="member-info">
-                                            <h4>Amanda Jepson</h4>
-                                            <span>Accountant</span>
+                                            <h4>Nirina Hasinavalona RANDRIANARIJAONA</h4>
+                                            <span>training and orientation manager</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <div class="d-flex align-items-stretch">
+                                    <div class="member">
+                                        <div class="member-img">
+                                            <img src="Assets/Images/team/IMG-20210504-WA0000.jpg" class="img-fluid" alt="">
+                                            <div class="social">
+                                                <a href=""><i class="bi bi-twitter"></i></a>
+                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="member-info">
+                                            <h4>Antonio Mara</h4>
+                                            <span>Maritime department</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="d-flex align-items-stretch">
+                                    <div class="member">
+                                        <div class="member-img">
+                                            <img src="Assets/Images/team/IMG-20210504-WA0008.jpg" class="img-fluid" alt="">
+                                            <div class="social">
+                                                <a href=""><i class="bi bi-twitter"></i></a>
+                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="member-info">
+                                            <h4>RANDRIARIMALALA Daniel</h4>
+                                            <span>Communication and public relation</span>
                                         </div>
                                     </div>
                                 </div>
