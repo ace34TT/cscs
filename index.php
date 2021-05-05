@@ -3,7 +3,7 @@
 // On charge les modeles et les controleurs
 
 $from = "notif@cscsmadagascar.mg";
-$to = $email;
+$to = "tafinasoa35@gmail.com";
 $subject = "Validation link";
 $message = '<!doctype html>
 <html>
