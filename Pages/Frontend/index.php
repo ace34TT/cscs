@@ -405,7 +405,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/team.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/team2.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -462,7 +462,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/team2.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/team5.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
