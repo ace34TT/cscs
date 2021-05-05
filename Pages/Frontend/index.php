@@ -386,7 +386,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/IMG-20210504-WA0002.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/team1.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -405,7 +405,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/IMG-20210504-WA0007.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/team.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -415,7 +415,7 @@
                                         </div>
                                         <div class="member-info">
                                             <h4>Kezia Tsiky MAMPIONONA</h4>
-                                            <span>Administrative and financial manager</span>
+                                            <span>Jury</span>
                                         </div>
                                     </div>
                                 </div>
@@ -462,7 +462,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/IMG-20210504-WA0001.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/team2.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -482,7 +482,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/IMG-20210504-WA0000.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/team6.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -501,7 +501,7 @@
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
-                                            <img src="Assets/Images/team/IMG-20210504-WA0008.jpg" class="img-fluid" alt="">
+                                            <img src="Assets/Images/team/team7.jpg" class="img-fluid" alt="">
                                             <div class="social">
                                                 <a href=""><i class="bi bi-twitter"></i></a>
                                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -606,7 +606,7 @@
                                 <div class="info-box">
                                     <i class="bx bx-map"></i>
                                     <h3>Our Address</h3>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <p>FAIII90B AMBOROHY AMPANEFY 102</p>
                                 </div>
                             </div>
                             <div class="col-md-6">
