@@ -28,16 +28,16 @@ $result_controller = new Result_Controller;
 $comment_controller = new Commnet_controller;
 $post_controller = new Post_Controller;
 
-
+$all_post = $post_controller->all();
+$events = $event_controller->count_events();
+$total = ($candidate_controller->total_candidate()['COUNT(*)']) + 1239;
+$received = ($candidate_controller->received_candidate()['COUNT(*)']) + 461;
 
 // gestion des routes
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $route = "/cscs_v2.1/";
 if ($route == $uri || '/' == $uri) {
-    $all_post = $post_controller->all();
-    $events = $event_controller->count_events();
-    $total = ($candidate_controller->total_candidate()['COUNT(*)']) + 1239;
-    $received = ($candidate_controller->received_candidate()['COUNT(*)']) + 461;
+
     include('Pages/Frontend/index.php');
     return;
 } else if ($route != $uri) {

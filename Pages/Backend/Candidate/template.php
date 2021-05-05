@@ -27,12 +27,12 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index.php?candidate=events">Events</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Posts</a>
-                        </li>
-                        <li class="nav-item ">
+                        </li> -->
+                        <!-- <li class="nav-item ">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -40,6 +40,7 @@
     </header>
     <?= $content ?>
 
+    <script src="Assets/Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <?php
     echo isset($script) ? $script : null;
     ?>
