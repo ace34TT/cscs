@@ -91,7 +91,7 @@
 
                     <br>
                     <div class="col-12 d-flex flex-column-reverse bd-highlight ">
-                        <button type="submit" class="btn btn-outline-warning">Warning</button>
+                        <button type="submit" class="btn btn-outline-warning">Create event</button>
                     </div>
                 </form>
             </div>

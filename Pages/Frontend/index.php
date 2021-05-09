@@ -527,7 +527,7 @@
         </section><!-- End Team Section -->
 
         <!-- ======= Frequently Asked Questions Section ======= -->
-        <section id="faq" class="faq section-bg">
+        <!-- <section id="faq" class="faq section-bg">
             <div class="container">
 
                 <div class="section-title">
@@ -586,7 +586,8 @@
                 </div>
 
             </div>
-        </section><!-- End Frequently Asked Questions Section -->
+        </section> -->
+        <!-- End Frequently Asked Questions Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
@@ -703,7 +704,7 @@
                     <div class="col-lg-4 col-md-6 footer-contact">
                         <h3>CSCS Mada</h3>
                         <p>
-                            A108 Adam Street <br>
+                            FAIII90B AMBOROHY AMPANEFY 102 <br>
                             Antananarivo, Antsimondrano<br>
                             Madagascar <br><br>
                             <strong>Phone:</strong> +261 34 03 902 97<br>
