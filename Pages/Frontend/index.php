@@ -420,7 +420,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
+                            <!-- <div class="item">
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
                                         <div class="member-img">
@@ -457,7 +457,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="item">
                                 <div class="d-flex align-items-stretch">
                                     <div class="member">
