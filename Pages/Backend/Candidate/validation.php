@@ -106,11 +106,19 @@ $uri = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP
                                 </div>
                                 <p class="file-return"></p>
                             </div>
+                            <?php
+                            if (isset($_GET['status'])) {
+                            ?>
+                                <div class="col-md-6">
+                                    <p style="color: #f85a5a;"> <?= $_GET['status'] ?></p>
+                                </div>
+                            <?php
+                            }
+                            ?>
                             <br>
                             <div class="col-12 d-flex flex-column-reverse bd-highlight ">
                                 <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
                             </div>
-
                         </form>
                     </div>
                 </div>
