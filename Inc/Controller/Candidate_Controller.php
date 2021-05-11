@@ -19,10 +19,12 @@ class Candidate_Controller
             $this->candidate->update_personnal_information($data[0]);
             $this->candidate->insert_pending_pretest($data[0]);
             return;
-        } else {
-            header('Location: ' . $url);
-            return $status = $this->file_checker($file);
         }
+        // } else {
+        //     header('Location: ' . $url);
+        //     return $status = $this->file_checker($file);
+        // }
+        echo $url;
     }
 
     public function file_checker($file)
