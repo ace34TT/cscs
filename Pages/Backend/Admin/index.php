@@ -53,6 +53,10 @@
                         <span class="focus-input100"></span>
                     </div>
 
+                    <div class="m-b-18">
+                        <p style="color: #f85a5a;"> <?php echo (isset($error) ? $error : null) ?> </p>
+                    </div>
+
                     <div class="flex-sb-m w-full p-b-30">
                         <div class="contact100-form-checkbox">
                             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">

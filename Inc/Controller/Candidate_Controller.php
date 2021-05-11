@@ -13,59 +13,49 @@ class Candidate_Controller
 
     public function store($data, $file)
     {
-        $this->candidate->_save($data);
-        $this->candidate->update_personnal_information($data[0]);
-        $this->candidate->insert_pending_pretest($data[0]);
-        $this->store_file($file, $data[0]);
+        if ($this->file_checker($file) == "file can be uploaded") {
+            $this->store_file($file, $data[0]);
+            $this->candidate->_save($data);
+            $this->candidate->update_personnal_information($data[0]);
+            $this->candidate->insert_pending_pretest($data[0]);
+        }
+    }
+
+    public function file_checker($file)
+    {
+        $target_dir = "Assets/Resumes/";
+        $target_file = $target_dir . basename($file["name"]);
+        $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $status = "file can be uploaded";
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            $status = "Sorry, file already exists.";
+        }
+
+        // Check file size
+        if ($file["size"] > 1000000) {
+            $status = "Sorry, your file is too large.";
+        }
+
+        // Allow certain file formats
+        if ($file_type != "pdf") {
+            $status = "Sorry, only PDF files are allowed.";
+        }
+
+        return $status;
     }
 
     private function store_file($file, $name)
     {
         $target_dir = "Assets/Resumes/";
         $target_file = $target_dir . basename($file["name"]);
-        $uploadOk = 1;
-        $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // Check if image file is a actual image or fake image
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($file["tmp_name"]);
-            if ($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-        }
-
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
-            $uploadOk = 0;
-        }
-
-        // Check file size
-        if ($file["size"] > 1000000) {
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
-        }
-
-        // Allow certain file formats
-        if ($file_type != "pdf") {
-            echo "Sorry, only PDF files are allowed.";
-            $uploadOk = 0;
-        }
-
         // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            echo "Sorry, your file was not uploaded.";
-            // if everything is ok, try to upload file
+
+        $target_file = $target_dir . $name . '.pdf';
+        if (move_uploaded_file($file["tmp_name"], $target_file)) {
         } else {
-            $target_file = $target_dir . $name . '.pdf';
-            if (move_uploaded_file($file["tmp_name"], $target_file)) {
-            } else {
-                echo "Sorry, there was an error uploading your file.";
-            }
+            echo "Sorry, there was an error uploading your file.";
         }
     }
 
