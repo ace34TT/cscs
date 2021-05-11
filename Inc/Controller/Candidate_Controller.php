@@ -11,13 +11,17 @@ class Candidate_Controller
         $this->candidate = new Candidate;
     }
 
-    public function store($data, $file)
+    public function store($data, $file, $url)
     {
         if ($this->file_checker($file) == "file can be uploaded") {
             $this->store_file($file, $data[0]);
             $this->candidate->_save($data);
             $this->candidate->update_personnal_information($data[0]);
             $this->candidate->insert_pending_pretest($data[0]);
+            return;
+        } else {
+            header('Location: ' . $url);
+            return $status = $this->file_checker($file);
         }
     }
 

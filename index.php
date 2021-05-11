@@ -20,6 +20,7 @@ require_once(dirname(__FILE__) . '/Inc/Controller/Event_Controller.php');
 require_once(dirname(__FILE__) . '/Inc/Controller/Result_Controller.php');
 require_once(dirname(__FILE__) . '/Inc/Controller/Comment_Controller.php');
 require_once(dirname(__FILE__) . '/Inc/Controller/Post_Controller.php');
+
 $inf_controller = new Personnal_information_Controller;
 $admin_controller = new Admin_Controller;
 $event_controller = new Event_Controller;
@@ -66,10 +67,9 @@ if ($route == $uri || '/' == $uri) {
         $form[1] = sha1($_POST['password']);
         $form[2] = $_GET['personnal_information'];
         $resume = $_FILES['resume'];
-        $candidate_controller->store($form, $resume);
+        $candidate_controller->store($form, $resume, $_GET['url']);
         //header('Location: index.php');
         return;
-        // header('Location: <ital>http:</ital><ital>//www.commentcamarche.net/forum/</ital>');  
     }
     // Admin
     if (isset($_GET['admin'])) {

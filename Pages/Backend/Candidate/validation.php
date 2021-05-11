@@ -5,7 +5,9 @@ require_once(dirname(__FILE__) . ' /../../../Inc/Controller/Personnal_informatio
 
 $inf_controller = new Personnal_information_Controller;
 
-$info = $inf_controller->check_validation($_GET['validation'])
+$info = $inf_controller->check_validation($_GET['validation']);
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +74,7 @@ $info = $inf_controller->check_validation($_GET['validation'])
                     </div>
 
                     <div class="row">
-                        <form onSubmit="return checkPassword(this)" class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="../../../index.php?validation=true&amp;personnal_information=<?= $info[0]['id'] ?> ">
+                        <form onSubmit="return checkPassword(this)" class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" action="../../../index.php?validation=true&amp;personnal_information=<?= $info[0]['id'] ?>&amp;url=<?= $uri ?> ">
                             <!-- Firstname / Lastname -->
                             <div class="col-md-4">
                                 <label for="firstname" class="form-label">Firstname</label>
