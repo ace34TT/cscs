@@ -110,7 +110,7 @@ $uri = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP
                             if (isset($_GET['status'])) {
                             ?>
                                 <div class="col-md-6">
-                                    <p style="color: #f85a5a;"> <?= $_GET['status'] ?></p>
+                                    <p style="color: #f85a5a;"> g <?= $_GET['status'] ?></p>
                                 </div>
                             <?php
                             }
