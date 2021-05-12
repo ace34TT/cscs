@@ -20,7 +20,7 @@ class Candidate_Controller
             $this->candidate->insert_pending_pretest($data[0]);
             return;
         } else {
-            header('Location: ' . $url . '&amp;status=' . $this->file_checker($file));
+            header('Location: ' . $url . '&error=' . $this->file_checker($file));
             return;
         }
     }

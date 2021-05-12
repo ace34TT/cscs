@@ -99,7 +99,7 @@ $uri = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP
                             </div>
 
                             <div class="col-md-6">
-                                <label for="validationCustom02" class="form-label">Resume</label>
+                                <label class="form-label">Resume</label>
                                 <div class="input-file-container">
                                     <input class="input-file" id="my-file" type="file" name="resume" required>
                                     <label tabindex="0" for="my-file" class="input-file-trigger"> <span class="fa fa-tv"></span> Select a file...</label>
@@ -107,22 +107,22 @@ $uri = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP
                                 <p class="file-return"></p>
                             </div>
                             <?php
-                            if (isset($_GET['status'])) {
+                            if (isset($_GET['error'])) {
                             ?>
-                                <div class="col-md-6">
-                                    <p style="color: #f85a5a;"> g <?= $_GET['status'] ?></p>
+                                <div class="col-md-4" style="margin-top: 55px;margin-left: 25px;">
+                                    <p style="color: #f85a5a;"> <?= $_GET['error'] ?></p>
                                 </div>
                             <?php
                             } else {
                             ?>
-                                <div class="col-md-6">
+                                <div class="col-md-4" style="margin-top: 55px;margin-left: 50px;">
                                     <p> Insert your resume</p>
                                 </div>
                             <?php
                             }
                             ?>
                             <br>
-                            <div class="col-12 d-flex mt-1 flex-column-reverse bd-highlight ">
+                            <div class="col-12 d-flex flex-column-reverse bd-highlight">
                                 <button type="submit" id="btn-apply" class="btn p-2 bd-highlight">Apply</button>
                             </div>
                         </form>
