@@ -27,7 +27,7 @@ $uri = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Vendor CSS Files -->
     <link href="../../../Assets/Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../../Assets/Vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -110,7 +110,7 @@ $uri = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP
                             if (isset($_GET['error'])) {
                             ?>
                                 <div class="col-md-4" style="margin-top: 55px;margin-left: 25px;">
-                                    <p style="color: #f85a5a;"> <?= $_GET['error'] ?></p>
+                                    <p style="color: #f85a5a;"> <span class="fa fa-times"></span> <?= $_GET['error'] ?></p>
                                 </div>
                             <?php
                             } else {
