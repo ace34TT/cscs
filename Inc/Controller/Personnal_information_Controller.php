@@ -14,11 +14,11 @@ class Personnal_information_Controller
     {
         $data[11] = sha1($this->generate_validation_code());
         $data[12] = 'unused';
-        $this->send_mail($data[9], 'https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=' . $data[11]);
+        $this->send_mail($data[9], 'https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=' . $data[11], $data[0] . ' ' . $data[1]);
         $this->personnal_information->_save($data);
     }
 
-    public function send_mail($email, $link)
+    public function send_mail($email, $link, $name)
     {
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -29,13 +29,13 @@ class Personnal_information_Controller
             'Reply-To: ' . $from . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-        $to = 'tafinasoa35@gmail.com';
+        $to = $email;
         $subject = "Validation link";
 
         $message = '<html><body>';
         $message .= '<h1>Hi Jane!</h1>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">We have successfuly received your application </p>';
-        $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Here is your <a href="https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=bf4fd61f437d34dace97075b412f739d0f9c199f">validation link</a> </p>';
+        $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Here is your <a href="' . $link . '">validation link</a> </p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Hope we\'ll see you soon ! </p>';
 
         $message .= '</body></html>';
