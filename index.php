@@ -17,8 +17,8 @@ $subject = "Validation link";
 
 $message = '<html><body>';
 $message .= '<h1>Hi Jane!</h1>';
-$message .= '<p font-size:18px;">We have successfuly received you application </p>';
-$message .= '<p font-size:18px;">Here is your <a href="https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=bf4fd61f437d34dace97075b412f739d0f9c199f">validation link</a> </p>';
+$message .= '<p font-size:25px;">We have successfuly received you application </p>';
+$message .= '<p font-size:25px;">Here is your <a href="https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=bf4fd61f437d34dace97075b412f739d0f9c199f">validation link</a> </p>';
 $message .= '</body></html>';
 
 mail($to, $subject, $message, $headers);
