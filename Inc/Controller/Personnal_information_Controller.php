@@ -20,7 +20,6 @@ class Personnal_information_Controller
 
     public function send_mail($email, $link)
     {
-
         $from = "noticationf@cscsmadagascar.mg";
         $to = $email;
         $subject = "Validation link";
