@@ -1,4 +1,22 @@
 <?php
+
+//-------------
+
+$from = "noticationf@cscsmadagascar.mg";
+$to = 'tafinasoa35@gmail.com';
+$subject = "Validation link";
+
+$message = '<html><body>';
+$message .= '<h1 style="color:#f40;">Hi Jane!</h1>';
+$message .= '<p style="color:#080;font-size:18px;">We have successfuly received you application </p>';
+$message .= '<p style="color:#080;font-size:18px;">Here is your <a href="https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=bf4fd61f437d34dace97075b412f739d0f9c199f">validation link</a> </p>';
+$message .= '</body></html>';
+
+$headers = "De :" . $from;
+mail($to, $subject, $message, $headers);
+//-----------
+
+
 // index.php
 // On charge les modeles et les controleurs
 
