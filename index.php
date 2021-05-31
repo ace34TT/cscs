@@ -17,17 +17,9 @@ $subject = "Validation link";
 
 $message = '<html><body>';
 $message .= '<h1>Hi Jane!</h1>';
-$message .= '<p font-size:25px;">We have successfuly received you application </p>';
-$message .= '<p font-size:25px;">Here is your <a href="https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=bf4fd61f437d34dace97075b412f739d0f9c199f">validation link</a> </p>';
+$message .= '<p color:rgb(103, 104, 112); font-size:25px;">We have successfuly received you application </p>';
+$message .= '<p color:rgb(103, 104, 112); font-size:25px;">Here is your <a href="https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=bf4fd61f437d34dace97075b412f739d0f9c199f">validation link</a> </p>';
 $message .= '</body></html>';
-
-mail($to, $subject, $message, $headers);
-
-$from = "noticationf@cscsmadagascar.mg";
-$to = $email;
-$subject = "Validation link";
-$message = "Hi , here is your validation link " . $link;
-$headers = "De :" . $from;
 
 mail($to, $subject, $message, $headers);
 
