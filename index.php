@@ -7,7 +7,7 @@ $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
 // Create email headers
-$from = 'CSCS Madagascar';
+$from = 'notification@cscsmadagascar.com';
 $headers .= 'From: ' . $from . "\r\n" .
     'Reply-To: ' . $from . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
@@ -20,8 +20,6 @@ $message .= '<h1>Hi Jane!</h1>';
 $message .= '<p font-size:18px;">We have successfuly received you application </p>';
 $message .= '<p font-size:18px;">Here is your <a href="https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=bf4fd61f437d34dace97075b412f739d0f9c199f">validation link</a> </p>';
 $message .= '</body></html>';
-
-
 
 mail($to, $subject, $message, $headers);
 
