@@ -14,7 +14,7 @@ class Personnal_information_Controller
     {
         $data[11] = sha1($this->generate_validation_code());
         $data[12] = 'unused';
-        $this->send_mail($data[9], 'https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=' . $data[11], $data[0] . ' ' . $data[1]);
+        $this->send_mail($data[9], 'https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=' . $data[11], $data[0] . '  ' . $data[1]);
         $this->personnal_information->_save($data);
     }
 
