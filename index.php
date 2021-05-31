@@ -2,7 +2,16 @@
 
 //-------------
 
-$from = "noticationf@cscsmadagascar.mg";
+// To send HTML mail, the Content-type header must be set
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+// Create email headers
+$from = 'noticationf@cscsmadagascar.mg';
+$headers .= 'From: ' . $from . "\r\n" .
+    'Reply-To: ' . $from . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+
 $to = 'tafinasoa35@gmail.com';
 $subject = "Validation link";
 
@@ -12,7 +21,8 @@ $message .= '<p style="color:#080;font-size:18px;">We have successfuly received 
 $message .= '<p style="color:#080;font-size:18px;">Here is your <a href="https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=bf4fd61f437d34dace97075b412f739d0f9c199f">validation link</a> </p>';
 $message .= '</body></html>';
 
-$headers = "De :" . $from;
+
+
 mail($to, $subject, $message, $headers);
 //-----------
 
