@@ -33,7 +33,7 @@ class Personnal_information_Controller
         $subject = "Validation link";
 
         $message = '<html><body>';
-        $message .= '<h1>Hi Jane!</h1>';
+        $message .= '<h1>Hi ' . $name . '  !</h1>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">We have successfuly received your application </p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Here is your <a href="' . $link . '">validation link</a> </p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Hope we\'ll see you soon ! </p>';
