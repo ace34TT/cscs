@@ -41,13 +41,6 @@ class Personnal_information_Controller
         $message .= '</body></html>';
 
         mail($to, $subject, $message, $headers);
-
-        // $from = "noticationf@cscsmadagascar.mg";
-        // $to = $email;
-        // $subject = "Validation link";
-        // $message = "Hi , here is your validation link " . $link;
-        // $headers = "De :" . $from;
-        // mail($to, $subject, $message, $headers);
     }
 
     private function generate_validation_code()

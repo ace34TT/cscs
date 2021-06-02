@@ -21,7 +21,9 @@ class Result extends Connection
             $req->execute(array($event));
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
@@ -32,7 +34,9 @@ class Result extends Connection
             $req->execute(array($event));
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
     public function result_fail($event)
@@ -42,7 +46,9 @@ class Result extends Connection
             $req->execute(array($event));
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
@@ -54,7 +60,9 @@ class Result extends Connection
             $req->execute(array($event));
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
@@ -66,8 +74,9 @@ class Result extends Connection
                 'id' => $id
             ));
         } catch (Exception $e) {
-            echo 'here <br>';
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 }

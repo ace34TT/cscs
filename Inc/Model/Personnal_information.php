@@ -14,13 +14,18 @@ class Personnal_information extends Connection
 
     public function check_validation($code)
     {
-        $req = $this->pdo->prepare('SELECT * FROM personnal_informations WHERE validation_code = ?');
-        $req->execute(array($code));
-        $row = $this->fetch_resultSet($req);
-        if ($row != null) {
-            return $row;
-        } else {
-            return false;
+        try {
+            $req = $this->pdo->prepare('SELECT * FROM personnal_informations WHERE validation_code = ?');
+            $req->execute(array($code));
+            $row = $this->fetch_resultSet($req);
+            if ($row != null) {
+                return $row;
+            } else {
+                return false;
+            }
+        } catch (\Throwable $th) {
+            $this->pdo->rollback();
+            exit;
         }
     }
 }

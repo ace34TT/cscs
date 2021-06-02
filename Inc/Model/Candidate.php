@@ -14,38 +14,60 @@ class Candidate extends Connection
 
     public function login($email, $password)
     {
-        $req = $this->pdo->prepare('SELECT * FROM candidates WHERE email = ? AND passwords = ?');
-        $req->execute(array($email, $password));
-        $row = $this->fetch_resultSet($req);
-        if ($row != null) {
-            $_SESSION['candidate'] = $row;
-            return true;
-        } else {
-            return false;
+        try {
+            $this->pdo->beginTransaction();
+            $req = $this->pdo->prepare('SELECT * FROM candidates WHERE email = ? AND passwords = ?');
+            $req->execute(array($email, $password));
+            $row = $this->fetch_resultSet($req);
+            if ($row != null) {
+                $_SESSION['candidate'] = $row;
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            $this->pdo->rollback();
+            die('Erreur : ' . $e->getMessage());
+            exit();
         }
     }
 
     public function update_personnal_information($email)
     {
-        $req = $this->pdo->prepare('UPDATE personnal_informations SET code_status = :status WHERE email = :email');
-        $req->execute(array(
-            'status' => 'used',
-            'email' => $email
-        ));
+        try {
+            $this->pdo->beginTransaction();
+            $req = $this->pdo->prepare('UPDATE personnal_informations SET code_status = :status WHERE email = :email');
+            $req->execute(array(
+                'status' => 'used',
+                'email' => $email
+            ));
+        } catch (Exception $e) {
+            $this->pdo->rollback();
+            die('Erreur : ' . $e->getMessage());
+            exit();
+        }
     }
 
     public function insert_pending_pretest($email)
     {
-        $req = $this->pdo->prepare('SELECT id FROM candidates WHERE email = ?');
-        $req->execute(array($email));
-        $row = $this->fetch_resultSet($req);
-        $req = $this->pdo->prepare('INSERT INTO pendings (candidate,test)  VALUES(:candidate,0)');
-        $req->execute(array('candidate' => $row[0]['id']));
+        try {
+            $this->pdo->beginTransaction();
+            $req = $this->pdo->prepare('SELECT id FROM candidates WHERE email = ?');
+            $req->execute(array($email));
+            $row = $this->fetch_resultSet($req);
+            $req = $this->pdo->prepare('INSERT INTO pendings (candidate,test)  VALUES(:candidate,0)');
+            $req->execute(array('candidate' => $row[0]['id']));
+        } catch (\Throwable $th) {
+            $this->pdo->rollback();
+            die('Erreur : ' . $th->getMessage());
+            exit();
+        }
     }
 
     public function pretest_pending_candidate()
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->query('SELECT *
                                     FROM users
                                         INNER JOIN pendings ON users.users = pendings.candidate
@@ -54,19 +76,23 @@ class Candidate extends Connection
             $rows = $this->fetch_resultSet($req);
             return $rows;
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit();
         }
     }
 
     public function assign_pretest_candidate($candidate, $event)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('INSERT INTO test_candidate_assignment (events ,candidate)  VALUES(:events , :candidate)');
             $req->execute(array(
                 'events' => $event,
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
         }
     }
@@ -74,11 +100,13 @@ class Candidate extends Connection
     public function update_stat_pending_pretest($candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE pendings SET stat = 1 WHERE candidate = :candidate AND test = 0');
             $req->execute(array(
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
         }
     }
@@ -86,6 +114,7 @@ class Candidate extends Connection
     public function active_candidate_by_event($event)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT * , test_candidate_assignment.notified
                                         FROM users
                                             INNER JOIN test_candidate_assignment ON users.users = test_candidate_assignment.candidate
@@ -94,13 +123,16 @@ class Candidate extends Connection
             $rows = $this->fetch_resultSet($req);
             return $rows;
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function unassign_candidate_pretest($candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('DELETE test_candidate_assignment FROM test_candidate_assignment
                                             INNER JOIN events
                                                 ON events.id = test_candidate_assignment.events
@@ -111,38 +143,45 @@ class Candidate extends Connection
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
-
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function reset_stat_from_pending_pretest($candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE pendings SET stat = 0 WHERE candidate = :candidate AND test = 0 ');
             $req->execute(array(
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
-            echo 'here <br>';
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function get_email($id_candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT email FROM users WHERE users =?');
             $req->execute(array($id_candidate));
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function update_notif_pretest_event($id_candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE test_candidate_assignment 
                                             INNER JOIN events 
                                             ON events.id = test_candidate_assignment.events 
@@ -153,25 +192,30 @@ class Candidate extends Connection
                 'candidate' => $id_candidate
             ));
         } catch (Exception $e) {
-
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function identified_by_id($id_candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT * FROM users WHERE users =?');
             $req->execute(array($id_candidate));
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function update_test_candidate_assignment($event, $candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE test_candidate_assignment 
                                         SET stat = true 
                                         WHERE events = :events
@@ -182,20 +226,28 @@ class Candidate extends Connection
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
-
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function insert_pending_final_test($candidate)
     {
-        $req = $this->pdo->prepare('INSERT INTO pendings (candidate,test)  VALUES(:candidate,1)');
-        $req->execute(array('candidate' => $candidate));
+        try {
+            $this->pdo->beginTransaction();
+            $req = $this->pdo->prepare('INSERT INTO pendings (candidate,test)  VALUES(:candidate,1)');
+            $req->execute(array('candidate' => $candidate));
+        } catch (\Throwable $th) {
+            $this->pdo->rollback();
+            exit;
+        }
     }
 
     public function final_test_pending_candidate()
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->query('SELECT *
                                     FROM users
                                         INNER JOIN pendings ON users.users = pendings.candidate
@@ -204,37 +256,46 @@ class Candidate extends Connection
             $rows = $this->fetch_resultSet($req);
             return $rows;
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function update_stat_pending_final_test($candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE pendings SET stat = 1 WHERE candidate = :candidate AND test = 1');
             $req->execute(array(
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function assign_final_test_candidate($candidate, $event)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('INSERT INTO test_candidate_assignment (events ,candidate)  VALUES(:events , :candidate)');
             $req->execute(array(
                 'events' => $event,
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
     public function unassign_candidate_final_test($candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('DELETE test_candidate_assignment FROM test_candidate_assignment
                                             INNER JOIN events
                                                 ON events.id = test_candidate_assignment.events
@@ -245,26 +306,31 @@ class Candidate extends Connection
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
-
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
     public function reset_stat_from_pending_final_test($candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE pendings SET stat = 0 WHERE candidate = :candidate AND test = 1');
             $req->execute(array(
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
+            $this->pdo->rollback();
             echo 'here <br>';
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function update_notif_final_test_event($id_candidate)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE test_candidate_assignment 
                                             INNER JOIN events 
                                             ON events.id = test_candidate_assignment.events 
@@ -275,28 +341,32 @@ class Candidate extends Connection
                 'candidate' => $id_candidate
             ));
         } catch (Exception $e) {
-
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function update_post($post, $candidate)
     {
         try {
-
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE personnal_informations INNER JOIN candidates ON personnal_informations.id = candidates.personnal_information SET post = :post WHERE candidates.id = :candidate');
             $req->execute(array(
                 'post' => $post,
                 'candidate' => $candidate
             ));
         } catch (Exception $e) {
+            $this->pdo->rollback();
             echo 'here <br>';
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
     public function declined_pretest_candidates()
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT results.id AS verdict , users.*
                                         FROM users
                                             INNER JOIN results ON users.users = results.candidate
@@ -306,12 +376,15 @@ class Candidate extends Connection
                                             AND results.stat = 0");
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
     public function declined_final_test_candidates()
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT results.id AS verdict , users.*
                                         FROM users
                                             INNER JOIN results ON users.users = results.candidate
@@ -321,13 +394,16 @@ class Candidate extends Connection
                                             AND results.stat = 0");
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function get_received_candidate()
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT *
                                         FROM users
                                             INNER JOIN results ON users.users = results.candidate
@@ -337,24 +413,30 @@ class Candidate extends Connection
                                             AND results.stat = 0");
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function count_candidate()
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT COUNT(*)
                                         FROM candidates ");
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit();
         }
     }
 
     public function count_received_candidate()
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT COUNT(*)
                                         FROM users
                                             INNER JOIN results ON users.users = results.candidate
@@ -364,7 +446,9 @@ class Candidate extends Connection
                                             AND results.stat = 0");
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 }

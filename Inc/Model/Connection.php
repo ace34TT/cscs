@@ -15,12 +15,15 @@ class Connection
             $this->table = $table;
             $this->fillable = $fillable;
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function _save($data)
     {
+        $this->pdo->beginTransaction();
         $fillable_query = '';
         $data_query = '';
 
@@ -36,22 +39,28 @@ class Connection
 
         $query = 'INSERT INTO ' . $this->table . '(' . $fillable_query . ') VALUES (' . $data_query . ')';
         try {
+
             $this->pdo->exec($query);
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
     }
 
     public function _all()
     {
         try {
+            $this->pdo->beginTransaction();
             $query = 'SELECT * FROM ' . $this->table;
             $resultSet = $this->pdo->query($query);
             $data = $this->fetch_resultSet($resultSet);
             $resultSet->closeCursor();
             return $data;
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
         return null;
     }
@@ -59,6 +68,7 @@ class Connection
     public function _id($id)
     {
         try {
+            $this->pdo->beginTransaction();
             $query = 'SELECT * FROM ' . $this->table . ' WHERE id = ?';
             $req = $this->pdo->prepare($query);
             $req->execute(array($id));
@@ -66,7 +76,9 @@ class Connection
             $req->closeCursor();
             return $data;
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
         return null;
     }
@@ -74,12 +86,15 @@ class Connection
     public function _delete($id)
     {
         try {
+            $this->pdo->beginTransaction();
             $query = 'DELETE FROM ' . $this->table . ' WHERE id = ?';
             $req = $this->pdo->prepare($query);
             $req->execute(array($id));
             $req->closeCursor();
         } catch (Exception $e) {
+            $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
+            exit;
         }
         return null;
     }

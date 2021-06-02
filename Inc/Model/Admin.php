@@ -14,14 +14,21 @@ class Admin extends Connection
 
     function login($email, $password)
     {
-        $req = $this->pdo->prepare('SELECT id , names ,email FROM admins WHERE email = ? AND passwords = ?');
-        $req->execute(array($email, $password));
-        $row = $this->fetch_resultSet($req);
-        if ($row != null) {
-            $_SESSION['admin'] = $row[0];
-            return true;
-        } else {
-            return false;
+        try {
+            $this->pdo->beginTransaction();
+            $req = $this->pdo->prepare('SELECT id , names ,email FROM admins WHERE email = ? AND passwords = ?');
+            $req->execute(array($email, $password));
+            $row = $this->fetch_resultSet($req);
+            if ($row != null) {
+                $_SESSION['admin'] = $row[0];
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+            $this->pdo->rollback();
+            exit();
         }
     }
 }
