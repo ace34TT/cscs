@@ -7,6 +7,8 @@ $inf_controller = new Personnal_information_Controller;
 
 $info = $inf_controller->check_validation($_GET['validation']);
 
+echo '<pre>', var_dump($info), '</pre>';
+
 $uri = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";;
 
 ?>
