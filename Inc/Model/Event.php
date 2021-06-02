@@ -17,6 +17,7 @@ class Event extends Connection
         try {
             $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT count(*) FROM `events` WHERE dates = CURDATE() AND stat = false");
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (\Throwable $th) {
             $this->pdo->rollback();
@@ -29,6 +30,7 @@ class Event extends Connection
         try {
             $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT * FROM `events` WHERE dates =  CURDATE() AND stat = false");
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (\Throwable $th) {
             $this->pdo->rollback();
@@ -45,6 +47,7 @@ class Event extends Connection
                                     WHERE dates >= CURDATE() 
                                     AND events = \'pretest\' ');
             $rows = $this->fetch_resultSet($req);
+            $this->pdo->commit();
             return $rows;
         } catch (\Throwable $th) {
             $this->pdo->rollback();
@@ -58,6 +61,7 @@ class Event extends Connection
             $this->pdo->beginTransaction();
             $req = $this->pdo->query('SELECT id , names, dates , schedule , province ,responsible FROM events WHERE dates >= CURDATE() AND events = \'final_test\' ');
             $rows = $this->fetch_resultSet($req);
+            $this->pdo->commit();
             return $rows;
         } catch (\Throwable $th) {
             $this->pdo->rollback();
@@ -71,6 +75,7 @@ class Event extends Connection
             $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT * FROM `events` ORDER BY dates DESC");
             return $this->fetch_resultSet($req);
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             exit;
@@ -84,6 +89,7 @@ class Event extends Connection
             $this->pdo->beginTransaction();
             $req = $this->pdo->query('SELECT * FROM events WHERE dates BETWEEN CURRENT_DATE() AND DATE_ADD(CURRENT_DATE, INTERVAL 7  DAY)');
             $rows = $this->fetch_resultSet($req);
+            $this->pdo->commit();
             return $rows;
         } catch (\Throwable $th) {
             $this->pdo->rollback();
@@ -99,6 +105,7 @@ class Event extends Connection
             $rows = $this->fetch_resultSet($req);
             return $rows;
         } catch (\Throwable $th) {
+            $this->pdo->commit();
             $this->pdo->rollback();
             exit;
         }
@@ -110,6 +117,7 @@ class Event extends Connection
             $this->pdo->beginTransaction();
             $req = $this->pdo->query('SELECT COUNT(*) FROM events');
             $rows = $this->fetch_resultSet($req);
+            $this->pdo->commit();
             return $rows;
         } catch (\Throwable $th) {
             $this->pdo->rollback();

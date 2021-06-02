@@ -19,8 +19,10 @@ class Personnal_information extends Connection
             $req->execute(array($code));
             $row = $this->fetch_resultSet($req);
             if ($row != null) {
+                $this->pdo->commit();
                 return $row;
             } else {
+                $this->pdo->commit();
                 return false;
             }
         } catch (\Throwable $th) {

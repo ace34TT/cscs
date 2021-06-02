@@ -21,6 +21,7 @@ class Admin extends Connection
             $row = $this->fetch_resultSet($req);
             if ($row != null) {
                 $_SESSION['admin'] = $row[0];
+                $this->pdo->commit();
                 return true;
             } else {
                 return false;

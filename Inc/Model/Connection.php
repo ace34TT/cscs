@@ -40,8 +40,9 @@ class Connection
 
         $query = 'INSERT INTO ' . $this->table . '(' . $fillable_query . ') VALUES (' . $data_query . ')';
         try {
-
+            $this->pdo->beginTransaction();
             $this->pdo->exec($query);
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -57,6 +58,7 @@ class Connection
             $resultSet = $this->pdo->query($query);
             $data = $this->fetch_resultSet($resultSet);
             $resultSet->closeCursor();
+            $this->pdo->commit();
             return $data;
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -75,6 +77,7 @@ class Connection
             $req->execute(array($id));
             $data = $this->fetch_resultSet($req);
             $req->closeCursor();
+            $this->pdo->commit();
             return $data;
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -92,6 +95,7 @@ class Connection
             $req = $this->pdo->prepare($query);
             $req->execute(array($id));
             $req->closeCursor();
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());

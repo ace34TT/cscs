@@ -21,8 +21,10 @@ class Candidate extends Connection
             $row = $this->fetch_resultSet($req);
             if ($row != null) {
                 $_SESSION['candidate'] = $row;
+                $this->pdo->commit();
                 return true;
             } else {
+                $this->pdo->commit();
                 return false;
             }
         } catch (Exception $e) {
@@ -41,6 +43,7 @@ class Candidate extends Connection
                 'status' => 'used',
                 'email' => $email
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -57,6 +60,7 @@ class Candidate extends Connection
             $row = $this->fetch_resultSet($req);
             $req = $this->pdo->prepare('INSERT INTO pendings (candidate,test)  VALUES(:candidate,0)');
             $req->execute(array('candidate' => $row[0]['id']));
+            $this->pdo->commit();
         } catch (\Throwable $th) {
             $this->pdo->rollback();
             die('Erreur : ' . $th->getMessage());
@@ -74,6 +78,7 @@ class Candidate extends Connection
                                     WHERE pendings.stat = false 
                                     AND pendings.test = 0');
             $rows = $this->fetch_resultSet($req);
+            $this->pdo->commit();
             return $rows;
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -91,6 +96,7 @@ class Candidate extends Connection
                 'events' => $event,
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -105,6 +111,7 @@ class Candidate extends Connection
             $req->execute(array(
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -121,6 +128,7 @@ class Candidate extends Connection
                                         WHERE test_candidate_assignment.stat = false AND events = ?');
             $req->execute(array($event));
             $rows = $this->fetch_resultSet($req);
+            $this->pdo->commit();
             return $rows;
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -142,6 +150,7 @@ class Candidate extends Connection
             $req->execute(array(
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -157,6 +166,7 @@ class Candidate extends Connection
             $req->execute(array(
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -170,6 +180,7 @@ class Candidate extends Connection
             $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT email FROM users WHERE users =?');
             $req->execute(array($id_candidate));
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -191,6 +202,7 @@ class Candidate extends Connection
             $req->execute(array(
                 'candidate' => $id_candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -204,6 +216,7 @@ class Candidate extends Connection
             $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT * FROM users WHERE users =?');
             $req->execute(array($id_candidate));
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -225,6 +238,7 @@ class Candidate extends Connection
                 'events' => $event,
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -238,6 +252,7 @@ class Candidate extends Connection
             $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('INSERT INTO pendings (candidate,test)  VALUES(:candidate,1)');
             $req->execute(array('candidate' => $candidate));
+            $this->pdo->commit();
         } catch (\Throwable $th) {
             $this->pdo->rollback();
             exit;
@@ -254,6 +269,7 @@ class Candidate extends Connection
                                     WHERE pendings.stat = false 
                                     AND pendings.test = 1');
             $rows = $this->fetch_resultSet($req);
+            $this->pdo->commit();
             return $rows;
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -270,6 +286,7 @@ class Candidate extends Connection
             $req->execute(array(
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -286,6 +303,7 @@ class Candidate extends Connection
                 'events' => $event,
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -305,6 +323,7 @@ class Candidate extends Connection
             $req->execute(array(
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -319,6 +338,7 @@ class Candidate extends Connection
             $req->execute(array(
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             echo 'here <br>';
@@ -340,6 +360,7 @@ class Candidate extends Connection
             $req->execute(array(
                 'candidate' => $id_candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
@@ -356,6 +377,7 @@ class Candidate extends Connection
                 'post' => $post,
                 'candidate' => $candidate
             ));
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             echo 'here <br>';
@@ -374,6 +396,7 @@ class Candidate extends Connection
                                         WHERE events.events = 'pretest'
                                             AND results.result = 0
                                             AND results.stat = 0");
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -392,6 +415,7 @@ class Candidate extends Connection
                                         WHERE events.events = 'final_test'
                                             AND results.result = 0
                                             AND results.stat = 0");
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -411,6 +435,7 @@ class Candidate extends Connection
                                         WHERE events.events = 'final_test'
                                             AND results.result = 1
                                             AND results.stat = 0");
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -425,6 +450,7 @@ class Candidate extends Connection
             $this->pdo->beginTransaction();
             $req = $this->pdo->query("SELECT COUNT(*)
                                         FROM candidates ");
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
             $this->pdo->rollback();
@@ -444,6 +470,7 @@ class Candidate extends Connection
                                         WHERE events.events = 'final_test'
                                             AND results.result = 1
                                             AND results.stat = 0");
+            $this->pdo->commit();
             return $this->fetch_resultSet($req);
         } catch (Exception $e) {
             $this->pdo->rollback();

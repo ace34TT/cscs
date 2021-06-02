@@ -21,6 +21,7 @@ class Comment extends Connection
             $req = $this->pdo->prepare('SELECT * FROM comments WHERE candidate = ? ORDER BY created_date DESC');
             $req->execute(array($candidate));
             return $this->fetch_resultSet($req);
+            $this->pdo->commit();
         } catch (Exception $e) {
             $this->pdo->rollback();
             die('Erreur : ' . $e->getMessage());
