@@ -49,8 +49,6 @@ class Personnal_information_Controller
         return substr(str_shuffle($permitted_chars), 0, 6);
     }
 
-
-
     public function check_validation($code)
     {
         $info = $this->personnal_information->check_validation($code);

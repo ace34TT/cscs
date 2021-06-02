@@ -12,6 +12,7 @@ class Connection
         try {
             $this->pdo = new PDO('mysql:host=81.19.215.12;dbname=cscsmada_v2;charset=utf8', 'cscsmada', '40%YTPIfyg@8c8');
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo->setAttribute(PDO::ATTR_AUTOCOMMIT, 0);
             $this->table = $table;
             $this->fillable = $fillable;
         } catch (Exception $e) {
