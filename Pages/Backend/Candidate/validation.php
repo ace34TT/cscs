@@ -11,6 +11,7 @@ $info = $inf_controller->check_validation($_GET['validation']);
 
 $uri = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";;
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
