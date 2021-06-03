@@ -1,6 +1,8 @@
 <?php
 // 127.0.0.1/cscs_v2.1/Pages/Backend/Candidate/validation.php?validation=657f215c06ebf0a5edd6bbb5bc38fe457ae3e693
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once(dirname(__FILE__) . ' /../../../Inc/Controller/Personnal_information_Controller.php');
 
 $inf_controller = new Personnal_information_Controller;
