@@ -15,8 +15,8 @@
 --         select distinct id
 --         from events
 --     );
--- ALTER TABLE comments
--- ADD FOREIGN KEY (events) REFERENCES events(id);
+ALTER TABLE comments
+ADD FOREIGN KEY (events) REFERENCES events(id);
 -- ALTER TABLE (comments)
 -- ADD FOREIGN KEY events REFERENCES events(id);
 -- DROP TABLE pretest_results;
