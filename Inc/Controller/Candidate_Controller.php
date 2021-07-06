@@ -115,7 +115,6 @@ class Candidate_Controller
     {
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-        echo '<pre>', var_dump($event), '</pre>';
         // Create email headers 
         $from = 'notification@cscsmadagascar.com';
         $headers .= 'From: ' . $from . "\r\n" .
