@@ -138,7 +138,7 @@ class Candidate_Controller
         $message .= '<p> Date   : ' . $event['dates'] . ' </p>';
         $message .= '<p> Time   : ' . $event['schedule'] . ' </p>';
         $message .= '<p> Method : ' . $event['method'] . ' </p>';
-        $message .= '<p> Place  : ' . $event['palce'] . ' </p>';
+        $message .= '<p> Place  : ' . $event['place'] . ' </p>';
         $message .= '<p> Respensible  : ' . $event['responsible'] . ' </p>';
         $message .= '<p> Contact  : ' . $event['contact'] . ' </p>';
 
