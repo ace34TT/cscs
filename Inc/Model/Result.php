@@ -17,6 +17,7 @@ class Result extends Connection
     public function results_list($event)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT * FROM results_view WHERE events = ? AND stat = 0');
             $req->execute(array($event));
             $this->pdo->commit();
@@ -31,6 +32,7 @@ class Result extends Connection
     public function result_success($event)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT result , COUNT(*) FROM results_view WHERE events = ? AND result = 1');
             $req->execute(array($event));
             $this->pdo->commit();
@@ -44,6 +46,7 @@ class Result extends Connection
     public function result_fail($event)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT result , COUNT(*) FROM results_view WHERE events = ? AND result = 0');
             $req->execute(array($event));
             $this->pdo->commit();
@@ -59,6 +62,7 @@ class Result extends Connection
     public function total_candidate_per_event($event)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('SELECT COUNT(*) FROM test_candidate_assignment WHERE events = ?');
             $req->execute(array($event));
             $this->pdo->commit();
@@ -73,6 +77,7 @@ class Result extends Connection
     public function update_stat($id)
     {
         try {
+            $this->pdo->beginTransaction();
             $req = $this->pdo->prepare('UPDATE results  SET stat = 1 WHERE id = :id');
             $req->execute(array(
                 'id' => $id
