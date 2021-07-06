@@ -29,6 +29,9 @@ $result_controller = new Result_Controller;
 $comment_controller = new Commnet_controller;
 $post_controller = new Post_Controller;
 
+$event = $event_controller->get_event_by_id(5);
+$candidate_controller->send_pretest_email("tafinasoa35@gmail.com", $event, 14);
+
 $all_post = $post_controller->all();
 $events = $event_controller->count_events();
 $total = ($candidate_controller->total_candidate()['COUNT(*)']) + 1239;
@@ -203,7 +206,8 @@ if ($route == $uri || '/' == $uri) {
             // notifying candidates pretest
             if ($_GET['admin'] == 'notify_candidate') {
                 $candidates = $_POST['unotified_candidates'];
-                $candidate_controller->notify_pretest_candidate($candidates);
+                $event = $event_controller->get_event_by_id($_POST['event']);
+                $candidate_controller->notify_pretest_candidate($candidates, $event);
                 header("Location: index.php?admin=pretest_assignement&event=" . $_GET['event']);
                 return;
             }

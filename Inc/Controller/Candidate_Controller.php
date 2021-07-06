@@ -98,7 +98,7 @@ class Candidate_Controller
         $this->candidate->reset_stat_from_pending_pretest($candidate);
     }
 
-    public function notify_pretest_candidate($candidates)
+    public function notify_pretest_candidate($candidates, $event)
     {
         $candidates = str_replace(' ', '', $candidates);
         $candidates = explode(',', $candidates);
@@ -106,18 +106,57 @@ class Candidate_Controller
 
         foreach ($candidates as $id_candidate) {
             $email = $this->candidate->get_email($id_candidate)[0]['email'];
-            // $this->send_pretest_email($email);
+            $this->send_pretest_email($email, $event, $candidates);
             $this->candidate->update_notif_pretest_event($id_candidate);
         }
     }
 
-    public function send_pretest_email($email)
+    public function send_pretest_email($email, $event, $id)
     {
-        $to_email = $email;
-        $subject = 'Testing PHP Mail';
-        $message = 'This mail is sent using the PHP mail function';
-        $headers = 'From: notification@cscsmadagascar.mg';
-        mail($to_email, $subject, $message, $headers);
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+        // Create email headers
+        $from = 'notification@cscsmadagascar.com';
+        $headers .= 'From: ' . $from . "\r\n" .
+            'Reply-To: ' . $from . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        $to = $email;
+        $subject = "Validation link";
+
+        $message = '<html><body>';
+        $message .= '<h1>Hello ,</h1>';
+
+        $message .= '<br>';
+        $message .= '<br>';
+        $message .= '<br>';
+
+        $message .= '<p font-size:25px;">We inform you that you\'ll pass your preselection test soon .</p>';
+        $message .= ' <p>Here are the informations of your schedule</p>';
+        $message .= '<p> Event informations </p>';
+        $message .= '<p> Date   : ' . $event[0]['dates'] . ' </p>';
+        $message .= '<p> Time   : ' . $event[0]['schedule'] . ' </p>';
+        $message .= '<p> Method : ' . $event[0]['method'] . ' </p>';
+        $message .= '<p> Place  : ' . $event[0]['palce'] . ' </p>';
+        $message .= '<p> Respensible  : ' . $event[0]['responsible'] . ' </p>';
+        $message .= '<p> Contact  : ' . $event[0]['contact'] . ' </p>';
+
+        $message .= '<p> Your id is : ' . $id . ' </p>';
+
+        $message .= '<p> Cordialy </p>';
+
+        $message .= '<br>';
+        $message .= '<br>';
+        $message .= '<br>';
+
+        $message .= '<p> ------------------ </p>';
+        $message .= '<p> CSCS Madagascar </p>';
+        $message .= '<p> notification@cscsmadagascar.mg </p>';
+        $message .= '<p>  +261 34 03 902 97 </p>';
+        $message .= '</body></html>';
+
+        mail($to, $subject, $message, $headers);
     }
 
     public function get_candidate_by_id($id_candidate)
