@@ -135,12 +135,12 @@ class Candidate_Controller
         $message .= '<p font-size:25px;">We inform you that you\'ll pass your preselection test soon .</p>';
         $message .= ' <p>Here are the informations of your schedule</p>';
         $message .= '<p> Event informations </p>';
-        $message .= '<p> Date   : ' . $event[0]['dates'] . ' </p>';
-        $message .= '<p> Time   : ' . $event[0]['schedule'] . ' </p>';
-        $message .= '<p> Method : ' . $event[0]['method'] . ' </p>';
-        $message .= '<p> Place  : ' . $event[0]['palce'] . ' </p>';
-        $message .= '<p> Respensible  : ' . $event[0]['responsible'] . ' </p>';
-        $message .= '<p> Contact  : ' . $event[0]['contact'] . ' </p>';
+        $message .= '<p> Date   : ' . $event['dates'] . ' </p>';
+        $message .= '<p> Time   : ' . $event['schedule'] . ' </p>';
+        $message .= '<p> Method : ' . $event['method'] . ' </p>';
+        $message .= '<p> Place  : ' . $event['palce'] . ' </p>';
+        $message .= '<p> Respensible  : ' . $event['responsible'] . ' </p>';
+        $message .= '<p> Contact  : ' . $event['contact'] . ' </p>';
 
         $message .= '<p> Your id is : ' . $id . ' </p>';
 
