@@ -122,7 +122,7 @@ class Candidate_Controller
             'X-Mailer: PHP/' . phpversion();
 
         $to = $email;
-        $subject = "Validation link";
+        $subject = "Pretest schedule";
 
         $message = '<html><body>';
         $message .= '<h1>Hello ,</h1>';

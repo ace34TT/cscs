@@ -119,7 +119,7 @@
                                         foreach ($assignet_curr_event as $candidate) { ?>
                                             <tr class="row100 body">
                                                 <td class="cell100 column1"><?= $candidate['users'] ?> </td>
-                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="<?php echo ($_SESSION['admin']['email'] == 'kezia@cscsmadagascar.mg' ? 'index.php?admin=test_form&amp;candidate=' . $candidate['users'] . '&amp;event=' . $event['id']  : 'index.php?admin=candidate_card&amp;candidate=' . $candidate['users']) ?> "><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
+                                                <td class="cell100 column2"> <a style="text-decoration: none;" href="<?php echo ($_SESSION['admin']['email'] == 'zara@cscsmadagascar.mg' ? 'index.php?admin=test_form&amp;candidate=' . $candidate['users'] . '&amp;event=' . $event['id']  : 'index.php?admin=candidate_card&amp;candidate=' . $candidate['users']) ?> "><?= $candidate['lastname'] . ' ' . $candidate['firstname'] ?></a> </td>
                                                 <td class="cell100 column3"> <?= $candidate['province'] ?> </td>
                                                 <!-- -->
                                                 <td class="cell100 column4"><?= $candidate['post'] ?> </td>
