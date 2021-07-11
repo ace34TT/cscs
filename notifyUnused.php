@@ -74,6 +74,8 @@ foreach ($emails as $email) {
     echo '<pre>', var_dump(mail($to, $subject, $message, $headers)), '</pre>';
 }
 
+testMail();
+
 function testMail()
 {
     $to = "tafinasoa35@gmail.com";
