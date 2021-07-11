@@ -125,7 +125,7 @@ class Candidate_Controller
         $subject = "Pretest schedule";
 
         $message = '<html><body>';
-        $message .= '<h1>Hello ,</h1>';
+        $message .= ' <p>Hello ,</p>';
 
         $message .= '<br>';
         $message .= '<br>';
@@ -145,7 +145,6 @@ class Candidate_Controller
 
         $message .= '<p> Cordialy </p>';
 
-        $message .= '<br>';
         $message .= '<br>';
         $message .= '<br>';
 

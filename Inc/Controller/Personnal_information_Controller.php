@@ -23,20 +23,29 @@ class Personnal_information_Controller
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-        // Create email headers
         $from = 'notification@cscsmadagascar.com';
         $headers .= 'From: ' . $from . "\r\n" .
             'Reply-To: ' . $from . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
         $to = $email;
+
         $subject = "Validation link";
 
         $message = '<html><body>';
-        $message .= '<h1>Hi ' . $name . '  !</h1>';
+        $message .= '<h1>Hi ' . $name . ' !</h1>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">We have successfuly received your application </p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Here is your <a href="' . $link . '">validation link</a> </p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Hope we\'ll see you soon ! </p>';
+
+        $message .= '<br>';
+        $message .= '<br>';
+
+        $message .= '<p> ------------------ </p>';
+        $message .= '<p> CSCS Madagascar </p>';
+        $message .= '<p> notification@cscsmadagascar.mg </p>';
+        $message .= '<p>  +261 34 03 902 97 </p>';
+        $message .= '</body></html>';
 
         $message .= '</body></html>';
 
