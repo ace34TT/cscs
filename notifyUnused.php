@@ -114,16 +114,16 @@ function sendmail($objet, $contenu, $destinataire)
         $mail->SMTPDebug = 0;            // en production (sinon "2")
         // $mail->SMTPDebug = 2;            // décommenter en mode débug
         $mail->isSMTP();                                                            // envoi avec le SMTP du serveur
-        $mail->Host       = 'smtp du serveur';                            // serveur SMTP
+        $mail->Host       = 'cscsmadagascar.mg';                            // serveur SMTP
         $mail->SMTPAuth   = true;                                            // le serveur SMTP nécessite une authentification ("false" sinon)
-        $mail->Username   = 'ne-pas-repondre@mon_domaine.fr';     // login SMTP
-        $mail->Password   = '**********';                                                // Mot de passe SMTP
+        $mail->Username   = 'notification@cscsmadagascar.mg';     // login SMTP
+        $mail->Password   = 'eb_65Oh0';                                                // Mot de passe SMTP
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;     // encodage des données TLS (ou juste 'tls') > "Aucun chiffrement des données"; sinon PHPMailer::ENCRYPTION_SMTPS (ou juste 'ssl')
         $mail->Port       = 587;                                                               // port TCP (ou 25, ou 465...)
 
         /* DONNEES DESTINATAIRES */
         ##########################
-        $mail->setFrom('ne-pas-repondre@mon_domaine.fr', 'No-Reply');  //adresse de l'expéditeur (pas d'accents)
+        $mail->setFrom('notification@cscsmadagascar.mg', 'No-Reply');  //adresse de l'expéditeur (pas d'accents)
         $mail->addAddress($destinataire, 'Clients de Mon_Domaine');        // Adresse du destinataire (le nom est facultatif)
         // $mail->addReplyTo('moi@mon_domaine.fr', 'son nom');     // réponse à un autre que l'expéditeur (le nom est facultatif)
         // $mail->addCC('cc@example.com');            // Cc (copie) : autant d'adresse que souhaité = Cc (le nom est facultatif)
