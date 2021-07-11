@@ -85,5 +85,5 @@ function testMail()
     $msg = wordwrap($msg, 70);
 
     // send email
-    echo '<pre>', var_dump(mail("someone@example.com", "My subject", $msg)), '</pre>';
+    echo '<pre>', var_dump(mail("tafinasoa35@gmail.com", "My subject", $msg)), '</pre>';
 }
