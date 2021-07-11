@@ -10,6 +10,9 @@ session_cache_limiter(false);
 // Enable display errors 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
+
+ini_set("mail.log", "/tmp/mail.log");
+ini_set("mail.add_x_header", TRUE);
 error_reporting(E_ALL);
 
 // Required files 

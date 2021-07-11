@@ -78,15 +78,12 @@ testMail();
 
 function testMail()
 {
-    $to = "tafinasoa35@gmail.com";
-    $subject = "test";
-    $message = "hello ";
+    // the message
+    $msg = "First line of text\nSecond line of text";
 
-    $headers = array(
-        "From: notification@cscsmadagascar.mg",
-        "Reply-To: tafinasoa35@gmail.com",
-        "X-Mailer: PHP/" . PHP_VERSION
-    );
-    $headers = implode("\r\n", $headers);
-    echo '<pre>', var_dump(mail($to, $subject, $message, $headers)), '</pre>';
+    // use wordwrap() if lines are longer than 70 characters
+    $msg = wordwrap($msg, 70);
+
+    // send email
+    echo '<pre>', var_dump(mail("someone@example.com", "My subject", $msg)), '</pre>';
 }
