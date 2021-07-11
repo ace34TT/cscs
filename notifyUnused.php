@@ -16,9 +16,9 @@ ini_set("mail.add_x_header", TRUE);
 error_reporting(E_ALL);
 
 // path du dossier PHPMailer % fichier d'envoi du mail
-require '/Inc/PHPMailer/src/Exception.php';
-require '/Inc/PHPMailer/src/PHPMailer.php';
-require '/Inc/PHPMailer/src/SMTP.php';
+require(dirname(__FILE__) . '/Inc/PHPMailer/src/Exception.php');
+require(dirname(__FILE__) . '/Inc/PHPMailer/src/PHPMailer.php');
+require(dirname(__FILE__) . '/Inc/PHPMailer/src/SMTP.php');
 
 function init_connection()
 {
