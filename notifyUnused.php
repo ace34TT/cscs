@@ -2,6 +2,19 @@
 // lance les classes de PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+ini_set('session.cache_limiter', 'public');
+session_cache_limiter(false);
+
+
+// Enable display errors 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
+ini_set("mail.log", "/tmp/mail.log");
+ini_set("mail.add_x_header", TRUE);
+error_reporting(E_ALL);
+
 // path du dossier PHPMailer % fichier d'envoi du mail
 require '/Inc/PHPMailer/src/Exception.php';
 require '/Inc/PHPMailer/src/PHPMailer.php';
