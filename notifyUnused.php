@@ -84,8 +84,8 @@ function testMail()
     $message = "<b>This is HTML message.</b>";
     $message .= "<h1>This is headline.</h1>";
 
-    $header = "From:notification@cscsmadagascar.com \r\n";
-    $header .= "Cc:afgh@somedomain.com \r\n";
+    $header = "From:notification@cscsmadagascar.mg \r\n";
+    $header .= "Cc:anotification@cscsmadagascar.mg \r\n";
     $header .= "MIME-Version: 1.0\r\n";
     $header .= "Content-type: text/html\r\n";
 
