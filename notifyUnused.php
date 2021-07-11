@@ -73,3 +73,18 @@ foreach ($emails as $email) {
 
     echo '<pre>', var_dump(mail($to, $subject, $message, $headers)), '</pre>';
 }
+
+function testMail()
+{
+    $to = "tafinasoa35@gmail.com";
+    $subject = "test";
+    $message = "hello ";
+
+    $headers = array(
+        "From: notification@cscsmadagascar.mg",
+        "Reply-To: tafinasoa35@gmail.com",
+        "X-Mailer: PHP/" . PHP_VERSION
+    );
+    $headers = implode("\r\n", $headers);
+    echo '<pre>', var_dump(mail($to, $subject, $message, $headers)), '</pre>';
+}
