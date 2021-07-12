@@ -33,7 +33,8 @@ $comment_controller = new Commnet_controller;
 $post_controller = new Post_Controller;
 
 $event = $event_controller->get_event_by_id(5);
-$candidate_controller->send_pretest_email("tafinasoa35@gmail.com", $event, 14);
+echo '<pre>', var_dump($candidate_controller->send_pretest_email("tafinasoa35@gmail.com", $event, 14)), '</pre>';
+
 
 $all_post = $post_controller->all();
 $events = $event_controller->count_events();
