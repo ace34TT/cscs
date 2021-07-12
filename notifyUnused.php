@@ -95,10 +95,10 @@ $emails = getEmail();
 //     echo '<pre>', var_dump(mail($to, $subject, $message, $headers)), '</pre>';
 // }
 
-// $dest = "tafinasoa35@gmail.com";
-// $objet = "[Association] Nouveau message de moi ";
-// $contenu = "<br />'hello world'";
-// $contenu .= "<br /><br />Date du message : " . date("d/m/Y");
+$dest = "tafinasoa35@gmail.com";
+$objet = "[Association] Nouveau message de moi ";
+$contenu = "<br />'hello world'";
+$contenu .= "<br /><br />Date du message : " . date("d/m/Y");
 
 sendmail($objet, $contenu, $dest);
 
