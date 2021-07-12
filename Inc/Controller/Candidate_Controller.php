@@ -154,7 +154,7 @@ class Candidate_Controller
         $message .= '<p>  +261 34 03 902 97 </p>';
         $message .= '</body></html>';
 
-        mail($to, $subject, $message, $headers);
+        echo '<pre>', var_dump(mail($to, $subject, $message, $headers)), '</pre>';
     }
 
     public function get_candidate_by_id($id_candidate)
