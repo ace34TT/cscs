@@ -116,7 +116,7 @@ class Candidate_Controller
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
         // Create email headers 
-        $from = 'notification@cscsmadagascar.com';
+        $from = 'notification@cscsmadagascar.mg';
         $headers .= 'From: ' . $from . "\r\n" .
             'Reply-To: ' . $from . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
