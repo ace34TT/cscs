@@ -95,24 +95,7 @@ $emails = getEmail();
 //     echo '<pre>', var_dump(mail($to, $subject, $message, $headers)), '</pre>';
 // }
 
-$dest = "tafinasoa35@gmail.com";
-$objet = "[Association] Nouveau message de moi ";
-$message = '<html><body>';
-$message .= '<h1>Hello , !</h1>';
-$message .= '<p color:rgb(103, 104, 112); font-size:25px;">We have successfuly received your application </p>';
-$message .= '<p color:rgb(103, 104, 112); font-size:25px;">Here is your <a href=" hello ">validation link</a> </p>';
-$message .= '<p color:rgb(103, 104, 112); font-size:25px;">Hope we\'ll see you soon ! </p>';
 
-$message .= '<br>';
-$message .= '<br>';
-
-$message .= '<p> ------------------ </p>';
-$message .= '<p> CSCS Madagascar </p>';
-$message .= '<p> notification@cscsmadagascar.mg </p>';
-$message .= '<p>  +261 34 03 902 97 </p>';
-$message .= '</body></html>';
-
-$message .= '</body></html>';
 
 sendmail($objet, $message, $dest);
 
