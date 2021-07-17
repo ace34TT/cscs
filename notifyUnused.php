@@ -110,7 +110,7 @@ function sendmail($objet, $contenu, $destinataire)
     try {
         /* DONNEES SERVEUR */
         #####################
-        $mail->setLanguage('fr', '../PHPMailer/language/');   // pour avoir les messages d'erreur en FR
+        $mail->setLanguage('fr', 'Inc/PHPMailer/language/');   // pour avoir les messages d'erreur en FR
         $mail->SMTPDebug = 0;            // en production (sinon "2")
         // $mail->SMTPDebug = 2;            // décommenter en mode débug
         $mail->isSMTP();                                                            // envoi avec le SMTP du serveur
