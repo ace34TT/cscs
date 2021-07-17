@@ -48,9 +48,10 @@ function getEmail()
 {
     try {
         $pdo = init_connection();
-        $req = $pdo->query('SELECT email , firstname , lastname , validation_code
+        $req = $pdo->query('SELECT id ,email , firstname , lastname , validation_code
                                     FROM personnal_informations 
-                                    WHERE code_status = \'unused\' 
+                                    WHERE code_status = \'unused\'
+                                    ORDER BY id 
                                     ');
         $rows = fetch_resultSet($req);
         return $rows;
