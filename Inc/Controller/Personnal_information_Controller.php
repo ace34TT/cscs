@@ -30,7 +30,7 @@ class Personnal_information_Controller
         $dest = "tafinasoa35@gmail.com";
         $objet = "[Association] Nouveau message de moi ";
         $message = '<html><body>';
-        $message .= '<p>Hello</p>';
+        $message .= '<p>Hello ,</p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">We have successfuly received your application </p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Here is your <a href="' . $link . '">validation link</a> </p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">Hope we\'ll see you soon ! </p>';

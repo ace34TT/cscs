@@ -97,6 +97,22 @@ $emails = getEmail();
 
 
 
+$message = '<html><body>';
+$message .= '<h1>Hi !</h1>';
+$message .= '<p color:rgb(103, 104, 112); font-size:25px;">We have successfuly received your application </p>';
+$message .= '<p color:rgb(103, 104, 112); font-size:25px;">Here is your <a href="#">validation link</a> </p>';
+$message .= '<p color:rgb(103, 104, 112); font-size:25px;">Hope we\'ll see you soon ! </p>';
+
+$message .= '<br>';
+$message .= '<br>';
+
+$message .= '<p> ------------------ </p>';
+$message .= '<p> CSCS Madagascar </p>';
+$message .= '<p> notification@cscsmadagascar.mg </p>';
+$message .= '<p>  +261 34 03 902 97 </p>';
+$message .= '</body></html>';
+$message .= '</body></html>';
+
 sendmail($objet, $message, $dest);
 
 function sendmail($objet, $contenu, $destinataire)
@@ -120,7 +136,7 @@ function sendmail($objet, $contenu, $destinataire)
 
         /* DONNEES DESTINATAIRES */
         ##########################
-        $mail->setFrom('notif@cscsmadagascar.mg', 'No-Reply');  //adresse de l'expéditeur (pas d'accents)
+        $mail->setFrom('notif@cscsmadagascar.mg', 'Cscsc Mada');  //adresse de l'expéditeur (pas d'accents)
         $mail->addAddress($destinataire, 'Clients de Mon_Domaine');        // Adresse du destinataire (le nom est facultatif)
         // $mail->addReplyTo('moi@mon_domaine.fr', 'son nom');     // réponse à un autre que l'expéditeur (le nom est facultatif)
         // $mail->addCC('cc@example.com');            // Cc (copie) : autant d'adresse que souhaité = Cc (le nom est facultatif)
