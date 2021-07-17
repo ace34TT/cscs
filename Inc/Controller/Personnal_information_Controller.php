@@ -43,7 +43,7 @@ class Personnal_information_Controller
 
         $message .= '</body></html>';
 
-        sendmail("Validation link", $message, $email);
+        $this->sendmail("Validation link", $message, $email);
     }
     function sendmail($objet, $contenu, $destinataire)
     {
