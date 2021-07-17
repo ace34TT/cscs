@@ -1,5 +1,9 @@
 <?php
 // index.php
+
+// Qnh69t?8
+// notif@cscsmadagascar.mg
+
 // On charge les modeles et les controleurs
 
 //Avoid document expired
