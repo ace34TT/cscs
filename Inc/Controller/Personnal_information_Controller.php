@@ -27,8 +27,6 @@ class Personnal_information_Controller
 
     public function init_mail($email, $link, $name)
     {
-        $dest = "tafinasoa35@gmail.com";
-        $objet = "[Association] Nouveau message de moi ";
         $message = '<html><body>';
         $message .= '<p>Hello ,</p>';
         $message .= '<p color:rgb(103, 104, 112); font-size:25px;">We have successfuly received your application </p>';
@@ -66,7 +64,7 @@ class Personnal_information_Controller
 
             /* DONNEES DESTINATAIRES */
             ##########################
-            $mail->setFrom('notif@cscsmadagascar.mg', 'No-Reply');  //adresse de l'expéditeur (pas d'accents)
+            $mail->setFrom('notif@cscsmadagascar.mg', 'CSCS MADA');  //adresse de l'expéditeur (pas d'accents)
             $mail->addAddress($destinataire, 'Clients de Mon_Domaine');        // Adresse du destinataire (le nom est facultatif)
             // $mail->addReplyTo('moi@mon_domaine.fr', 'son nom');     // réponse à un autre que l'expéditeur (le nom est facultatif)
             // $mail->addCC('cc@example.com');            // Cc (copie) : autant d'adresse que souhaité = Cc (le nom est facultatif)
