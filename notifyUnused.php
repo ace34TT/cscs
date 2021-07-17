@@ -119,7 +119,7 @@ function sendmail($objet, $contenu, $destinataire)
         $mail->Username   = 'notification@cscsmadagascar.mg';                   // login SMTP
         $mail->Password   = 'eb_65Oh0';                                                // Mot de passe SMTP
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;     // encodage des données TLS (ou juste 'tls') > "Aucun chiffrement des données"; sinon PHPMailer::ENCRYPTION_SMTPS (ou juste 'ssl')
-        $mail->Port       = 465;                                                               // port TCP (ou 25, ou 465...)
+        $mail->Port       = 587;                                                               // port TCP (ou 25, ou 465...)
 
         /* DONNEES DESTINATAIRES */
         ##########################
