@@ -20,6 +20,9 @@ require(dirname(__FILE__) . '/Inc/PHPMailer/src/Exception.php');
 require(dirname(__FILE__) . '/Inc/PHPMailer/src/PHPMailer.php');
 require(dirname(__FILE__) . '/Inc/PHPMailer/src/SMTP.php');
 
+require_once(dirname(__FILE__) . '/Inc/Controller/Personnal_information_Controller.php');
+$inf_controller = new Personnal_information_Controller;
+
 function init_connection()
 {
     try {
@@ -62,7 +65,10 @@ function getEmail()
 
 $emails = getEmail();
 
-echo '<pre>', var_dump($emails), '</pre>';
+for ($i = 0; $i < 75; $i++) {
+    $link = 'https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=' . $emails[$i]['validation_code'];
+    $inf_controller->init_mail($emails[$i]['id'], $link, "hey");
+}
 
 function sendmail($objet, $contenu, $destinataire)
 {
