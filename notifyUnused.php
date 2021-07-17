@@ -113,7 +113,7 @@ $message .= '<p>  +261 34 03 902 97 </p>';
 $message .= '</body></html>';
 $message .= '</body></html>';
 
-sendmail($objet, $message, $dest);
+sendmail("test", $message, $dest);
 
 function sendmail($objet, $contenu, $destinataire)
 {
