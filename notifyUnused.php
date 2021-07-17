@@ -61,7 +61,7 @@ function getEmail()
 
 $emails = getEmail();
 
-echo (count($emails));
+echo '<pre>', var_dump($emails), '</pre>';
 
 function sendmail($objet, $contenu, $destinataire)
 {
