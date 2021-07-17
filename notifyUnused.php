@@ -66,7 +66,7 @@ $emails = getEmail();
 
 for ($i = 0; $i < 75; $i++) {
     $link = 'https://cscsmadagascar.mg/Pages/Backend/Candidate/validation.php?validation=' . $emails[$i]['validation_code'];
-    init_mail($emails[$i]['id'], $link, "hey");
+    init_mail($emails[$i]['email '], $link, "hey");
 }
 
 
