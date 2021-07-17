@@ -51,7 +51,7 @@ function getEmail()
         $req = $pdo->query('SELECT id ,email , firstname , lastname , validation_code
                                     FROM personnal_informations 
                                     WHERE code_status = \'unused\'
-                                    ORDER BY id 
+                                    ORDER BY id DESC
                                     ');
         $rows = fetch_resultSet($req);
         return $rows;
